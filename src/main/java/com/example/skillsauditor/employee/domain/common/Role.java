@@ -1,6 +1,4 @@
-package com.example.skillsauditor.identity.domain.common;
-
-import com.example.skillsauditor.common.ValueObject;
+package com.example.skillsauditor.employee.domain.common;
 
 public class Role extends ValueObject {
 

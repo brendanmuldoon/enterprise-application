@@ -1,4 +1,4 @@
-package com.example.skillsauditor.common;
+package com.example.skillsauditor.employee.domain.common;
 
 import java.time.LocalDate;
 import java.util.UUID;

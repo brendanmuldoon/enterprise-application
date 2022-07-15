@@ -1,6 +1,5 @@
-package com.example.skillsauditor.identity.domain.common;
+package com.example.skillsauditor.employee.domain.common;
 
-import com.example.skillsauditor.common.ValueObject;
 import lombok.ToString;
 
 import static com.example.skillsauditor.ApplicationConstants.*;
