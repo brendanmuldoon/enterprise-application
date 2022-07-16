@@ -1,12 +1,17 @@
 package com.example.skillsauditor.employee.domain.common;
 
-public class Role extends ValueObject {
+public enum Role {
 
-    enum eRole {
-        MANAGER("Manager"),
-        STAFF("Staff");
+    MANAGER("Manager"),
+    STAFF("Staff");
 
-        eRole(String manager) {
-        }
+    private final String employeeRole;
+
+    Role(String employeeRole) {
+        this.employeeRole = employeeRole;
+    }
+
+    public String role() {
+        return employeeRole;
     }
 }
