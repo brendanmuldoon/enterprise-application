@@ -12,8 +12,9 @@ public class StaffController {
 
     private IStaffQueryHandler queryHandler;
 
-    @GetMapping
-    public String getAllStaffDetails() {
-        return "hello";
+    @GetMapping("/findAll")
+    public Iterable<?> getAllStaffDetails() {
+        System.out.println("request received");
+        return queryHandler.findAll();
     }
 }

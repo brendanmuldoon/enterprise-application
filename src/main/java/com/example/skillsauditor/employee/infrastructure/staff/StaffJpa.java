@@ -66,25 +66,6 @@ public class StaffJpa implements IStaffJpa {
         skills = new ArrayList<>();
     }
 
-    public static StaffJpa staffJpaOf(String id,
-                                      String fullname_firstname,
-                                      String fullname_surname,
-                                      String address_housenumber,
-                                      String address_streetname,
-                                      String address_postcode,
-                                      int role,
-                                      String securitycredentials_username,
-                                      String securitycedentials_password) {
-        return new StaffJpa(id,
-                fullname_firstname,
-                fullname_surname,
-                address_housenumber,
-                address_streetname,
-                address_postcode,
-                role,
-                securitycredentials_username,
-                securitycedentials_password);
-    }
 
     public String getId() {
         return id;

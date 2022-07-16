@@ -1,4 +1,4 @@
-CREATE TABLE staff(
+CREATE TABLE staff (
     id VARCHAR PRIMARY KEY,
     fullname_firstName VARCHAR NOT NULL,
     fullname_surname VARCHAR NOT NULL,
@@ -10,7 +10,7 @@ CREATE TABLE staff(
     securitycedentials_password VARCHAR NOT NULL
 );
 
-CREATE TABLE skills(
+CREATE TABLE staff_skills(
     id int AUTO_INCREMENT PRIMARY KEY,
     skill_id VARCHAR NOT NULL,
     strength_of_skill int NOT NULL,

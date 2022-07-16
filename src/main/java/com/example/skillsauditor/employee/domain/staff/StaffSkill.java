@@ -22,7 +22,7 @@ public class StaffSkill extends ValueObject {
     }
 
     private void setStrengthOfSkill(StrengthOfSkill strengthOfSkill) {
-        assertArgumentNotEmpty(strengthOfSkill.strengthOfSkill(), SKILL_SOF_ERROR_MSG_EMPTY);
+        this.strengthOfSkill = strengthOfSkill;
     }
 
     private void setSkillId(String skillId) {
