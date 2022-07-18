@@ -32,7 +32,7 @@ public class StaffJpa implements IStaffJpa {
     private String address_postcode;
 
     @Column(name="role")
-    private int role;
+    private String role;
 
     @Column(name = "securitycredentials_username")
     private String securitycredentials_username;
@@ -51,7 +51,7 @@ public class StaffJpa implements IStaffJpa {
                     String address_housenumber,
                     String address_streetname,
                     String address_postcode,
-                    int role,
+                    String role,
                     String securitycredentials_username,
                     String securitycedentials_password) {
         this.id = id;
@@ -115,11 +115,11 @@ public class StaffJpa implements IStaffJpa {
         this.address_postcode = address_postcode;
     }
 
-    public int getRole() {
+    public String getRole() {
         return role;
     }
 
-    public void setRole(int role) {
+    public void setRole(String role) {
         this.role = role;
     }
 

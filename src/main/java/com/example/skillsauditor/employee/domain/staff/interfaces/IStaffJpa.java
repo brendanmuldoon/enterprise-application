@@ -30,9 +30,9 @@ public interface IStaffJpa {
 
     void setAddress_postcode(String address_postcode);
 
-    int getRole();
+    String getRole();
 
-    void setRole(int role);
+    void setRole(String role);
 
     String getSecuritycredentials_username();
 

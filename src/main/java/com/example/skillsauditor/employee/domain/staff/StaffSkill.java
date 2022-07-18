@@ -1,10 +1,13 @@
 package com.example.skillsauditor.employee.domain.staff;
 
 import com.example.skillsauditor.employee.domain.common.ValueObject;
+import lombok.Getter;
+import lombok.Setter;
 
 import static com.example.skillsauditor.ApplicationConstants.SKILL_ID_ERROR_MSG_EMPTY;
-import static com.example.skillsauditor.ApplicationConstants.SKILL_SOF_ERROR_MSG_EMPTY;
 
+@Getter
+@Setter
 public class StaffSkill extends ValueObject {
 
     private String skillId;

@@ -26,7 +26,7 @@ public class StaffSkillJpaValueObject {
     private String skillId;
 
     @Column(name = "strength_of_skill")
-    private int strengthOfSkill;
+    private String strengthOfSkill;
 
     @Column(name = "expiry")
     private LocalDate expiry;
@@ -39,7 +39,7 @@ public class StaffSkillJpaValueObject {
     public StaffSkillJpaValueObject(
             long id,
             String skillId,
-            int strengthOfSkill,
+            String strengthOfSkill,
             LocalDate expiry) {
         this.id = id;
         this.skillId = skillId;

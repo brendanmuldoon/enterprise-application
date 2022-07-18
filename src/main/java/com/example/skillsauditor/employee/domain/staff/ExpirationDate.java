@@ -1,11 +1,15 @@
 package com.example.skillsauditor.employee.domain.staff;
 
 import com.example.skillsauditor.employee.domain.common.ValueObject;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.time.LocalDate;
 
 import static com.example.skillsauditor.ApplicationConstants.*;
 
+@Getter
+@Setter
 public class ExpirationDate extends ValueObject {
     
     private int month;
