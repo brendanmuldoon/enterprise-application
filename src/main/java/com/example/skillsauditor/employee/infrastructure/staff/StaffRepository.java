@@ -20,4 +20,9 @@ public class StaffRepository implements IStaffRepository {
     public Optional<StaffJpa> findById(String staffId) {
         return repository.findById(staffId);
     }
+
+    @Override
+    public StaffJpa save(StaffJpa staffJpa) {
+        return repository.save(staffJpa);
+    }
 }

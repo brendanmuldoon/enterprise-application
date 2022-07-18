@@ -15,16 +15,28 @@ public class Staff extends Employee { // Aggregate
         this.skills = new ArrayList<>();
     }
 
+    public static Staff staffOf(Identity id, FullName fullName, Address address, Role role, SecurityCredentials securityCredentials) {
+        return new Staff(id, fullName, address, role, securityCredentials);
+    }
+
     public List<StaffSkill> retrieveAllSkills() {
         return skills;
     }
 
-    public StaffSkill addSkill() { // do nothing
-        return null;
+    public StaffSkill addSkill(StaffSkill newSkill) { // do nothing
+        if(!skills.contains(newSkill)) {
+            this.skills.add(newSkill);
+        }
+        return newSkill;
     }
 
-    public List<StaffSkill> removeASkill() { // do nothing
-        return null;
+    public void removeASkill(String skillId) { // do nothing
+        for(StaffSkill skill : skills) {
+            if (skill.getSkillId().equals(skillId)) {
+                skills.remove(skill);
+                break;
+            }
+        }
     }
 
     public StaffSkill updateASkill() { // do nothing

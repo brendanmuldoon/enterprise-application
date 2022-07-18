@@ -20,6 +20,10 @@ public class Employee extends Entity {
         this.securityCredentials = securityCredentials;
     }
 
+    public Identity id(){
+        return id;
+    }
+
     public FullName fullName() {
         return fullName;
     }

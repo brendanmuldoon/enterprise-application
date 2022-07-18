@@ -1,11 +1,9 @@
 package com.example.skillsauditor.employee.ui.staff;
 
+import com.example.skillsauditor.employee.domain.staff.interfaces.IRemoveSkillCommand;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
@@ -17,6 +15,7 @@ import java.util.Optional;
 public class StaffController {
 
     private IStaffQueryHandler queryHandler;
+    private IStaffApplicationService applicationService;
 
     @GetMapping("/findAll")
     public Iterable<?> getAllStaffDetails() {
@@ -41,6 +40,11 @@ public class StaffController {
         } else {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, String.format("Staff id: '%s' not found", staffId));
         }
+    }
+
+    @PostMapping("/removeSkill")
+    public void removeStaffSkill(@RequestBody IRemoveSkillCommand removeSkillCommand) {
+        applicationService.removeStaffSkill(removeSkillCommand);
     }
 
 }

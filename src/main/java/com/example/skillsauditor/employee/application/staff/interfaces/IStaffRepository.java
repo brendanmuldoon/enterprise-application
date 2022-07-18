@@ -9,4 +9,6 @@ public interface IStaffRepository {
 
     Optional<StaffJpa> findById(String staffId);
 
+    StaffJpa save(StaffJpa staffJpa);
+
 }

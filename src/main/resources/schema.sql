@@ -17,5 +17,4 @@ CREATE TABLE staff_skills(
     expiry DATE NOT NULL,
     staff_id VARCHAR NOT NULL,
     FOREIGN KEY (staff_id) REFERENCES staff(id)
-
 );
