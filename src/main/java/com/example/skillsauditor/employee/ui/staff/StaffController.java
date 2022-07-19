@@ -2,6 +2,7 @@ package com.example.skillsauditor.employee.ui.staff;
 
 import com.example.skillsauditor.employee.domain.staff.interfaces.IAddStaffSkillCommand;
 import com.example.skillsauditor.employee.domain.staff.interfaces.IRemoveStaffSkillCommand;
+import com.example.skillsauditor.employee.domain.staff.interfaces.IUpdateStaffDetailsCommand;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -31,6 +32,11 @@ public class StaffController {
         } else {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, String.format("Staff id: '%s' not found", staffId));
         }
+    }
+
+    @PutMapping("/updateDetails")
+    public void updateStaffDetails(@RequestBody IUpdateStaffDetailsCommand updateStaffDetailsCommand) {
+        applicationService.updateStaffDetails(updateStaffDetailsCommand);
     }
 
     @GetMapping("staffSkill/{staffId}")

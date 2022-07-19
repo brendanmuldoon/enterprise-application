@@ -9,6 +9,7 @@ import com.example.skillsauditor.employee.domain.staff.StaffSkill;
 import com.example.skillsauditor.employee.domain.staff.StrengthOfSkill;
 import com.example.skillsauditor.employee.domain.staff.interfaces.IAddStaffSkillCommand;
 import com.example.skillsauditor.employee.domain.staff.interfaces.IRemoveStaffSkillCommand;
+import com.example.skillsauditor.employee.domain.staff.interfaces.IUpdateStaffDetailsCommand;
 import com.example.skillsauditor.employee.infrastructure.staff.StaffJpa;
 import com.example.skillsauditor.employee.infrastructure.staff.StaffSkillJpaValueObject;
 import com.example.skillsauditor.employee.ui.staff.IStaffApplicationService;
@@ -52,6 +53,18 @@ public class StaffApplicationService implements IStaffApplicationService {
                     StrengthOfSkill.valueOf(addStaffSkillCommand.getStrengthOfSkill()),
                     addStaffSkillCommand.getExpirationDate());
             staff.addSkill(staffSkill);
+            staffRepository.save(staffToStaffJpaMapper.map(staff));
+        } else {
+            throw new IllegalArgumentException("Staff id is not recognised");
+        }
+    }
+
+    @Override
+    public void updateStaffDetails(IUpdateStaffDetailsCommand updateStaffDetailsCommand) {
+        Optional<StaffJpa> staffJpa = staffRepository.findById(updateStaffDetailsCommand.getStaffId());
+        if(staffJpa.isPresent()) {
+            Staff staff = staffJpaToStaffMapper.map(staffJpa.get());
+            staff.updateStaffDetails(updateStaffDetailsCommand);
             staffRepository.save(staffToStaffJpaMapper.map(staff));
         } else {
             throw new IllegalArgumentException("Staff id is not recognised");

@@ -1,5 +1,6 @@
 package com.example.skillsauditor.employee.domain.common;
 
+import com.example.skillsauditor.employee.domain.staff.interfaces.IUpdateStaffDetailsCommand;
 import lombok.ToString;
 @ToString
 public class Employee extends Entity {
@@ -52,5 +53,11 @@ public class Employee extends Entity {
         this.securityCredentials = securityCredentials;
     }
 
+    public void updateStaffDetails(IUpdateStaffDetailsCommand updateStaffDetailsCommand) {
+        this.fullName = updateStaffDetailsCommand.getFullName();
+        this.address = updateStaffDetailsCommand.getAddress();
+        this.role = Role.valueOf(updateStaffDetailsCommand.getRole());
+        this.securityCredentials = updateStaffDetailsCommand.getSecurityCredentials();
+    }
 
 }
