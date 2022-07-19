@@ -1,6 +1,7 @@
 package com.example.skillsauditor.employee.ui.staff;
 
-import com.example.skillsauditor.employee.domain.staff.interfaces.IRemoveSkillCommand;
+import com.example.skillsauditor.employee.domain.staff.interfaces.IAddStaffSkillCommand;
+import com.example.skillsauditor.employee.domain.staff.interfaces.IRemoveStaffSkillCommand;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -32,7 +33,7 @@ public class StaffController {
         }
     }
 
-    @GetMapping("staffSkills/{staffId}")
+    @GetMapping("staffSkill/{staffId}")
     public List<?> getStaffSkillsDetailsByStaffId(@PathVariable(value = "staffId") String staffId) {
         List<?> response = queryHandler.findSkillsByStaffId(staffId);
         if(!response.isEmpty()) {
@@ -41,10 +42,14 @@ public class StaffController {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, String.format("Staff id: '%s' not found", staffId));
         }
     }
+    @PostMapping("/staffSkill/add")
+    public void addStaffSkill(@RequestBody IAddStaffSkillCommand addStaffSkillCommand) {
+        applicationService.addStaffSkill(addStaffSkillCommand);
+    }
 
-    @PostMapping("/removeSkill")
-    public void removeStaffSkill(@RequestBody IRemoveSkillCommand removeSkillCommand) {
-        applicationService.removeStaffSkill(removeSkillCommand);
+    @PostMapping("/staffSkill/removeSkill")
+    public void removeStaffSkill(@RequestBody IRemoveStaffSkillCommand removeStaffSkillCommand) {
+        applicationService.removeStaffSkill(removeStaffSkillCommand);
     }
 
 }
