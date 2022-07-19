@@ -1,7 +1,6 @@
 package com.example.skillsauditor.employee.domain.staff;
 
 import com.example.skillsauditor.employee.domain.common.*;
-import com.example.skillsauditor.employee.infrastructure.staff.StaffSkillJpaValueObject;
 import lombok.ToString;
 
 import java.util.ArrayList;
@@ -25,6 +24,12 @@ public class Staff extends Employee { // Aggregate
     }
 
     public StaffSkill addSkill(StaffSkill newSkill) { // do nothing
+//        for(StaffSkill existingSkill: skills) {
+//            if(existingSkill.getSkillId().equals(newSkill.getSkillId())) {
+//                throw new IllegalArgumentException("Skill already exists");
+//            }
+//        }
+
         if(!skills.contains(newSkill)) {
             this.skills.add(newSkill);
         }
@@ -33,14 +38,16 @@ public class Staff extends Employee { // Aggregate
 
     public void removeASkill(String skillId) { // do nothing
         for(StaffSkill skill : skills) {
-            if (skill.getSkillId().equals(skillId)) {
+            if (skill.skillId().equals(skillId)) {
                 skills.remove(skill);
                 break;
             }
         }
     }
 
-    public StaffSkill updateASkill() { // do nothing
-        return null;
+    public void updateASkill(StaffSkill skill) { // do nothing
+        skill.setSkillId(skill.skillId());
+        skill.setStrengthOfSkill(skill.strengthOfSkill());
+        skill.setExpiry(skill.expiry());
     }
 }

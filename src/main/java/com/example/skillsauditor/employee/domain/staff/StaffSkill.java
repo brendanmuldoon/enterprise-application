@@ -1,13 +1,14 @@
 package com.example.skillsauditor.employee.domain.staff;
 
 import com.example.skillsauditor.employee.domain.common.IdentifiedValueObject;
-import lombok.Getter;
+import com.example.skillsauditor.employee.domain.staff.interfaces.IUpdateStaffSkillCommand;
 import lombok.Setter;
+import lombok.ToString;
 
 import static com.example.skillsauditor.ApplicationConstants.SKILL_ID_ERROR_MSG_EMPTY;
 
-@Getter
 @Setter
+@ToString
 public class StaffSkill extends IdentifiedValueObject {
 
     private String skillId;
@@ -15,20 +16,25 @@ public class StaffSkill extends IdentifiedValueObject {
     private ExpirationDate expiry;
 
     public StaffSkill(String skillId, StrengthOfSkill strengthOfSkill, ExpirationDate expiry) {
+        super();
         setSkillId(skillId);
         setStrengthOfSkill(strengthOfSkill);
         setExpiry(expiry);
     }
 
-    private void setExpiry(ExpirationDate expiry) {
+    public static StaffSkill staffSkillOf(String skillId, StrengthOfSkill strengthOfSkill, ExpirationDate expiry) {
+        return new StaffSkill(skillId, strengthOfSkill, expiry);
+    }
+
+    public void setExpiry(ExpirationDate expiry) {
         this.expiry = expiry;
     }
 
-    private void setStrengthOfSkill(StrengthOfSkill strengthOfSkill) {
+    public void setStrengthOfSkill(StrengthOfSkill strengthOfSkill) {
         this.strengthOfSkill = strengthOfSkill;
     }
 
-    private void setSkillId(String skillId) {
+    public void setSkillId(String skillId) {
         assertArgumentNotEmpty(skillId, SKILL_ID_ERROR_MSG_EMPTY);
         this.skillId = skillId;
     }
@@ -39,7 +45,7 @@ public class StaffSkill extends IdentifiedValueObject {
         }
         StaffSkill staffSkill = (StaffSkill) o;
 
-        return staffSkill.skillId==this.skillId;
+        return staffSkill.skillId.equals(this.skillId);
 
     }
 
@@ -53,5 +59,11 @@ public class StaffSkill extends IdentifiedValueObject {
 
     public ExpirationDate expiry() {
         return expiry;
+    }
+
+    public void updateStaffSkill(IUpdateStaffSkillCommand updateStaffSkillCommand) {
+        this.strengthOfSkill = StrengthOfSkill.valueOf(updateStaffSkillCommand.getStrengthOfSkill());
+        this.skillId = updateStaffSkillCommand.getSkillId();
+        this.expiry = updateStaffSkillCommand.getExpirationDate();
     }
 }

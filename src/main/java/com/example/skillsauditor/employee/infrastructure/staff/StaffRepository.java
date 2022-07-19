@@ -25,4 +25,9 @@ public class StaffRepository implements IStaffRepository {
     public StaffJpa save(StaffJpa staffJpa) {
         return repository.save(staffJpa);
     }
+
+    @Override
+    public void delete(StaffJpa staffJpa) {
+        repository.delete(staffJpa);
+    }
 }

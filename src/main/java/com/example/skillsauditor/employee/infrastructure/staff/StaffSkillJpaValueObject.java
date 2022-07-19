@@ -46,4 +46,9 @@ public class StaffSkillJpaValueObject {
         this.strengthOfSkill = strengthOfSkill;
         this.expiry = expiry;
     }
+
+    public static StaffSkillJpaValueObject staffSkillJpaOf(Long id, String skillId, String strengthOfSkill, LocalDate expirationDate) {
+
+        return new StaffSkillJpaValueObject(id, skillId, strengthOfSkill, expirationDate);
+    }
 }

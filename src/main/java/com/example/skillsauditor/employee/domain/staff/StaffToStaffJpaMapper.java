@@ -31,8 +31,8 @@ public class StaffToStaffJpaMapper implements IStaffToStaffJpaMapper {
 
             StaffSkillJpaValueObject staffSkillJpaValueObject =
                     new StaffSkillJpaValueObject(skill.getId(),
-                            skill.getSkillId(),
-                            skill.getStrengthOfSkill().getStrength(),
+                            skill.skillId(),
+                            skill.strengthOfSkill().getStrength(),
                             expiryDate);
             staffSkillJpaValueObject.setId(skill.getId());
             staffSkillJpaValueObject.setStaff(staffJpa.getId());
@@ -42,8 +42,8 @@ public class StaffToStaffJpaMapper implements IStaffToStaffJpaMapper {
     }
 
     private LocalDate convertExpirationToLocaleDate(StaffSkill skill) {
-        LocalDate expirationDate =LocalDate.of(skill.getExpiry().getYear(),
-                skill.getExpiry().getMonth(),
+        LocalDate expirationDate =LocalDate.of(skill.expiry().getYear(),
+                skill.expiry().getMonth(),
                 1);
         expirationDate.with(lastDayOfMonth());//set to last day of month
         return expirationDate;
