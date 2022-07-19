@@ -91,6 +91,19 @@ public class StaffJpa implements IStaffJpa {
         skills.add(staffSkillJpaValueObject);
     }
 
+    public void removeSkill(StaffSkillJpaValueObject staffSkillJpaValueObject) {
+        skills.remove(staffSkillJpaValueObject);
+    }
+
+    public StaffSkillJpaValueObject retrieveSkill(String skillId) {
+        for(StaffSkillJpaValueObject skill : skills) {
+            if(skill.getSkillId().equals(skillId)) {
+                return skill;
+            }
+        }
+        throw new IllegalArgumentException("Skill not found");
+    }
+
 
 
 

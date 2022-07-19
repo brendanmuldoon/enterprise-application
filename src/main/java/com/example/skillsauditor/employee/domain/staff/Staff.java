@@ -1,6 +1,7 @@
 package com.example.skillsauditor.employee.domain.staff;
 
 import com.example.skillsauditor.employee.domain.common.*;
+import com.example.skillsauditor.employee.infrastructure.staff.StaffSkillJpaValueObject;
 import lombok.ToString;
 
 import java.util.ArrayList;
