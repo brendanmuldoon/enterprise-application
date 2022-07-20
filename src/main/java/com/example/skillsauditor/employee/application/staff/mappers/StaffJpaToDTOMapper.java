@@ -4,19 +4,17 @@ import com.example.skillsauditor.employee.domain.common.Role;
 import com.example.skillsauditor.employee.domain.staff.DTO.StaffDTO;
 import com.example.skillsauditor.employee.domain.staff.DTO.StaffSkillDTO;
 import com.example.skillsauditor.employee.domain.staff.ExpirationDate;
-import com.example.skillsauditor.employee.domain.staff.StaffSkill;
 import com.example.skillsauditor.employee.domain.staff.StrengthOfSkill;
 import com.example.skillsauditor.employee.domain.staff.interfaces.IStaffJpa;
-import com.example.skillsauditor.employee.infrastructure.staff.StaffJpa;
 import com.example.skillsauditor.employee.infrastructure.staff.StaffSkillJpaValueObject;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class StaffJPAToDTOMapper {
+public class StaffJpaToDTOMapper {
 
-    private StaffJPAToDTOMapper(){}
+    private StaffJpaToDTOMapper(){}
 
     public static Optional<StaffDTO> convertStaffDetailsToDTO(IStaffJpa staff) {
 

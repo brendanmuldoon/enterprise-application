@@ -1,7 +1,7 @@
 package com.example.skillsauditor.employee.application.staff;
 
 import com.example.skillsauditor.employee.application.staff.interfaces.IStaffRepository;
-import com.example.skillsauditor.employee.application.staff.mappers.StaffJPAToDTOMapper;
+import com.example.skillsauditor.employee.application.staff.mappers.StaffJpaToDTOMapper;
 import com.example.skillsauditor.employee.domain.staff.DTO.StaffDTO;
 import com.example.skillsauditor.employee.domain.staff.DTO.StaffSkillDTO;
 import com.example.skillsauditor.employee.infrastructure.staff.StaffJpa;
@@ -28,7 +28,7 @@ public class StaffQueryHandler implements IStaffQueryHandler {
     public Optional<StaffDTO> findByStaffId(String staffId) {
         Optional<StaffJpa> response = staffRepository.findById(staffId);
         if(response.isPresent()) {
-            return StaffJPAToDTOMapper.convertStaffDetailsToDTO(response.get());
+            return StaffJpaToDTOMapper.convertStaffDetailsToDTO(response.get());
         }
         return Optional.empty();
     }
@@ -37,7 +37,7 @@ public class StaffQueryHandler implements IStaffQueryHandler {
     public List<StaffSkillDTO> findSkillsByStaffId(String staffId) {
         Optional<StaffJpa> response = staffRepository.findById(staffId);
         if (response.isPresent()) {
-            return StaffJPAToDTOMapper.convertStaffSkillsToDTO(response.get());
+            return StaffJpaToDTOMapper.convertStaffSkillsToDTO(response.get());
         }
         return new ArrayList<>();
     }
