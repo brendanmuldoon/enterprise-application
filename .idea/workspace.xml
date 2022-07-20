@@ -5,9 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="723722ef-17ba-48ff-b88c-f3a11fb16bf0" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/application/manager/ManagerQueryHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/application/manager/interfaces/IManagerRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/domain/manager/interfaces/IManagerJpa.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/infrastructure/manager/CrudManagerRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/infrastructure/manager/ManagerJpa.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/infrastructure/manager/ManagerRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/infrastructure/manager/ManagerTeamJpaValueObject.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/ui/manager/IManagerQueryHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/ui/manager/ManagerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/application/staff/StaffQueryHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/application/staff/StaffQueryHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/application/staff/mappers/StaffJPAToDTOMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/application/staff/mappers/StaffJpaToDTOMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/infrastructure/staff/StaffJpa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/infrastructure/staff/StaffJpa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/schema.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,11 +90,11 @@
       <recent name="C:\Users\612847413\OneDrive - BT Plc\Documents\Staffs Uni Work\Year 3\Enterprise Application Development\enterprise-application\src\main\java\com\example\skillsauditor\employee" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.example.skillsauditor.employee.domain.manager.interfaces" />
       <recent name="com.example.skillsauditor.employee.application.staff.commands" />
       <recent name="com.example.skillsauditor.employee.application.staff.mappers" />
       <recent name="com.example.skillsauditor.employee.domain.common" />
       <recent name="com.example.skillsauditor.employee.domain.staff" />
-      <recent name="com.example.skillsauditor.staff.domain" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.example.skillsauditor.common" />
@@ -127,7 +138,7 @@
       <workItem from="1657977345085" duration="6105000" />
       <workItem from="1658133366934" duration="19387000" />
       <workItem from="1658217284456" duration="19065000" />
-      <workItem from="1658305953684" duration="5717000" />
+      <workItem from="1658305953684" duration="11315000" />
     </task>
     <servers />
   </component>

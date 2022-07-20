@@ -1,16 +1,15 @@
-package com.example.skillsauditor.employee.infrastructure.staff;
+package com.example.skillsauditor.employee.infrastructure.manager;
 
-import com.example.skillsauditor.employee.domain.staff.interfaces.IStaffJpa;
+import com.example.skillsauditor.employee.domain.manager.interfaces.IManagerJpa;
 import lombok.ToString;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
 
-@Entity(name="staff")
+@Entity(name="employee")
 @Table(name = "employee")
 @ToString
-public class StaffJpa implements IStaffJpa {
+public class ManagerJpa implements IManagerJpa {
 
     @Id
     @Column
@@ -40,12 +39,13 @@ public class StaffJpa implements IStaffJpa {
     @Column(name="securitycedentials_password")
     private String securitycedentials_password;
 
-    @OneToMany(mappedBy = "staff", cascade = {CascadeType.ALL})
-    private List<StaffSkillJpaValueObject> skills;
+    @OneToMany(mappedBy = "manager", cascade = {CascadeType.ALL})
+    private List<ManagerTeamJpaValueObject> team;
 
-    protected StaffJpa(){}
 
-    public StaffJpa(String id,
+    protected ManagerJpa(){}
+
+    public ManagerJpa(String id,
                     String fullname_firstname,
                     String fullname_surname,
                     String address_housenumber,
@@ -63,10 +63,9 @@ public class StaffJpa implements IStaffJpa {
         this.role = role;
         this.securitycredentials_username = securitycredentials_username;
         this.securitycedentials_password = securitycedentials_password;
-        skills = new ArrayList<>();
     }
 
-    public static StaffJpa staffJpaOf(String id,
+    public static ManagerJpa managerJpaOf(String id,
                                       String fullname_firstname,
                                       String fullname_surname,
                                       String address_housenumber,
@@ -75,7 +74,7 @@ public class StaffJpa implements IStaffJpa {
                                       String role,
                                       String securitycredentials_username,
                                       String securitycedentials_password) {
-        return new StaffJpa(id,
+        return new ManagerJpa(id,
                 fullname_firstname,
                 fullname_surname,
                 address_housenumber,
@@ -86,29 +85,6 @@ public class StaffJpa implements IStaffJpa {
                 securitycedentials_password);
 
     }
-
-    public void addSkill(StaffSkillJpaValueObject staffSkillJpaValueObject) {
-        skills.add(staffSkillJpaValueObject);
-    }
-
-    public void removeSkill(StaffSkillJpaValueObject staffSkillJpaValueObject) {
-        skills.remove(staffSkillJpaValueObject);
-    }
-
-    public StaffSkillJpaValueObject retrieveSkill(String skillId) {
-        for(StaffSkillJpaValueObject skill : skills) {
-            if(skill.getSkillId().equals(skillId)) {
-                return skill;
-            }
-        }
-        throw new IllegalArgumentException("Skill not found");
-    }
-
-
-
-
-
-
 
 
 
@@ -184,11 +160,11 @@ public class StaffJpa implements IStaffJpa {
         this.securitycedentials_password = securitycedentials_password;
     }
 
-    public List<StaffSkillJpaValueObject> getSkills() {
-        return skills;
+    public List<ManagerTeamJpaValueObject> getTeam() {
+        return team;
     }
 
-    public void setSkills(List<StaffSkillJpaValueObject> skills) {
-        this.skills = skills;
+    public void setTeam(List<ManagerTeamJpaValueObject> team) {
+        this.team = team;
     }
 }

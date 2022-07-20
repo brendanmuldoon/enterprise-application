@@ -1,4 +1,4 @@
-CREATE TABLE staff (
+CREATE TABLE employee (
     id VARCHAR PRIMARY KEY,
     fullname_firstName VARCHAR NOT NULL,
     fullname_surname VARCHAR NOT NULL,
@@ -16,5 +16,13 @@ CREATE TABLE staff_skills(
     strength_of_skill VARCHAR NOT NULL,
     expiry DATE NOT NULL,
     staff_id VARCHAR NOT NULL,
-    FOREIGN KEY (staff_id) REFERENCES staff(id)
+    FOREIGN KEY (staff_id) REFERENCES employee(id)
+);
+
+CREATE TABLE manager_team(
+    id int AUTO_INCREMENT PRIMARY KEY,
+    staff_id VARCHAR NOT NULL,
+    manager_id VARCHAR NOT NULL,
+    FOREIGN KEY (staff_id) REFERENCES employee(id),
+    FOREIGN KEY (manager_id) REFERENCES employee(id)
 );
