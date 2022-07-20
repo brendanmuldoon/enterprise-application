@@ -1,6 +1,7 @@
 package com.example.skillsauditor.employee.application.staff;
 
 import com.example.skillsauditor.employee.application.staff.interfaces.*;
+import com.example.skillsauditor.employee.domain.common.*;
 import com.example.skillsauditor.employee.domain.staff.Staff;
 import com.example.skillsauditor.employee.domain.staff.StaffSkill;
 import com.example.skillsauditor.employee.domain.staff.StrengthOfSkill;
@@ -11,7 +12,6 @@ import com.example.skillsauditor.employee.ui.staff.IStaffApplicationService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import javax.swing.text.html.Option;
 import javax.transaction.Transactional;
 import java.util.Optional;
 
@@ -85,27 +85,6 @@ public class StaffApplicationService implements IStaffApplicationService {
         }
     }
 
-//    @Override
-//    public void updateStaffSkill(IUpdateStaffSkillCommand updateStaffSkillCommand) {
-//        Optional<StaffJpa> staffJpa = staffRepository.findById(updateStaffSkillCommand.getStaffId());
-//        if(staffJpa.isPresent()) {
-//            Staff staff = staffJpaToStaffMapper.map(staffJpa.get());
-//            // map skill
-//            StaffSkillJpaValueObject staffSkillJpaValueObject = staffJpa.get().retrieveSkill(updateStaffSkillCommand.getSkillId());
-//            StaffSkill skill = staffSkillJpaToStaffSkill.map(staffSkillJpaValueObject);
-//            //
-//
-//            skill.updateStaffSkill(updateStaffSkillCommand);
-//            staff.updateASkill(skill);
-//            StaffSkillJpaValueObject o = staffSkillToStaffSkillJpaMapper.map(skill, updateStaffSkillCommand.getStaffId());
-//            staffSkillRepository.save(o);
-//
-//            staffRepository.save(staffToStaffJpaMapper.map(staff));
-//        } else {
-//            throw new IllegalArgumentException("Staff id is not recognised");
-//        }
-//    }
-
     @Override
     public void updateStaffSkill(IUpdateStaffSkillCommand updateStaffSkillCommand) {
         Optional<StaffSkillJpaValueObject> staffSkill = staffSkillRepository.findBySkillId(updateStaffSkillCommand.getSkillId());
@@ -119,5 +98,16 @@ public class StaffApplicationService implements IStaffApplicationService {
         } else {
             throw new IllegalArgumentException("Staff id is not recognised");
         }
+    }
+
+    @Override
+    public void createStaff(ICreateStaffCommand createStaffCommand) {
+        Identity identity = UniqueIDFactory.createID();
+        FullName fullName = new FullName(createStaffCommand.getFirstName(), createStaffCommand.getSurname());
+        Address address = new Address(createStaffCommand.getHouseNumber(), createStaffCommand.getStreetName(), createStaffCommand.getPostcode());
+        Role role = Role.valueOf(createStaffCommand.getRole().toUpperCase());
+        SecurityCredentials securityCredentials = new SecurityCredentials(createStaffCommand.getUsername(), createStaffCommand.getPassword());
+        Staff staff = Staff.staffOf(identity, fullName, address, role, securityCredentials);
+        staffRepository.save(staffToStaffJpaMapper.map(staff));
     }
 }

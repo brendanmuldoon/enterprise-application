@@ -37,7 +37,10 @@ public class StaffController {
         applicationService.updateStaffDetails(updateStaffDetailsCommand);
     }
 
-    // create staff
+    @PostMapping("/createStaff")
+    public void createStaff(@RequestBody ICreateStaffCommand createStaffCommand) {
+        applicationService.createStaff(createStaffCommand);
+    }
 
     @DeleteMapping("/deleteStaff")
     public void deleteStaff(@RequestBody IDeleteStaffCommand deleteStaffCommand) {
@@ -63,8 +66,7 @@ public class StaffController {
     public void removeStaffSkill(@RequestBody IRemoveStaffSkillCommand removeStaffSkillCommand) {
         applicationService.removeStaffSkill(removeStaffSkillCommand);
     }
-
-    // update staffSkill
+    
     @PutMapping("/staffSkill/updateSkill")
     public void updateStaffSkill(@RequestBody IUpdateStaffSkillCommand updateStaffSkillCommand) {
         applicationService.updateStaffSkill(updateStaffSkillCommand);

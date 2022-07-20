@@ -13,4 +13,6 @@ public interface IStaffApplicationService {
     void deleteStaff(IDeleteStaffCommand deleteStaffCommand);
 
     void updateStaffSkill(IUpdateStaffSkillCommand updateStaffSkillCommand);
+
+    void createStaff(ICreateStaffCommand createStaffCommand);
 }
