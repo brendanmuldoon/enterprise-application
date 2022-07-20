@@ -1,8 +1,10 @@
-package com.example.skillsauditor.employee.domain.staff.DTO;
+package com.example.skillsauditor.employee.domain.manager.DTO;
 
 import com.example.skillsauditor.employee.domain.common.Role;
-import com.example.skillsauditor.employee.domain.staff.StaffSkill;
-import lombok.*;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 import java.util.List;
 
@@ -10,7 +12,8 @@ import java.util.List;
 @Getter
 @Setter
 @ToString
-public class StaffDTO {
+public class ManagerDTO {
+
     private String id;
     private String fullname_firstname;
     private String fullname_surname;
@@ -20,18 +23,18 @@ public class StaffDTO {
     private Role role;
     private String username;
     private String password;
-    private List<StaffSkillDTO> skills;
+    private List<ManagerTeamDTO> team;
 
-    public StaffDTO(String id,
-                    String fullname_firstname,
-                    String fullname_surname,
-                    String houseNumber,
-                    String streetName,
-                    String postcode,
-                    Role role,
-                    String username,
-                    String password,
-                    List<StaffSkillDTO> skills) {
+    public ManagerDTO(String id,
+                      String fullname_firstname,
+                      String fullname_surname,
+                      String houseNumber,
+                      String streetName,
+                      String postcode,
+                      Role role,
+                      String username,
+                      String password,
+                      List<ManagerTeamDTO> team) {
         this.id = id;
         this.fullname_firstname = fullname_firstname;
         this.fullname_surname = fullname_surname;
@@ -41,7 +44,6 @@ public class StaffDTO {
         this.role = role;
         this.username = username;
         this.password = password;
-        this.skills = skills;
+        this.team = team;
     }
-
 }

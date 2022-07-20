@@ -19,10 +19,6 @@ Hsrc/main/java/com/example/skillsauditor/employee/domain/common/Role.java,0\d\0
 Rsrc/main/java/com/example/skillsauditor/employee/domain/staff/StrengthOfSkill.java,9\0\9020db0d66d9888fbb1903c1a6ed556d10bbc21b
 Å
 Qsrc/main/java/com/example/skillsauditor/employee/domain/staff/ExpirationDate.java,3\4\346b5762bbb2d9388c2124c8976512a80b325f9e
-Ñ
-Tsrc/main/java/com/example/skillsauditor/employee/domain/staff/DTO/StaffSkillDTO.java,4\8\486247e35a66a9fc378c9e2360a72720ce668f21
-
-Osrc/main/java/com/example/skillsauditor/employee/domain/staff/DTO/StaffDTO.java,b\3\b3866047f8af65704298e9ddfaf1efa25fabcc68
 z
 Jsrc/main/java/com/example/skillsauditor/employee/domain/common/Entity.java,b\3\b3244fb22a90ffe96abb82447f5d7d7a06875d39
 |
@@ -49,8 +45,6 @@ csrc/main/java/com/example/skillsauditor/employee/domain/staff/interfaces/IAddSt
 isrc/main/java/com/example/skillsauditor/employee/application/staff/interfaces/IStaffJpaToStaffMapper.java,9\8\98dd2da1d74f33c3520f91789621c8924acb30f6
 ñ
 fsrc/main/java/com/example/skillsauditor/employee/domain/staff/interfaces/IUpdateStaffSkillCommand.java,f\e\fea26a79314e1608e55a9167133dfc6d8bb3a72e
-à
-Xsrc/main/java/com/example/skillsauditor/employee/domain/staff/StaffJpaToStaffMapper.java,4\e\4e1bd898941755b1b36a85683eba5efff1d6beef
 è
 _src/main/java/com/example/skillsauditor/employee/infrastructure/staff/StaffSkillRepository.java,8\0\8069d4207cd23206b0c2ea050e0ee9e346e5486b
 ì

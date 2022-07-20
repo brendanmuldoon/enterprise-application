@@ -8,8 +8,8 @@ INSERT INTO employee (id,
                    securitycredentials_username,
                    securitycedentials_password)
 VALUES ('123e4567-e89b-12d3-a456-426614174000', 'Brendan', 'Muldoon', '5', 'Foxton Place', 'BT365FS', 'Manager', 'brendy', 'password'),
- ('aaa00011-e20s-12d3-a456-123456789100', 'Emma', 'Muldoon', '5', 'Foxton Place', 'BT365FS', 'Staff', 'emma', 'password'),
- ('456a6547-e89b-12d3-a456-987654321202', 'Billy', 'Bob', '56', 'Rad Town', 'BT124FT', 'Staff', 'billybob', 'password');
+ ('5199227a-0845-11ed-861d-0242ac120002', 'Emma', 'Muldoon', '5', 'Foxton Place', 'BT365FS', 'Staff', 'emma', 'password'),
+ ('5f52c9e8-0845-11ed-861d-0242ac120002', 'Billy', 'Bob', '56', 'Rad Town', 'BT124FT', 'Staff', 'billybob', 'password');
 
 
 
@@ -21,7 +21,7 @@ VALUES ('1111-1111-1111-1111', 'Basic', '2022-12-31', '123e4567-e89b-12d3-a456-4
 create sequence skills_sequence_id start with (select max(id) + 1 from staff_skills);
 
 INSERT INTO manager_team(staff_id, manager_id)
-VALUES ('aaa00011-e20s-12d3-a456-123456789100', '123e4567-e89b-12d3-a456-426614174000'),
-       ('456a6547-e89b-12d3-a456-987654321202', '123e4567-e89b-12d3-a456-426614174000');
+VALUES ('5199227a-0845-11ed-861d-0242ac120002', '123e4567-e89b-12d3-a456-426614174000'),
+       ('5f52c9e8-0845-11ed-861d-0242ac120002', '123e4567-e89b-12d3-a456-426614174000');
 create sequence team_sequence_id start with (select max(id) + 1 from manager_team);
 

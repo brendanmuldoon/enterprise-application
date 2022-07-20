@@ -6,7 +6,7 @@ import lombok.ToString;
 import javax.persistence.*;
 import java.util.List;
 
-@Entity(name="employee")
+@Entity(name="manager")
 @Table(name = "employee")
 @ToString
 public class ManagerJpa implements IManagerJpa {

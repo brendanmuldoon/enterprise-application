@@ -25,6 +25,8 @@ public class StaffJpaToDTOMapper {
 
     private static StaffDTO mapToStaffDTO(IStaffJpa staff) {
 
+        List<StaffSkillDTO> skills = convertStaffSkillsToDTO(staff);
+
         return new StaffDTO(
                 staff.getId(),
                 staff.getFullname_firstname(),
@@ -34,7 +36,8 @@ public class StaffJpaToDTOMapper {
                 staff.getAddress_postcode(),
                 Role.valueOf(staff.getRole().toUpperCase()),
                 staff.getSecuritycredentials_username(),
-                staff.getSecuritycedentials_password()
+                staff.getSecuritycedentials_password(),
+                skills
         );
 
     }
