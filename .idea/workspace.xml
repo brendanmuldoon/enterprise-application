@@ -5,12 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="723722ef-17ba-48ff-b88c-f3a11fb16bf0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/application/staff/commands/CreateStaffCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/domain/staff/interfaces/ICreateStaffCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/application/staff/StaffApplicationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/application/staff/StaffApplicationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/ui/staff/IStaffApplicationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/ui/staff/IStaffApplicationService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/ui/staff/StaffController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/ui/staff/StaffController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -131,7 +126,7 @@
       <workItem from="1657977345085" duration="6105000" />
       <workItem from="1658133366934" duration="19387000" />
       <workItem from="1658217284456" duration="19065000" />
-      <workItem from="1658305953684" duration="2924000" />
+      <workItem from="1658305953684" duration="4689000" />
     </task>
     <servers />
   </component>

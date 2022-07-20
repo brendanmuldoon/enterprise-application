@@ -66,7 +66,7 @@ public class StaffController {
     public void removeStaffSkill(@RequestBody IRemoveStaffSkillCommand removeStaffSkillCommand) {
         applicationService.removeStaffSkill(removeStaffSkillCommand);
     }
-    
+
     @PutMapping("/staffSkill/updateSkill")
     public void updateStaffSkill(@RequestBody IUpdateStaffSkillCommand updateStaffSkillCommand) {
         applicationService.updateStaffSkill(updateStaffSkillCommand);
