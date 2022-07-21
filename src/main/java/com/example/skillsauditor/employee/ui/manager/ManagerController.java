@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -35,9 +36,16 @@ public class ManagerController {
         }
     }
 
-    // ** consider creating a base dto for staff and manager to inherit from ** //
-
     // find all staff of managers team
+    @GetMapping("/team/{manager_id}")
+    public List<?> getManagerTeamById(@PathVariable(value = "manager_id") String managerId) {
+        List<?> response = queryHandler.findTeamByManagerId(managerId);
+        if(!response.isEmpty()) {
+            return response;
+        } else {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, String.format("Manager id: '%s' not found", managerId));
+        }
+    }
     // find all staff with certain skill
     // find all skills by category
     // find all staff with expired skills
