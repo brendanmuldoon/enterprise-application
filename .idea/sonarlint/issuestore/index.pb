@@ -25,8 +25,6 @@ Jsrc/main/java/com/example/skillsauditor/employee/domain/common/Entity.java,b\3
 Lsrc/main/java/com/example/skillsauditor/employee/domain/common/FullName.java,e\7\e7cb88c3ebf86cd8c5b0a45a87cb69a095376007
 ˜
 hsrc/main/java/com/example/skillsauditor/employee/application/staff/commands/RemoveStaffSkillCommand.java,2\6\26247bde83a55c217ab935f11fc5b9d076f7b109
-•
-esrc/main/java/com/example/skillsauditor/employee/application/staff/commands/AddStaffSkillCommand.java,c\0\c04fd2f97c480cd2547c92ec94bf2145d385cbdb
 –
 fsrc/main/java/com/example/skillsauditor/employee/domain/staff/interfaces/IRemoveStaffSkillCommand.java,1\8\187142df4778dd468ef6501108b30cd0ba61324c
 ˜
@@ -39,8 +37,6 @@ asrc/main/java/com/example/skillsauditor/employee/domain/staff/interfaces/IDelet
 csrc/main/java/com/example/skillsauditor/employee/application/staff/commands/DeleteStaffCommand.java,d\1\d177898c4b845a27e83c01f9940a97d93053ea79
 ˜
 hsrc/main/java/com/example/skillsauditor/employee/application/staff/commands/UpdateStaffSkillCommand.java,d\7\d7db6cbd987c9f63099b7be451b10e2ff4dc07a0
-“
-csrc/main/java/com/example/skillsauditor/employee/domain/staff/interfaces/IAddStaffSkillCommand.java,2\6\2695745d60162aeeac5b6fc8c3e7fd65a99e401a
 ™
 isrc/main/java/com/example/skillsauditor/employee/application/staff/interfaces/IStaffJpaToStaffMapper.java,9\8\98dd2da1d74f33c3520f91789621c8924acb30f6
 –

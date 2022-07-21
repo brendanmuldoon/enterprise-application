@@ -1,12 +1,10 @@
 package com.example.skillsauditor.employee.ui.manager;
 
 import com.example.skillsauditor.employee.domain.manager.Manager;
+import com.example.skillsauditor.employee.domain.manager.interfaces.IGetTeamBySkillIdQuery;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
@@ -48,6 +46,15 @@ public class ManagerController {
     }
 
     // find all staff with certain skill
+    @GetMapping("/team/bySkill")
+    public List<?> getManagerTeamBySkillId(@RequestBody IGetTeamBySkillIdQuery getTeamBySkillIdQuery) {
+        List<?> response = queryHandler.findTeamBySkillId(getTeamBySkillIdQuery);
+        if(!response.isEmpty()) {
+            return response;
+        } else {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+        }
+    }
     // find all skills by category
     // find all staff with expired skills
     // create staff member
