@@ -34,7 +34,9 @@ public class ManagerController {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, String.format("Manager id: '%s' not found", managerId));
         }
     }
-    
+
+    // ** consider creating a base dto for staff and manager to inherit from ** //
+
     // find all staff of managers team
     // find all staff with certain skill
     // find all skills by category
