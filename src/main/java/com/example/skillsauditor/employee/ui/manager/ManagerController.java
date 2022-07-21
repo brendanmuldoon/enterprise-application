@@ -2,6 +2,7 @@ package com.example.skillsauditor.employee.ui.manager;
 
 import com.example.skillsauditor.employee.domain.manager.Manager;
 import com.example.skillsauditor.employee.domain.manager.interfaces.IGetTeamBySkillIdQuery;
+import com.example.skillsauditor.employee.domain.manager.interfaces.IUpdateManagerTeamCommand;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -16,6 +17,8 @@ import java.util.Optional;
 public class ManagerController {
 
     private IManagerQueryHandler queryHandler;
+
+    private IManagerApplicationService applicationService;
 
     // find all managers
     @GetMapping("/findAll")
@@ -34,7 +37,7 @@ public class ManagerController {
         }
     }
 
-    // find all staff of managers team
+    // find all staff in managers team by manager id
     @GetMapping("/team/{manager_id}")
     public List<?> getManagerTeamById(@PathVariable(value = "manager_id") String managerId) {
         List<?> response = queryHandler.findTeamByManagerId(managerId);
@@ -55,11 +58,19 @@ public class ManagerController {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         }
     }
+
     // find all skills by category
     // find all staff with expired skills
-    // create staff member
+
+    // create staff member - this is in the staff controller
+
     // create/ edit/ delete skill
     // create/ edit/ delete category
+
     // allocate staff to manager
+    @PutMapping("/team/updateTeam")
+    public void updateManagerTeam(@RequestBody IUpdateManagerTeamCommand updateManagerTeamCommand) {
+        applicationService.addStaffToManagerTeam(updateManagerTeamCommand);
+    }
 
 }
