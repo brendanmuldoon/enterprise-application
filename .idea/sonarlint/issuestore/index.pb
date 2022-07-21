@@ -97,16 +97,10 @@ Wsrc/main/java/com/example/skillsauditor/employee/domain/staff/interfaces/IStaff
 csrc/main/java/com/example/skillsauditor/employee/infrastructure/staff/StaffSkillJpaValueObject.java,f\b\fb0f0f0befd64827d5a10e2871ba3cf1cb57a09b
 ƒ
 Ssrc/main/java/com/example/skillsauditor/employee/infrastructure/staff/StaffJpa.java,c\e\ce8220aad5b49efa689519d9cdd85fc331342558
-–
-fsrc/main/java/com/example/skillsauditor/employee/infrastructure/manager/ManagerTeamJpaValueObject.java,4\3\43f0c78311079f9383b5ff61a64608c805cc7dd1
 Š
 Zsrc/main/java/com/example/skillsauditor/employee/infrastructure/staff/StaffRepository.java,9\7\97e7450bc2096e6a0b48b371b49f5cf7db80e513
-‡
-Wsrc/main/java/com/example/skillsauditor/employee/domain/manager/DTO/ManagerTeamDTO.java,7\b\7b1e48c5db1479690e21cda4ab99678df9b9f105
 „
 Tsrc/main/java/com/example/skillsauditor/employee/domain/staff/DTO/StaffSkillDTO.java,4\8\486247e35a66a9fc378c9e2360a72720ce668f21
-‡
-Wsrc/main/java/com/example/skillsauditor/employee/infrastructure/manager/ManagerJpa.java,5\f\5f03f9ff3e9f94b42f8d51efa681ab778824444a
 „
 Tsrc/main/java/com/example/skillsauditor/employee/domain/common/AssertionConcern.java,6\1\617852d43d0ddfc309b1ca87efaa28593481cfaa
 ˆ

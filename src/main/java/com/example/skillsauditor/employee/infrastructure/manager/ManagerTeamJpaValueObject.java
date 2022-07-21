@@ -1,5 +1,6 @@
 package com.example.skillsauditor.employee.infrastructure.manager;
 
+import com.example.skillsauditor.employee.infrastructure.staff.StaffJpa;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -21,8 +22,10 @@ public class ManagerTeamJpaValueObject {
     @GeneratedValue(strategy=GenerationType.IDENTITY, generator="team_sequence")
     private long id;
 
-    @Column(name = "staff_id")
-    private String staff;
+//    @Column(name = "staff_id")
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "staff_id", referencedColumnName = "id")
+    private StaffJpa staff;
 
     @Column(name = "manager_id")
     private String manager;

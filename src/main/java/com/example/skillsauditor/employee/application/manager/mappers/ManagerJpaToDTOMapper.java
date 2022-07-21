@@ -1,9 +1,11 @@
 package com.example.skillsauditor.employee.application.manager.mappers;
 
+import com.example.skillsauditor.employee.application.staff.mappers.StaffJpaToDTOMapper;
 import com.example.skillsauditor.employee.domain.common.Role;
 import com.example.skillsauditor.employee.domain.manager.DTO.ManagerDTO;
 import com.example.skillsauditor.employee.domain.manager.DTO.ManagerTeamDTO;
 import com.example.skillsauditor.employee.domain.manager.interfaces.IManagerJpa;
+import com.example.skillsauditor.employee.domain.staff.DTO.StaffSkillDTO;
 import com.example.skillsauditor.employee.infrastructure.manager.ManagerTeamJpaValueObject;
 
 import java.util.ArrayList;
@@ -44,7 +46,12 @@ public class ManagerJpaToDTOMapper {
         List<ManagerTeamDTO> team = new ArrayList<>();
         for (ManagerTeamJpaValueObject t : managerJpa.getTeam()) {
 
-            ManagerTeamDTO managerTeamDTO = new ManagerTeamDTO(t.getStaff());
+            List<StaffSkillDTO> skill = StaffJpaToDTOMapper.convertStaffSkillsToDTO(t.getStaff());
+            ManagerTeamDTO managerTeamDTO = new ManagerTeamDTO(
+                    t.getStaff().getId(),
+                    t.getStaff().getFullname_firstname(),
+                    t.getStaff().getFullname_surname(),
+                    skill);
             team.add(managerTeamDTO);
         }
         return team;
