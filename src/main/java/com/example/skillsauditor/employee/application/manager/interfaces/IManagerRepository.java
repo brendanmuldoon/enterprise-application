@@ -10,4 +10,6 @@ public interface IManagerRepository {
     Iterable<ManagerJpa> findAll();
 
     Optional<ManagerJpa> findById(String managerId);
+
+    void save(ManagerJpa managerJpa);
 }

@@ -33,12 +33,17 @@ public class ManagerTeamJpaValueObject {
     public ManagerTeamJpaValueObject(){}
 
     public ManagerTeamJpaValueObject(
-            long id
-    ) {
+            long id,
+            StaffJpa staffJpa,
+            String manager) {
         this.id = id;
+        this.staff = staffJpa;
+        this.manager = manager;
     }
 
-    public static ManagerTeamJpaValueObject managerTeamJpaOf(Long id) {
-        return new ManagerTeamJpaValueObject(id);
+    public static ManagerTeamJpaValueObject managerTeamJpaOf(Long id,
+                                                             StaffJpa staffJpa,
+                                                             String manager) {
+        return new ManagerTeamJpaValueObject(id, staffJpa, manager);
     }
 }

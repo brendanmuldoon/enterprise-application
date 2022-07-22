@@ -4,6 +4,7 @@ import com.example.skillsauditor.employee.domain.manager.interfaces.IManagerJpa;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity(name="manager")
@@ -63,6 +64,7 @@ public class ManagerJpa implements IManagerJpa {
         this.role = role;
         this.securitycredentials_username = securitycredentials_username;
         this.securitycedentials_password = securitycedentials_password;
+        team = new ArrayList<>();
     }
 
     public static ManagerJpa managerJpaOf(String id,
@@ -167,4 +169,9 @@ public class ManagerJpa implements IManagerJpa {
     public void setTeam(List<ManagerTeamJpaValueObject> team) {
         this.team = team;
     }
+
+    public void addTeamMember(ManagerTeamJpaValueObject managerTeamJpaValueObject) {
+        team.add(managerTeamJpaValueObject);
+    }
+
 }

@@ -24,12 +24,6 @@ public class Staff extends Employee { // Aggregate
     }
 
     public StaffSkill addSkill(StaffSkill newSkill) { // do nothing
-//        for(StaffSkill existingSkill: skills) {
-//            if(existingSkill.getSkillId().equals(newSkill.getSkillId())) {
-//                throw new IllegalArgumentException("Skill already exists");
-//            }
-//        }
-
         if(!skills.contains(newSkill)) {
             this.skills.add(newSkill);
         }

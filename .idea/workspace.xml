@@ -5,14 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="723722ef-17ba-48ff-b88c-f3a11fb16bf0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/application/manager/ManagerApplicationService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/application/manager/commands/UpdateManagerTeamCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/domain/manager/interfaces/IUpdateManagerTeamCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/ui/manager/IManagerApplicationService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/application/manager/interfaces/IManagerJpaToManagerMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/application/manager/interfaces/IManagerToManagerJpaMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/domain/manager/ManagerJpaToManagerMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/domain/manager/ManagerTeam.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/domain/manager/ManagerToManagerJpaMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/ui/manager/ManagerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/ui/manager/ManagerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/application/manager/ManagerApplicationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/application/manager/ManagerApplicationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/application/manager/commands/UpdateManagerTeamCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/application/manager/commands/UpdateManagerTeamCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/application/manager/interfaces/IManagerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/application/manager/interfaces/IManagerRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/domain/manager/Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/domain/manager/Manager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/domain/manager/interfaces/IUpdateManagerTeamCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/domain/manager/interfaces/IUpdateManagerTeamCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/domain/staff/Staff.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/domain/staff/Staff.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/infrastructure/manager/ManagerJpa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/infrastructure/manager/ManagerJpa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/infrastructure/manager/ManagerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/infrastructure/manager/ManagerRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/infrastructure/manager/ManagerTeamJpaValueObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/infrastructure/manager/ManagerTeamJpaValueObject.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,7 +142,8 @@
       <workItem from="1658133366934" duration="19387000" />
       <workItem from="1658217284456" duration="19065000" />
       <workItem from="1658305953684" duration="15181000" />
-      <workItem from="1658391248220" duration="12136000" />
+      <workItem from="1658391248220" duration="12182000" />
+      <workItem from="1658477743468" duration="4053000" />
     </task>
     <servers />
   </component>
@@ -208,6 +217,51 @@
           <url>file://$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/application/manager/mappers/ManagerJpaToDTOMapper.java</url>
           <line>56</line>
           <option name="timeStamp" value="104" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/domain/manager/ManagerToManagerJpaMapper.java</url>
+          <line>24</line>
+          <option name="timeStamp" value="105" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/domain/manager/ManagerToManagerJpaMapper.java</url>
+          <line>25</line>
+          <option name="timeStamp" value="106" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/domain/manager/ManagerToManagerJpaMapper.java</url>
+          <line>26</line>
+          <option name="timeStamp" value="107" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/domain/manager/ManagerToManagerJpaMapper.java</url>
+          <line>28</line>
+          <option name="timeStamp" value="109" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/domain/manager/ManagerToManagerJpaMapper.java</url>
+          <line>27</line>
+          <option name="timeStamp" value="110" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/domain/manager/ManagerToManagerJpaMapper.java</url>
+          <line>29</line>
+          <option name="timeStamp" value="111" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/domain/manager/ManagerToManagerJpaMapper.java</url>
+          <line>34</line>
+          <option name="timeStamp" value="112" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/domain/manager/ManagerToManagerJpaMapper.java</url>
+          <line>12</line>
+          <option name="timeStamp" value="114" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/infrastructure/manager/ManagerJpa.java</url>
+          <line>173</line>
+          <option name="timeStamp" value="116" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

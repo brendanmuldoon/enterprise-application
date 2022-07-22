@@ -21,4 +21,9 @@ public class ManagerRepository implements IManagerRepository {
     public Optional<ManagerJpa> findById(String managerId) {
         return repository.findById(managerId);
     }
+
+    @Override
+    public void save(ManagerJpa managerJpa) {
+        repository.save(managerJpa);
+    }
 }
