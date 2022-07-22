@@ -26,3 +26,4 @@ CREATE TABLE manager_team(
     FOREIGN KEY (staff_id) REFERENCES employee(id),
     FOREIGN KEY (manager_id) REFERENCES employee(id)
 );
+

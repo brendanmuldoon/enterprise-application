@@ -4,7 +4,6 @@ import com.example.skillsauditor.employee.application.staff.commands.UpdateStaff
 import com.example.skillsauditor.employee.domain.staff.ExpirationDate;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
-@JsonDeserialize(as = UpdateStaffSkillCommand.class)
 public interface IUpdateStaffSkillCommand {
 
     String getSkillId();

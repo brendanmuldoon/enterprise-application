@@ -7,7 +7,6 @@ import com.example.skillsauditor.employee.domain.common.FullName;
 import com.example.skillsauditor.employee.domain.common.SecurityCredentials;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
-@JsonDeserialize(as = UpdateStaffDetailsCommand.class)
 public interface IUpdateStaffDetailsCommand {
     String getStaffId();
 

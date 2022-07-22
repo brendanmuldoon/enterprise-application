@@ -1,5 +1,7 @@
 package com.example.skillsauditor.employee.ui.manager;
 
+import com.example.skillsauditor.employee.application.manager.commands.UpdateManagerTeamCommand;
+import com.example.skillsauditor.employee.application.manager.queries.GetTeamBySkillIdQuery;
 import com.example.skillsauditor.employee.domain.manager.Manager;
 import com.example.skillsauditor.employee.domain.manager.interfaces.IGetTeamBySkillIdQuery;
 import com.example.skillsauditor.employee.domain.manager.interfaces.IUpdateManagerTeamCommand;
@@ -50,7 +52,7 @@ public class ManagerController {
 
     // find all staff with certain skill
     @GetMapping("/team/bySkill")
-    public List<?> getManagerTeamBySkillId(@RequestBody IGetTeamBySkillIdQuery getTeamBySkillIdQuery) {
+    public List<?> getManagerTeamBySkillId(@RequestBody GetTeamBySkillIdQuery getTeamBySkillIdQuery) {
         List<?> response = queryHandler.findTeamBySkillId(getTeamBySkillIdQuery);
         if(!response.isEmpty()) {
             return response;
@@ -69,7 +71,7 @@ public class ManagerController {
 
     // allocate staff to manager
     @PutMapping("/team/updateTeam")
-    public void updateManagerTeam(@RequestBody IUpdateManagerTeamCommand updateManagerTeamCommand) {
+    public void updateManagerTeam(@RequestBody UpdateManagerTeamCommand updateManagerTeamCommand) {
         applicationService.addStaffToManagerTeam(updateManagerTeamCommand);
     }
 

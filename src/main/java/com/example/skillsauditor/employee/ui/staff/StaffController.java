@@ -1,5 +1,6 @@
 package com.example.skillsauditor.employee.ui.staff;
 
+import com.example.skillsauditor.employee.application.staff.commands.*;
 import com.example.skillsauditor.employee.domain.staff.interfaces.*;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -33,17 +34,17 @@ public class StaffController {
     }
 
     @PutMapping("/updateDetails")
-    public void updateStaffDetails(@RequestBody IUpdateStaffDetailsCommand updateStaffDetailsCommand) {
+    public void updateStaffDetails(@RequestBody UpdateStaffDetailsCommand updateStaffDetailsCommand) {
         applicationService.updateStaffDetails(updateStaffDetailsCommand);
     }
 
     @PostMapping("/createStaff")
-    public void createStaff(@RequestBody ICreateStaffCommand createStaffCommand) {
+    public void createStaff(@RequestBody CreateStaffCommand createStaffCommand) {
         applicationService.createStaff(createStaffCommand);
     }
 
     @DeleteMapping("/deleteStaff")
-    public void deleteStaff(@RequestBody IDeleteStaffCommand deleteStaffCommand) {
+    public void deleteStaff(@RequestBody DeleteStaffCommand deleteStaffCommand) {
         applicationService.deleteStaff(deleteStaffCommand);
     }
 
@@ -58,17 +59,17 @@ public class StaffController {
     }
 
     @PostMapping("/staffSkill/add")
-    public void addStaffSkill(@RequestBody IAddStaffSkillCommand addStaffSkillCommand) {
+    public void addStaffSkill(@RequestBody AddStaffSkillCommand addStaffSkillCommand) {
         applicationService.addStaffSkill(addStaffSkillCommand);
     }
 
     @DeleteMapping("/staffSkill/removeSkill")
-    public void removeStaffSkill(@RequestBody IRemoveStaffSkillCommand removeStaffSkillCommand) {
+    public void removeStaffSkill(@RequestBody RemoveStaffSkillCommand removeStaffSkillCommand) {
         applicationService.removeStaffSkill(removeStaffSkillCommand);
     }
 
     @PutMapping("/staffSkill/updateSkill")
-    public void updateStaffSkill(@RequestBody IUpdateStaffSkillCommand updateStaffSkillCommand) {
+    public void updateStaffSkill(@RequestBody UpdateStaffSkillCommand updateStaffSkillCommand) {
         applicationService.updateStaffSkill(updateStaffSkillCommand);
     }
 
