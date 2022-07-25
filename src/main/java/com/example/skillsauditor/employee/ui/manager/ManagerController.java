@@ -2,9 +2,6 @@ package com.example.skillsauditor.employee.ui.manager;
 
 import com.example.skillsauditor.employee.application.manager.commands.UpdateManagerTeamCommand;
 import com.example.skillsauditor.employee.application.manager.queries.GetTeamBySkillIdQuery;
-import com.example.skillsauditor.employee.domain.manager.Manager;
-import com.example.skillsauditor.employee.domain.manager.interfaces.IGetTeamBySkillIdQuery;
-import com.example.skillsauditor.employee.domain.manager.interfaces.IUpdateManagerTeamCommand;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -61,13 +58,12 @@ public class ManagerController {
         }
     }
 
-    // find all skills by category
+
     // find all staff with expired skills
 
     // create staff member - this is in the staff controller
 
-    // create/ edit/ delete skill
-    // create/ edit/ delete category
+
 
     // allocate staff to manager
     @PutMapping("/team/updateTeam")

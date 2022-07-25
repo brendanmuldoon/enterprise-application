@@ -65,8 +65,6 @@ Ssrc/main/java/com/example/skillsauditor/employee/domain/manager/DTO/ManagerDTO.
 Ysrc/main/java/com/example/skillsauditor/employee/application/staff/StaffQueryHandler.java,a\f\af226c1964ab6405e549644d3a41db8551d26192
 ‡
 Wsrc/main/java/com/example/skillsauditor/employee/domain/manager/DTO/ManagerTeamDTO.java,7\b\7b1e48c5db1479690e21cda4ab99678df9b9f105
-—
-gsrc/main/java/com/example/skillsauditor/employee/application/manager/mappers/ManagerJpaToDTOMapper.java,7\0\709f3c7b3441b83d4da16ccfa07e8cf2c632db5c
 •
 esrc/main/java/com/example/skillsauditor/employee/application/staff/commands/AddStaffSkillCommand.java,c\0\c04fd2f97c480cd2547c92ec94bf2145d385cbdb
 “

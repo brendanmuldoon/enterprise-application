@@ -5,23 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="723722ef-17ba-48ff-b88c-f3a11fb16bf0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/skill/application/category/CategoryQueryHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/skill/application/category/interfaces/ICategoryRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/skill/domain/skill/DTO/CategoryDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/skill/domain/skill/DTO/SkillDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/skill/domain/skill/interfaces/ISkillJpa.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/skill/infrastructure/skill/CategoryJpaValueObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/skill/application/skill/mappers/SkillJpaToDTOMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/ui/manager/ManagerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/ui/manager/ManagerController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/skill/application/skill/SkillQueryHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/skill/application/skill/SkillQueryHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/skill/application/skill/interfaces/ISkillRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/skill/application/skill/interfaces/ISkillRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/skill/infrastructure/skill/CrudSkillRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/skill/infrastructure/skill/CrudSkillRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/skill/infrastructure/skill/SkillJpa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/skill/infrastructure/skill/SkillJpa.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/skill/infrastructure/skill/SkillRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/skill/infrastructure/skill/SkillRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/skill/ui/skill/ISkillQueryHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/skill/ui/skill/ISkillQueryHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/skill/ui/skill/SkillController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/skill/ui/skill/SkillController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/schema.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,7 +139,7 @@
       <workItem from="1658305953684" duration="15181000" />
       <workItem from="1658391248220" duration="12182000" />
       <workItem from="1658477743468" duration="11193000" />
-      <workItem from="1658741233948" duration="7268000" />
+      <workItem from="1658741233948" duration="8551000" />
     </task>
     <servers />
   </component>
