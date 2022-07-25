@@ -11,7 +11,7 @@ public class SkillRepository implements ISkillRepository {
     private CrudSkillRepository repository;
 
     @Override
-    public Iterable<?> findAll() {
+    public Iterable<SkillJpa> findAll() {
         return repository.findAll();
     }
 }

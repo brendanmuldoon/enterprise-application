@@ -12,7 +12,7 @@ public class SkillController {
 
     private ISkillQueryHandler queryHandler;
 
-    @GetMapping("findAll")
+    @GetMapping("/findAll")
     public Iterable<?> findAllSkills() {
         return queryHandler.findAll();
     }
