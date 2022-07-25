@@ -4,6 +4,7 @@ import com.example.skillsauditor.skill.application.skill.interfaces.ISkillReposi
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
 import java.util.Optional;
 
 @Component
@@ -20,5 +21,10 @@ public class SkillRepository implements ISkillRepository {
     @Override
     public Optional<SkillJpa> findById(String skillId) {
         return repository.findById(skillId);
+    }
+
+    @Override
+    public List<SkillJpa> findByCategoryId(String categoryId) {
+        return repository.findAllByCategoryId(categoryId);
     }
 }
