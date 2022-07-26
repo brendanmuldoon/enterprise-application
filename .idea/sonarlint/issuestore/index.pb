@@ -70,17 +70,11 @@ Msrc/main/java/com/example/skillsauditor/employee/domain/staff/StaffSkill.java,
 |
 Lsrc/main/java/com/example/skillsauditor/employee/domain/manager/Manager.java,c\e\ceeb9a46bedf24bd4c1626b806a4300ce067e8e9
 Ÿ
-osrc/main/java/com/example/skillsauditor/employee/application/manager/interfaces/IManagerJpaToManagerMapper.java,5\0\503bdc9c0c17b2a9df78d10c6db9df9d27297428
-Ž
-^src/main/java/com/example/skillsauditor/employee/domain/manager/ManagerJpaToManagerMapper.java,0\0\00d7442344cc9cdfbdb4915382a34a42a7ea0929
-Ÿ
 osrc/main/java/com/example/skillsauditor/employee/application/manager/interfaces/IManagerToManagerJpaMapper.java,8\c\8c871c48c24bc12c2ea7bbfbf8a2cb708de3f3ac
 Ž
 ^src/main/java/com/example/skillsauditor/employee/domain/manager/ManagerToManagerJpaMapper.java,c\4\c43bd5364bf3a621af3e43ec073f8710880e6800
 ‹
 [src/main/java/com/example/skillsauditor/employee/domain/manager/interfaces/IManagerJpa.java,1\9\19c79a0e4a6f757b78b70cfae428a1534eee4c95
-‹
-[src/main/java/com/example/skillsauditor/employee/ui/manager/IManagerApplicationService.java,6\2\62651c920f294d876eaf545cd5a90f03663bc520
 –
 fsrc/main/java/com/example/skillsauditor/employee/domain/manager/interfaces/IGetTeamBySkillIdQuery.java,b\9\b9b51d6752a55c3615b9238179cfb81eddc763dc
 —

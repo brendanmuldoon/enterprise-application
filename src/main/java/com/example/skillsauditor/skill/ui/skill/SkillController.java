@@ -2,6 +2,7 @@ package com.example.skillsauditor.skill.ui.skill;
 
 import com.example.skillsauditor.employee.domain.common.Identity;
 import com.example.skillsauditor.skill.application.skill.commands.CreateSkillCommand;
+import com.example.skillsauditor.skill.application.skill.commands.EditSkillCommand;
 import com.example.skillsauditor.skill.domain.common.UniqueIDFactory;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -50,14 +51,14 @@ public class SkillController {
     // add skill
     @PostMapping("/createSkill")
     public void createSkill(@RequestBody CreateSkillCommand createSkillCommand) {
-
         skillService.createSkill(createSkillCommand);
     }
+
     // edit skill
-//    @PutMapping("/editSkill")
-//    public void editSkill(EditSkillCommand editSkillCommand) {
-//
-//    }
+    @PutMapping("/editSkill")
+    public void editSkill(@RequestBody EditSkillCommand editSkillCommand) {
+        skillService.editSkill(editSkillCommand);
+    }
 
     // delete skill
     // add category

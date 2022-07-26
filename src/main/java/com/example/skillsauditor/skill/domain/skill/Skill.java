@@ -2,6 +2,7 @@ package com.example.skillsauditor.skill.domain.skill;
 
 import com.example.skillsauditor.employee.domain.common.Entity;
 import com.example.skillsauditor.employee.domain.common.Identity;
+import com.example.skillsauditor.skill.domain.skill.interfaces.IEditSkillCommand;
 import lombok.ToString;
 
 @ToString
@@ -36,5 +37,10 @@ public class Skill extends Entity { // Aggregate
 
     public String category() {
         return this.category;
+    }
+
+    public void update(IEditSkillCommand editSkillCommand) {
+        this.description = editSkillCommand.getDescription();
+        this.category = editSkillCommand.getCategoryId();
     }
 }
