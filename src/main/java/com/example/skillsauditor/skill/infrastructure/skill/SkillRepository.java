@@ -27,4 +27,9 @@ public class SkillRepository implements ISkillRepository {
     public List<SkillJpa> findByCategoryId(String categoryId) {
         return repository.findAllByCategoryId(categoryId);
     }
+
+    @Override
+    public void save(SkillJpa skillJpa) {
+        repository.save(skillJpa);
+    }
 }

@@ -1,5 +1,8 @@
 package com.example.skillsauditor.skill.ui.skill;
 
+import com.example.skillsauditor.employee.domain.common.Identity;
+import com.example.skillsauditor.skill.application.skill.commands.CreateSkillCommand;
+import com.example.skillsauditor.skill.domain.common.UniqueIDFactory;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -14,6 +17,8 @@ import java.util.Optional;
 public class SkillController {
 
     private ISkillQueryHandler queryHandler;
+
+    private ISkillApplicationService skillService;
 
 
     @GetMapping("/findAll")
@@ -41,8 +46,19 @@ public class SkillController {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, String.format("Skill id: '%s' not found", categoryId));
         }
     }
+
     // add skill
+    @PostMapping("/createSkill")
+    public void createSkill(@RequestBody CreateSkillCommand createSkillCommand) {
+
+        skillService.createSkill(createSkillCommand);
+    }
     // edit skill
+//    @PutMapping("/editSkill")
+//    public void editSkill(EditSkillCommand editSkillCommand) {
+//
+//    }
+
     // delete skill
     // add category
     // edit category

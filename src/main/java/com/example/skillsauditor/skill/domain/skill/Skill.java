@@ -8,12 +8,16 @@ import lombok.ToString;
 public class Skill extends Entity { // Aggregate
 
     private String description;
-    private Category category;
+    private String category;
 
-    protected Skill(Identity id, String description, Category category) {
+    protected Skill(Identity id, String description, String category) {
         super(id);
         setDescription(description);
         this.category = category;
+    }
+
+    public static Skill skillOf(Identity newId, String description, String category) {
+        return new Skill(newId, description, category);
     }
 
 
@@ -22,11 +26,15 @@ public class Skill extends Entity { // Aggregate
         this.description=description;
     }
 
+    public Identity id() {
+        return this.id;
+    }
+
     public String description() {
         return this.description;
     }
 
-    public Category category() {
+    public String category() {
         return this.category;
     }
 }

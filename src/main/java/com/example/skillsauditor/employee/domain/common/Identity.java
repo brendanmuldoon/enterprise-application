@@ -12,7 +12,6 @@ public class Identity extends ValueObject{
 
     private void setID(String id){
         this.assertArgumentNotEmpty(id,"id cannot be empty");
-        this.assertArgumentIsUUID(id);
         this.id = id;
     }
 

@@ -1,5 +1,7 @@
 package com.example.skillsauditor.skill.infrastructure.skill;
 
+import com.example.skillsauditor.employee.domain.common.Identity;
+import com.example.skillsauditor.skill.domain.skill.Category;
 import com.example.skillsauditor.skill.domain.skill.interfaces.ISkillJpa;
 import lombok.Getter;
 import lombok.Setter;
@@ -36,4 +38,7 @@ public class SkillJpa implements ISkillJpa {
     }
 
 
+    public static SkillJpa skillJpaOf(String id, String description, CategoryJpaValueObject category) {
+        return new SkillJpa(id, description, category);
+    }
 }

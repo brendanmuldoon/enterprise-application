@@ -1,5 +1,6 @@
 package com.example.skillsauditor.skill.infrastructure.skill;
 
+import com.example.skillsauditor.skill.domain.common.IdentifiedValueObject;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -28,7 +29,7 @@ public class CategoryJpaValueObject {
         this.description = description;
     }
 
-    public CategoryJpaValueObject categoryJpaOf(String id, String description) {
+    public static CategoryJpaValueObject categoryJpaOf(String id, String description) {
         return new CategoryJpaValueObject(id, description);
     }
 }

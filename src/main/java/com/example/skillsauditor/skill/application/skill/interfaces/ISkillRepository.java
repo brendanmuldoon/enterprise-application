@@ -11,4 +11,6 @@ public interface ISkillRepository {
     Optional<SkillJpa> findById(String skillId);
 
     List<SkillJpa> findByCategoryId(String categoryId);
+
+    void save(SkillJpa skillJpa);
 }
