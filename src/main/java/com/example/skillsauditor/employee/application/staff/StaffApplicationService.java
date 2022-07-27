@@ -27,7 +27,10 @@ public class StaffApplicationService implements IStaffApplicationService {
     public void removeStaffSkill(IRemoveStaffSkillCommand removeSkillCommand) {
         Optional<StaffJpa> staffJpa = staffRepository.findById(removeSkillCommand.getStaffId());
         if(staffJpa.isPresent()) { // need to validate that the staff has the skill before deleting
-            staffRepository.deleteStaffSkill(removeSkillCommand.getStaffId(), removeSkillCommand.getSkillId());
+            Staff staff = staffJpaToStaffMapper.map(staffJpa.get());
+            staff.removeASkill(removeSkillCommand.getSkillId());
+            StaffJpa updatedStaff = staffToStaffJpaMapper.map(staff);
+            staffRepository.save(updatedStaff);
         } else {
             throw new IllegalArgumentException("Staff id is not recognised");
         }

@@ -49,9 +49,6 @@ public class Staff extends Employee { // Aggregate
                 break;
             }
         }
-//        skill.setSkillId(skill.skillId());
-//        skill.setStrengthOfSkill(skill.strengthOfSkill());
-//        skill.setExpiry(skill.expiry());
     }
 
 

@@ -13,5 +13,4 @@ public interface IStaffRepository {
 
     void delete(StaffJpa staffJpa);
 
-    void deleteStaffSkill(String staffId, String skillId);
 }

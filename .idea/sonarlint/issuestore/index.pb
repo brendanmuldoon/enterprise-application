@@ -101,10 +101,6 @@ Qsrc/main/java/com/example/skillsauditor/employee/ui/staff/IStaffQueryHandler.ja
 \src/main/java/com/example/skillsauditor/skill/application/category/CategoryQueryHandler.java,e\c\ec066aa948dfb36da62631d214af654d921abc8e
 „
 Tsrc/main/java/com/example/skillsauditor/skill/domain/skill/interfaces/ISkillJpa.java,3\7\37e6877a649f4fc8acdf8403e591e0f3205f1162
-“
-csrc/main/java/com/example/skillsauditor/employee/infrastructure/staff/StaffSkillJpaValueObject.java,f\b\fb0f0f0befd64827d5a10e2871ba3cf1cb57a09b
-ƒ
-Ssrc/main/java/com/example/skillsauditor/employee/infrastructure/staff/StaffJpa.java,c\e\ce8220aad5b49efa689519d9cdd85fc331342558
 —
 gsrc/main/java/com/example/skillsauditor/employee/application/manager/mappers/ManagerJpaToDTOMapper.java,7\0\709f3c7b3441b83d4da16ccfa07e8cf2c632db5c
 ~
