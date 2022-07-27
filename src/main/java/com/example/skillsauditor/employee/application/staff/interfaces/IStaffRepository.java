@@ -12,4 +12,6 @@ public interface IStaffRepository {
     StaffJpa save(StaffJpa staffJpa);
 
     void delete(StaffJpa staffJpa);
+
+    void deleteStaffSkill(String staffId, String skillId);
 }

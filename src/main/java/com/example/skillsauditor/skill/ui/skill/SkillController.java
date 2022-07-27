@@ -2,6 +2,7 @@ package com.example.skillsauditor.skill.ui.skill;
 
 import com.example.skillsauditor.employee.domain.common.Identity;
 import com.example.skillsauditor.skill.application.skill.commands.CreateSkillCommand;
+import com.example.skillsauditor.skill.application.skill.commands.DeleteSkillCommand;
 import com.example.skillsauditor.skill.application.skill.commands.EditSkillCommand;
 import com.example.skillsauditor.skill.domain.common.UniqueIDFactory;
 import lombok.AllArgsConstructor;
@@ -61,6 +62,10 @@ public class SkillController {
     }
 
     // delete skill
+    @DeleteMapping("/deleteSkill")
+    public void deleteSkill(@RequestBody DeleteSkillCommand deleteSkillCommand) {
+        skillService.deleteSkill(deleteSkillCommand);
+    }
     // add category
     // edit category
     // delete category

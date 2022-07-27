@@ -7,7 +7,6 @@ import com.example.skillsauditor.employee.domain.staff.StaffSkill;
 import com.example.skillsauditor.employee.domain.staff.StrengthOfSkill;
 import com.example.skillsauditor.employee.domain.staff.interfaces.*;
 import com.example.skillsauditor.employee.infrastructure.staff.StaffJpa;
-import com.example.skillsauditor.employee.infrastructure.staff.StaffSkillJpaValueObject;
 import com.example.skillsauditor.employee.ui.staff.IStaffApplicationService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -21,21 +20,14 @@ import java.util.Optional;
 public class StaffApplicationService implements IStaffApplicationService {
 
     private IStaffRepository staffRepository;
-    private IStaffSkillRepository staffSkillRepository;
     private IStaffJpaToStaffMapper staffJpaToStaffMapper;
     private IStaffToStaffJpaMapper staffToStaffJpaMapper;
-    private IStaffSkillJpaToStaffSkillMapper staffSkillJpaToStaffSkill;
-    private IStaffSkillToStaffSkillJpaMapper staffSkillToStaffSkillJpaMapper;
 
     @Override
     public void removeStaffSkill(IRemoveStaffSkillCommand removeSkillCommand) {
         Optional<StaffJpa> staffJpa = staffRepository.findById(removeSkillCommand.getStaffId());
-        if(staffJpa.isPresent()) {
-            Staff staff = staffJpaToStaffMapper.map(staffJpa.get());
-            StaffSkillJpaValueObject staffSkillJpaValueObject = staffJpa.get().retrieveSkill(removeSkillCommand.getSkillId());
-            staff.removeASkill(removeSkillCommand.getSkillId());
-            staffRepository.save(staffToStaffJpaMapper.map(staff));
-            staffSkillRepository.removeSkill(staffSkillJpaValueObject);
+        if(staffJpa.isPresent()) { // need to validate that the staff has the skill before deleting
+            staffRepository.deleteStaffSkill(removeSkillCommand.getStaffId(), removeSkillCommand.getSkillId());
         } else {
             throw new IllegalArgumentException("Staff id is not recognised");
         }
@@ -87,14 +79,12 @@ public class StaffApplicationService implements IStaffApplicationService {
 
     @Override
     public void updateStaffSkill(IUpdateStaffSkillCommand updateStaffSkillCommand) {
-        Optional<StaffSkillJpaValueObject> staffSkill = staffSkillRepository.findBySkillId(updateStaffSkillCommand.getSkillId());
-        if(staffSkill.isPresent()) {
-            StaffSkill skill = staffSkillJpaToStaffSkill.map(staffSkill.get());
-            skill.updateStaffSkill(updateStaffSkillCommand);
-            StaffSkillJpaValueObject o = staffSkillToStaffSkillJpaMapper.map(skill, updateStaffSkillCommand.getStaffId());
-            staffSkillRepository.save(o);
-
-
+        Optional<StaffJpa> staffJpa = staffRepository.findById(updateStaffSkillCommand.getStaffId());
+        if(staffJpa.isPresent()) {
+            Staff staff = staffJpaToStaffMapper.map(staffJpa.get());
+            staff.updateAStaffSkill(updateStaffSkillCommand);
+            StaffJpa updatedStaffJpa = staffToStaffJpaMapper.map(staff);
+            staffRepository.save(updatedStaffJpa);
         } else {
             throw new IllegalArgumentException("Staff id is not recognised");
         }

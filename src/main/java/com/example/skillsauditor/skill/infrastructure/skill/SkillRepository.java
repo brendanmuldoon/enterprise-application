@@ -32,4 +32,9 @@ public class SkillRepository implements ISkillRepository {
     public void save(SkillJpa skillJpa) {
         repository.save(skillJpa);
     }
+
+    @Override
+    public void delete(SkillJpa skillJpa) {
+        repository.delete(skillJpa);
+    }
 }

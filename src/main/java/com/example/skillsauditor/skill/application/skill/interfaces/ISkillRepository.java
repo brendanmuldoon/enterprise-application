@@ -13,4 +13,6 @@ public interface ISkillRepository {
     List<SkillJpa> findByCategoryId(String categoryId);
 
     void save(SkillJpa skillJpa);
+
+    void delete(SkillJpa skillJpa);
 }

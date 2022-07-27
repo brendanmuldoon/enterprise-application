@@ -1,6 +1,7 @@
 package com.example.skillsauditor.employee.domain.staff;
 
 import com.example.skillsauditor.employee.domain.common.*;
+import com.example.skillsauditor.employee.domain.staff.interfaces.IUpdateStaffSkillCommand;
 import lombok.ToString;
 
 import java.util.ArrayList;
@@ -39,9 +40,19 @@ public class Staff extends Employee { // Aggregate
         }
     }
 
-    public void updateASkill(StaffSkill skill) { // do nothing
-        skill.setSkillId(skill.skillId());
-        skill.setStrengthOfSkill(skill.strengthOfSkill());
-        skill.setExpiry(skill.expiry());
+    public void updateAStaffSkill(IUpdateStaffSkillCommand skill) {
+        for(StaffSkill s : skills) {
+            if(s.skillId().equals(skill.getSkillId())) {
+                s.setSkillId(skill.getSkillId());
+                s.setStrengthOfSkill(StrengthOfSkill.valueOf(skill.getStrengthOfSkill()));
+                s.setExpiry(skill.getExpirationDate());
+                break;
+            }
+        }
+//        skill.setSkillId(skill.skillId());
+//        skill.setStrengthOfSkill(skill.strengthOfSkill());
+//        skill.setExpiry(skill.expiry());
     }
+
+
 }

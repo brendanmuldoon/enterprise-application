@@ -30,4 +30,9 @@ public class StaffRepository implements IStaffRepository {
     public void delete(StaffJpa staffJpa) {
         repository.delete(staffJpa);
     }
+
+    @Override
+    public void deleteStaffSkill(String staffId, String skillId) {
+        repository.deleteStaffSkill(skillId, staffId);
+    }
 }

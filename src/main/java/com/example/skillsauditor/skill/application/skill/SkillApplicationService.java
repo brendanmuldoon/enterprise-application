@@ -2,6 +2,7 @@ package com.example.skillsauditor.skill.application.skill;
 
 import com.example.skillsauditor.employee.domain.common.Identity;
 import com.example.skillsauditor.skill.application.category.interfaces.ICategoryRepository;
+import com.example.skillsauditor.skill.application.skill.commands.DeleteSkillCommand;
 import com.example.skillsauditor.skill.application.skill.commands.EditSkillCommand;
 import com.example.skillsauditor.skill.application.skill.interfaces.ISkillJpaToSkillMapper;
 import com.example.skillsauditor.skill.application.skill.interfaces.ISkillRepository;
@@ -54,4 +55,16 @@ public class SkillApplicationService implements ISkillApplicationService {
             throw new IllegalArgumentException("Category not found");
         }
     }
+
+    @Override
+    public void deleteSkill(DeleteSkillCommand deleteSkillCommand) {
+        Optional<SkillJpa> skillJpa = skillRepository.findById(deleteSkillCommand.getSkillId());
+        if (skillJpa.isPresent()) {
+            skillRepository.delete(skillJpa.get());
+        }else {
+            throw new IllegalArgumentException("Category not found");
+        }
+    }
+
+
 }
