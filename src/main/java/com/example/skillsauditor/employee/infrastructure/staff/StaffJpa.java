@@ -1,6 +1,8 @@
 package com.example.skillsauditor.employee.infrastructure.staff;
 
 import com.example.skillsauditor.employee.domain.staff.interfaces.IStaffJpa;
+import lombok.Getter;
+import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
@@ -9,6 +11,8 @@ import java.util.List;
 
 @Entity(name="staff")
 @Table(name = "employee")
+@Setter
+@Getter
 @ToString
 public class StaffJpa implements IStaffJpa {
 

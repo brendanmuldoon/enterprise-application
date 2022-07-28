@@ -1,7 +1,6 @@
 package com.example.skillsauditor.employee.domain.manager;
 
 import com.example.skillsauditor.employee.domain.common.*;
-import com.example.skillsauditor.employee.domain.staff.Staff;
 import lombok.ToString;
 
 import java.util.ArrayList;
@@ -22,13 +21,24 @@ public class Manager extends Employee { // Aggregate
 
     }
 
-    public List<ManagerTeam> team() {
+    public List<ManagerTeam> retrieveTeam() {
         return team;
     }
 
-    public void addTeamMember(ManagerTeam teamMember) {
+    public ManagerTeam addTeamMember(ManagerTeam teamMember) {
         if(!team.contains(teamMember)) {
             this.team.add(teamMember);
+        }
+        return teamMember;
+    }
+
+    // remove team member
+    public void removeTeamMember(String staffId) {
+        for(ManagerTeam t : team) {
+            if(t.staffId().equals(staffId)) {
+                team.remove(t);
+                break;
+            }
         }
     }
 

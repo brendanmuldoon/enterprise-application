@@ -6,10 +6,12 @@ import com.example.skillsauditor.employee.infrastructure.manager.ManagerTeamJpaV
 import com.example.skillsauditor.employee.infrastructure.staff.StaffJpa;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 public class ManagerToManagerJpaMapper implements IManagerToManagerJpaMapper {
     @Override
-    public ManagerJpa map(Manager manager, StaffJpa staffJpa) {
+    public ManagerJpa map(Manager manager) {
         ManagerJpa managerJpa = ManagerJpa.managerJpaOf(
                 manager.id().id(),
                 manager.fullName().firstName(),
@@ -22,18 +24,6 @@ public class ManagerToManagerJpaMapper implements IManagerToManagerJpaMapper {
                 manager.securityCredentials().password()
         );
 
-        for(ManagerTeam mt : manager.team()) {
-            ManagerTeamJpaValueObject managerTeamJpaValueObject =
-                    ManagerTeamJpaValueObject.managerTeamJpaOf(
-                            mt.getId(),
-                            staffJpa,
-                            mt.managerId()
-                    );
-            managerTeamJpaValueObject.setId(mt.getId());
-            managerTeamJpaValueObject.setStaff(staffJpa);
-
-            managerJpa.addTeamMember(managerTeamJpaValueObject);
-        }
 
         return managerJpa;
     }

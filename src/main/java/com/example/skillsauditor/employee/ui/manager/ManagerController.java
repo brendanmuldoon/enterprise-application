@@ -66,7 +66,7 @@ public class ManagerController {
 
 
     // allocate staff to manager
-    @PutMapping("/team/updateTeam")
+    @PutMapping("/team/addToTeam")
     public void updateManagerTeam(@RequestBody UpdateManagerTeamCommand updateManagerTeamCommand) {
         applicationService.addStaffToManagerTeam(updateManagerTeamCommand);
     }

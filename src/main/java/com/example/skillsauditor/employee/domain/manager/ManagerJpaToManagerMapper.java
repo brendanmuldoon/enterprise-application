@@ -3,6 +3,7 @@ package com.example.skillsauditor.employee.domain.manager;
 import com.example.skillsauditor.employee.application.manager.interfaces.IManagerJpaToManagerMapper;
 import com.example.skillsauditor.employee.domain.common.*;
 import com.example.skillsauditor.employee.infrastructure.manager.ManagerJpa;
+import com.example.skillsauditor.employee.infrastructure.manager.ManagerTeamJpaValueObject;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -17,9 +18,9 @@ public class ManagerJpaToManagerMapper implements IManagerJpaToManagerMapper  {
 
         Manager manager = Manager.managerOf(identity, fullName, address, role, securityCredentials);
 
-        for (ManagerTeam mt : manager.team()) {
+        for (ManagerTeamJpaValueObject mt : managerJpa.getTeam()) {
 
-            ManagerTeam managerTeam = ManagerTeam.managerTeamOf(mt.staffId(), mt.managerId());
+            ManagerTeam managerTeam = ManagerTeam.managerTeamOf(mt.getStaff().getId(), mt.getManager());
             manager.addTeamMember(managerTeam);
 
         }

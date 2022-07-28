@@ -9,6 +9,7 @@ INSERT INTO employee (id,
                    securitycedentials_password)
 VALUES  ('123e4567-e89b-12d3-a456-426614174000', 'Brendan', 'Muldoon', '5', 'Foxton Place', 'BT365FS', 'Manager', 'brendy', 'password'),
         ('5199227a-0845-11ed-861d-0242ac120002', 'Emma', 'Muldoon', '5', 'Foxton Place', 'BT365FS', 'Staff', 'emma', 'password'),
+        ('6f331876-e037-4d98-a906-4274420570e1', 'test', 'test', '1', 'Foxton Place', 'BT365FS', 'Staff', 'test', 'password'),
         ('5f52c9e8-0845-11ed-861d-0242ac120002', 'Billy', 'Bob', '56', 'Rad Town', 'BT124FT', 'Staff', 'billybob', 'password');
 
 

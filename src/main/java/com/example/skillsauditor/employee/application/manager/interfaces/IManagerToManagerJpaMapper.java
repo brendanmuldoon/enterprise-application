@@ -5,5 +5,5 @@ import com.example.skillsauditor.employee.infrastructure.manager.ManagerJpa;
 import com.example.skillsauditor.employee.infrastructure.staff.StaffJpa;
 
 public interface IManagerToManagerJpaMapper {
-    ManagerJpa map(Manager manager, StaffJpa staffJpa);
+    ManagerJpa map(Manager manager);
 }
