@@ -1,5 +1,6 @@
 package com.example.skillsauditor.employee.ui.manager;
 
+import com.example.skillsauditor.employee.application.manager.commands.CreateCategoryCommand;
 import com.example.skillsauditor.employee.application.manager.commands.DeleteSkillCommand;
 import com.example.skillsauditor.employee.application.manager.commands.EditSkillCommand;
 import com.example.skillsauditor.employee.domain.manager.interfaces.IUpdateManagerTeamCommand;
@@ -13,4 +14,6 @@ public interface IManagerApplicationService {
     void editSkill(EditSkillCommand editSkillCommand);
 
     void deleteSkill(DeleteSkillCommand deleteSkillCommand);
+
+    void createCategory(CreateCategoryCommand createSkillCommand);
 }

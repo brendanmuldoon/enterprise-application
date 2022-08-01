@@ -15,4 +15,5 @@ public interface IManagerQueryHandler {
     List<ManagerTeamDTO> findTeamByManagerId(String managerId);
 
     List<ManagerTeamDTO> findTeamBySkillId(IGetTeamBySkillIdQuery getTeamBySkillIdQuery);
+
 }

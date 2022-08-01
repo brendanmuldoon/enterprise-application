@@ -7,4 +7,8 @@ import java.util.Optional;
 public interface ICategoryRepository {
 
     Optional<CategoryJpaValueObject> findById(String id);
+
+    void save(CategoryJpaValueObject categoryJpaValueObject);
+
+    Optional<CategoryJpaValueObject> findByDescription(String description);
 }

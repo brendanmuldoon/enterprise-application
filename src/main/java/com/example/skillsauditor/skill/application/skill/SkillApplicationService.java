@@ -7,11 +7,13 @@ import com.example.skillsauditor.employee.domain.manager.interfaces.ICreateSkill
 import com.example.skillsauditor.skill.application.category.interfaces.ICategoryRepository;
 import com.example.skillsauditor.skill.application.skill.events.DeleteSkillDomainEvent;
 import com.example.skillsauditor.skill.application.skill.events.EditSkillDomainEvent;
+import com.example.skillsauditor.skill.application.skill.events.NewCategoryAddedDomainEvent;
 import com.example.skillsauditor.skill.application.skill.events.NewSkillAddedDomainEvent;
 import com.example.skillsauditor.skill.application.skill.interfaces.ISkillJpaToSkillMapper;
 import com.example.skillsauditor.skill.application.skill.interfaces.ISkillRepository;
 import com.example.skillsauditor.skill.application.skill.interfaces.ISkillToSkillJpaMapper;
 import com.example.skillsauditor.skill.domain.common.UniqueIDFactory;
+import com.example.skillsauditor.skill.domain.skill.Category;
 import com.example.skillsauditor.skill.domain.skill.Skill;
 import com.example.skillsauditor.skill.infrastructure.skill.CategoryJpaValueObject;
 import com.example.skillsauditor.skill.infrastructure.skill.SkillJpa;
@@ -67,18 +69,6 @@ public class SkillApplicationService implements ISkillApplicationService {
 
     }
 
-//    @Override
-//    public void editSkill(EditSkillCommand editSkillCommand) {
-//        Optional<SkillJpa> skillJpa = skillRepository.findById(editSkillCommand.getSkillId());
-//        Optional<CategoryJpaValueObject> categoryJpaValueObject = categoryRepository.findById(editSkillCommand.getCategoryId());
-//        if(skillJpa.isPresent() && categoryJpaValueObject.isPresent()) {
-//            Skill skill = skillJpaToSkillMapper.map(skillJpa.get());
-//            skill.update(editSkillCommand);
-//            skillRepository.save(skillToSkillJpaMapper.map(skill, categoryJpaValueObject.get()));
-//        } else {
-//            throw new IllegalArgumentException("Category not found");
-//        }
-//    }
 
     @TransactionalEventListener(phase = TransactionPhase.AFTER_COMMIT)//default phase
     @Transactional(propagation = Propagation.REQUIRES_NEW)//creates new transaction
@@ -111,16 +101,6 @@ public class SkillApplicationService implements ISkillApplicationService {
     }
 
 
-    @Override
-    public void deleteSkill(DeleteSkillCommand deleteSkillCommand) {
-        Optional<SkillJpa> skillJpa = skillRepository.findById(deleteSkillCommand.getSkillId());
-        if (skillJpa.isPresent()) {
-            skillRepository.delete(skillJpa.get());
-        }else {
-            throw new IllegalArgumentException("Category not found");
-        }
-    }
-
     @TransactionalEventListener(phase = TransactionPhase.AFTER_COMMIT)//default phase
     @Transactional(propagation = Propagation.REQUIRES_NEW)//creates new transaction
     public void handleDeleteSkill(DeleteSkillDomainEvent event) {
@@ -141,6 +121,8 @@ public class SkillApplicationService implements ISkillApplicationService {
         }
 
     }
+
+
 
 
 }

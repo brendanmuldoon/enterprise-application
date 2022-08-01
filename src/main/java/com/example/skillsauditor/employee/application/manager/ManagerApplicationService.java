@@ -1,5 +1,6 @@
 package com.example.skillsauditor.employee.application.manager;
 
+import com.example.skillsauditor.employee.application.manager.commands.CreateCategoryCommand;
 import com.example.skillsauditor.employee.application.manager.commands.CreateSkillCommand;
 import com.example.skillsauditor.employee.application.manager.commands.DeleteSkillCommand;
 import com.example.skillsauditor.employee.application.manager.commands.EditSkillCommand;
@@ -16,6 +17,7 @@ import com.example.skillsauditor.employee.infrastructure.manager.ManagerTeamJpaV
 import com.example.skillsauditor.employee.infrastructure.staff.StaffJpa;
 import com.example.skillsauditor.employee.ui.manager.IManagerApplicationService;
 import com.example.skillsauditor.skill.domain.common.UniqueIDFactory;
+import com.example.skillsauditor.skill.domain.skill.Category;
 import com.example.skillsauditor.skill.domain.skill.Skill;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
@@ -143,6 +145,17 @@ public class ManagerApplicationService implements IManagerApplicationService {
             manageDomainEvents(skill.getListOfEvents());
 
         }
+
+    }
+
+    @Override
+    public void createCategory(CreateCategoryCommand createCategoryCommand) {
+
+        Identity identity = UniqueIDFactory.createID();
+
+        Category category = Category.categoryOf(identity, createCategoryCommand.getDescription());
+
+        manageDomainEvents(category.getListOfEvents());
 
     }
 

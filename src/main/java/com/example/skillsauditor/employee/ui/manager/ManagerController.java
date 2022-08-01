@@ -1,10 +1,7 @@
 package com.example.skillsauditor.employee.ui.manager;
 
-import com.example.skillsauditor.employee.application.manager.commands.DeleteSkillCommand;
-import com.example.skillsauditor.employee.application.manager.commands.EditSkillCommand;
-import com.example.skillsauditor.employee.application.manager.commands.UpdateManagerTeamCommand;
+import com.example.skillsauditor.employee.application.manager.commands.*;
 import com.example.skillsauditor.employee.application.manager.queries.GetTeamBySkillIdQuery;
-import com.example.skillsauditor.employee.application.manager.commands.CreateSkillCommand;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -85,9 +82,24 @@ public class ManagerController {
     public void deleteSkill(@RequestBody DeleteSkillCommand deleteSkillCommand) {
         applicationService.deleteSkill(deleteSkillCommand);
     }
+
+    // view all skills by category
+//    @GetMapping("/findAllSkillsByCategory/{category_id}")
+//    public List<?> getSkillsByCategoryId(@PathVariable(name = "category_id") String categoryId){
+//        List<?> response = queryHandler.findByCategoryId(categoryId);
+//        if(!response.isEmpty()) {
+//            return response;
+//        } else {
+//            throw new ResponseStatusException(HttpStatus.NOT_FOUND, String.format("Category id: '%s' not found", categoryId));
+//        }
+//    }
+
     // add category
+    @PostMapping("/createCategory")
+    public void createCategory(@RequestBody CreateCategoryCommand createSkillCommand) {
+        applicationService.createCategory(createSkillCommand);
+    }
     // edit category
     // remove category
-    // view all skills by category
 
 }

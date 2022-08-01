@@ -75,18 +75,12 @@ Osrc/main/java/com/example/skillsauditor/employee/domain/staff/DTO/StaffDTO.java
 Tsrc/main/java/com/example/skillsauditor/skill/domain/skill/interfaces/ISkillJpa.java,3\7\37e6877a649f4fc8acdf8403e591e0f3205f1162
 ~
 Nsrc/main/java/com/example/skillsauditor/skill/ui/skill/ISkillQueryHandler.java,2\7\277553b57ac6b143fdac9e3b2a0d31735a71099f
-Ö
-Usrc/main/java/com/example/skillsauditor/employee/ui/manager/IManagerQueryHandler.java,5\c\5cf9ac4a959d49c7a4ae4b6638ddf2ea6819aaf1
 ê
 `src/main/java/com/example/skillsauditor/skill/application/skill/mappers/SkillJpaToDTOMapper.java,e\0\e077288e887c8ce4987a3ad203738cb007615789
 Ü
 Vsrc/main/java/com/example/skillsauditor/skill/domain/common/IdentifiedValueObject.java,5\6\56fa035e0c439255600b1e9401aa4d04e3d0b5ce
 Ü
 Vsrc/main/java/com/example/skillsauditor/skill/application/skill/SkillQueryHandler.java,b\3\b3ced1b3fa6e5ac6cedcb3f52e6338ab87fe5f10
-ë
-asrc/main/java/com/example/skillsauditor/skill/infrastructure/category/CrudCategoryRepository.java,d\d\dd4712fab19a5c1aa78b61fe4dac928ba4ef3265
-ñ
-fsrc/main/java/com/example/skillsauditor/skill/application/category/interfaces/ICategoryRepository.java,1\5\156a7b3bf511ff7bb5599c1105ba8dcd1f6541af
 é
 ^src/main/java/com/example/skillsauditor/skill/domain/skill/interfaces/ICreateSkillCommand.java,c\b\cb55659a471c1770069b4b376ff21ccfcb125fc5
 Ä
@@ -97,8 +91,6 @@ Osrc/main/java/com/example/skillsauditor/employee/domain/common/ValueObject.java
 Lsrc/main/java/com/example/skillsauditor/employee/domain/common/Identity.java,b\3\b32c5dc815ed97fa1f4c5609c4621b41df0476b9
 ì
 csrc/main/java/com/example/skillsauditor/employee/domain/staff/interfaces/IAddStaffSkillCommand.java,2\6\2695745d60162aeeac5b6fc8c3e7fd65a99e401a
-x
-Hsrc/main/java/com/example/skillsauditor/skill/domain/skill/Category.java,b\3\b314fa0644d1486d6d6ebeec4523d42386ccf1ee
 ê
 `src/main/java/com/example/skillsauditor/skill/application/skill/commands/CreateSkillCommand.java,c\2\c2440d518056a7059da0e6ced46e192e523ad822
 å
@@ -115,8 +107,6 @@ jsrc/main/java/com/example/skillsauditor/employee/application/staff/commands/Upd
 ^src/main/java/com/example/skillsauditor/skill/application/skill/commands/EditSkillCommand.java,7\6\7668a329f2452cdf2758c5c001339f82e2be5782
 ê
 `src/main/java/com/example/skillsauditor/skill/application/skill/commands/DeleteSkillCommand.java,2\b\2bd916bbfe0dd6f24607ad44ccc25bab0224d4f3
-ç
-]src/main/java/com/example/skillsauditor/skill/infrastructure/category/CategoryRepository.java,6\2\623187bfbf3c8605f2e4da80266793358788eb81
 ñ
 fsrc/main/java/com/example/skillsauditor/employee/domain/staff/interfaces/IUpdateStaffSkillCommand.java,f\e\fea26a79314e1608e55a9167133dfc6d8bb3a72e
 õ
@@ -141,8 +131,6 @@ Wsrc/main/java/com/example/skillsauditor/employee/domain/manager/DTO/ManagerTeam
 Ysrc/main/java/com/example/skillsauditor/employee/domain/common/IdentifiedValueObject.java,2\c\2c07545659bc89bb45b700235fca601f6ee6bd11
 Ä
 Psrc/main/java/com/example/skillsauditor/employee/domain/manager/ManagerTeam.java,1\2\128bbf261e8dfc013984bc44e6f4d5e5a435ff4e
-ç
-]src/main/java/com/example/skillsauditor/employee/application/manager/ManagerQueryHandler.java,a\4\a41202cba269332db59ab218fbb05eccf661790e
 ô
 isrc/main/java/com/example/skillsauditor/employee/application/staff/interfaces/IStaffToStaffJpaMapper.java,2\5\259414d2c1b5c27eded00c56b904f24972a9c20c
 à

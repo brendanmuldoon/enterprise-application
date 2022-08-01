@@ -8,6 +8,10 @@ import com.example.skillsauditor.employee.domain.manager.interfaces.IGetTeamBySk
 import com.example.skillsauditor.employee.infrastructure.manager.ManagerJpa;
 import com.example.skillsauditor.employee.ui.manager.IManagerQueryHandler;
 import lombok.AllArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.context.ApplicationEvent;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -19,6 +23,19 @@ import java.util.Optional;
 public class ManagerQueryHandler implements IManagerQueryHandler {
 
     private IManagerRepository managerRepository;
+
+    private final Logger LOG = LoggerFactory.getLogger(getClass());
+
+    private ApplicationEventPublisher eventPublisher;
+
+    private void manageDomainEvents(List<ApplicationEvent> events) {
+        for (ApplicationEvent event : events){
+            LOG.info("event " + event);
+            eventPublisher.publishEvent(event);
+            //eventStoreService.append(events);
+        }
+    }
+
     @Override
     public Iterable<ManagerJpa> findAll() {
         return managerRepository.findAll();
@@ -58,4 +75,10 @@ public class ManagerQueryHandler implements IManagerQueryHandler {
         }
         return new ArrayList<>();
     }
+
+
+
+
+
+    // a method that is subscribed to the skill context and adds data to a var somewhere in here
 }

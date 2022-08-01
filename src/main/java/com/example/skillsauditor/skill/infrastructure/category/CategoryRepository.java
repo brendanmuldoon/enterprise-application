@@ -17,4 +17,14 @@ public class CategoryRepository implements ICategoryRepository {
     public Optional<CategoryJpaValueObject> findById(String id) {
         return repository.findById(id);
     }
+
+    @Override
+    public void save(CategoryJpaValueObject categoryJpaValueObject) {
+        repository.save(categoryJpaValueObject);
+    }
+
+    @Override
+    public Optional<CategoryJpaValueObject> findByDescription(String description) {
+        return repository.findByDescription(description);
+    }
 }
