@@ -1,10 +1,8 @@
 package com.example.skillsauditor.skill.ui.skill;
 
-import com.example.skillsauditor.employee.domain.common.Identity;
-import com.example.skillsauditor.skill.application.skill.commands.CreateSkillCommand;
-import com.example.skillsauditor.skill.application.skill.commands.DeleteSkillCommand;
-import com.example.skillsauditor.skill.application.skill.commands.EditSkillCommand;
-import com.example.skillsauditor.skill.domain.common.UniqueIDFactory;
+import com.example.skillsauditor.employee.application.manager.commands.CreateSkillCommand;
+import com.example.skillsauditor.employee.application.manager.commands.DeleteSkillCommand;
+import com.example.skillsauditor.employee.application.manager.commands.EditSkillCommand;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -49,25 +47,5 @@ public class SkillController {
         }
     }
 
-    // add skill
-    @PostMapping("/createSkill")
-    public void createSkill(@RequestBody CreateSkillCommand createSkillCommand) {
-        skillService.createSkill(createSkillCommand);
-    }
-
-    // edit skill
-    @PutMapping("/editSkill")
-    public void editSkill(@RequestBody EditSkillCommand editSkillCommand) {
-        skillService.editSkill(editSkillCommand);
-    }
-
-    // delete skill
-    @DeleteMapping("/deleteSkill")
-    public void deleteSkill(@RequestBody DeleteSkillCommand deleteSkillCommand) {
-        skillService.deleteSkill(deleteSkillCommand);
-    }
-    // add category
-    // edit category
-    // delete category
 
 }

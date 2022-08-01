@@ -18,12 +18,12 @@ public class StaffController {
     private IStaffQueryHandler queryHandler;
     private IStaffApplicationService applicationService;
 
-    @GetMapping("/findAll")
+    @GetMapping("/findAll") // REMOVE
     public Iterable<?> getAllStaffDetails() {
         return queryHandler.findAll();
     }
 
-    @GetMapping("/{staffId}")
+    @GetMapping("/{staffId}") // REMOVE
     public Optional<?> getStaffDetailsByStaffId(@PathVariable(value = "staffId") String staffId) {
         Optional<?> response = queryHandler.findByStaffId(staffId);
         if(response.isPresent()) {
@@ -38,17 +38,17 @@ public class StaffController {
         applicationService.updateStaffDetails(updateStaffDetailsCommand);
     }
 
-    @PostMapping("/createStaff")
+    @PostMapping("/createStaff") // REMOVE
     public void createStaff(@RequestBody CreateStaffCommand createStaffCommand) {
         applicationService.createStaff(createStaffCommand);
     }
 
-    @DeleteMapping("/deleteStaff")
+    @DeleteMapping("/deleteStaff") // REMOVE
     public void deleteStaff(@RequestBody DeleteStaffCommand deleteStaffCommand) {
         applicationService.deleteStaff(deleteStaffCommand);
     }
 
-    @GetMapping("staffSkill/{staffId}")
+    @GetMapping("staffSkill/{staffId}") // REMOVE
     public List<?> getStaffSkillsDetailsByStaffId(@PathVariable(value = "staffId") String staffId) {
         List<?> response = queryHandler.findSkillsByStaffId(staffId);
         if(!response.isEmpty()) {

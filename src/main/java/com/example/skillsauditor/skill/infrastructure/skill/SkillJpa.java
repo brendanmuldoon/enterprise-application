@@ -21,7 +21,7 @@ public class SkillJpa implements ISkillJpa {
     @Column(name = "description")
     private String description;
 
-    @ManyToOne(cascade = {CascadeType.ALL})
+    @ManyToOne
     @JoinColumn(name = "category", referencedColumnName = "id")
     private CategoryJpaValueObject category;
 

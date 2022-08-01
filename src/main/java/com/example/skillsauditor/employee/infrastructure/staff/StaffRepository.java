@@ -4,6 +4,7 @@ import com.example.skillsauditor.employee.application.staff.interfaces.IStaffRep
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
 import java.util.Optional;
 
 @Component
@@ -30,5 +31,6 @@ public class StaffRepository implements IStaffRepository {
     public void delete(StaffJpa staffJpa) {
         repository.delete(staffJpa);
     }
+
 
 }

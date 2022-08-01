@@ -105,7 +105,7 @@ public class StaffJpa implements IStaffJpa {
                 return skill;
             }
         }
-        throw new IllegalArgumentException("Skill not found");
+        return null;
     }
 
 

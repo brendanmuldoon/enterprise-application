@@ -15,4 +15,6 @@ public interface ISkillRepository {
     void save(SkillJpa skillJpa);
 
     void delete(SkillJpa skillJpa);
+
+    Optional<SkillJpa> findByDescription(String description);
 }

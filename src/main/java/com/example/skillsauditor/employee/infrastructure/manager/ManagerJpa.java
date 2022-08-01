@@ -170,6 +170,11 @@ public class ManagerJpa implements IManagerJpa {
         this.team = team;
     }
 
+    @Override
+    public void removeTeamMember(ManagerTeamJpaValueObject newTeamMember) {
+        this.team.remove(newTeamMember);
+    }
+
     public void addTeamMember(ManagerTeamJpaValueObject managerTeamJpaValueObject) {
         team.add(managerTeamJpaValueObject);
     }

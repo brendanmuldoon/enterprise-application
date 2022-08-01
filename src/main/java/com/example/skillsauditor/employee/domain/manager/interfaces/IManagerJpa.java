@@ -46,4 +46,5 @@ public interface IManagerJpa {
 
     void setTeam(List<ManagerTeamJpaValueObject> team);
 
+    void removeTeamMember(ManagerTeamJpaValueObject newTeamMember);
 }

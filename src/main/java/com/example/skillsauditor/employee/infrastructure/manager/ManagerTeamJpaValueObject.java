@@ -22,7 +22,7 @@ public class ManagerTeamJpaValueObject {
     @GeneratedValue(strategy=GenerationType.IDENTITY, generator="team_sequence")
     private long id;
 
-    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "staff_id", referencedColumnName = "id")
     private StaffJpa staff;
 

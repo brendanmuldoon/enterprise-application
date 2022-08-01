@@ -25,11 +25,13 @@ public class Manager extends Employee { // Aggregate
         return team;
     }
 
-    public ManagerTeam addTeamMember(ManagerTeam teamMember) {
+    public void addTeamMember(ManagerTeam teamMember) {
         if(!team.contains(teamMember)) {
             this.team.add(teamMember);
+        } else {
+            throw new IllegalArgumentException("Team member already exists");
+
         }
-        return teamMember;
     }
 
     // remove team member

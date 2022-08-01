@@ -37,4 +37,9 @@ public class SkillRepository implements ISkillRepository {
     public void delete(SkillJpa skillJpa) {
         repository.delete(skillJpa);
     }
+
+    @Override
+    public Optional<SkillJpa> findByDescription(String description) {
+        return repository.findByDescription(description);
+    }
 }

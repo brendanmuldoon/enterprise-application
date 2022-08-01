@@ -5,16 +5,39 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="723722ef-17ba-48ff-b88c-f3a11fb16bf0" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/skill/application/skill/events/DeleteSkillDomainEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/skill/application/skill/events/EditSkillDomainEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/skill/application/skill/events/NewSkillAddedDomainEvent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/application/manager/ManagerApplicationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/application/manager/ManagerApplicationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/application/manager/interfaces/IManagerToManagerJpaMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/application/manager/interfaces/IManagerToManagerJpaMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/application/staff/interfaces/IStaffRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/application/staff/interfaces/IStaffRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/domain/common/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/domain/common/Entity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/domain/manager/Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/domain/manager/Manager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/domain/manager/ManagerJpaToManagerMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/domain/manager/ManagerJpaToManagerMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/domain/manager/ManagerToManagerJpaMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/domain/manager/ManagerToManagerJpaMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/domain/manager/interfaces/IManagerJpa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/domain/manager/interfaces/IManagerJpa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/infrastructure/manager/ManagerJpa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/infrastructure/manager/ManagerJpa.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/infrastructure/manager/ManagerTeamJpaValueObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/infrastructure/manager/ManagerTeamJpaValueObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/infrastructure/staff/CrudStaffRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/infrastructure/staff/CrudStaffRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/infrastructure/staff/StaffJpa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/infrastructure/staff/StaffJpa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/infrastructure/staff/StaffRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/infrastructure/staff/StaffRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/ui/manager/IManagerApplicationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/ui/manager/IManagerApplicationService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/ui/manager/ManagerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/ui/manager/ManagerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/ui/staff/StaffController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/ui/staff/StaffController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/skill/application/skill/SkillApplicationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/skill/application/skill/SkillApplicationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/skill/application/skill/commands/CreateSkillCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/application/manager/commands/CreateSkillCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/skill/application/skill/commands/DeleteSkillCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/application/manager/commands/DeleteSkillCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/skill/application/skill/commands/EditSkillCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/application/manager/commands/EditSkillCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/skill/application/skill/interfaces/ISkillRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/skill/application/skill/interfaces/ISkillRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/skill/domain/common/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/skill/domain/common/Entity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/skill/domain/skill/Skill.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/skill/domain/skill/Skill.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/skill/domain/skill/interfaces/ICreateSkillCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/domain/manager/interfaces/ICreateSkillCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/skill/domain/skill/interfaces/IDeleteSkillCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/domain/manager/interfaces/IDeleteSkillCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/skill/domain/skill/interfaces/IEditSkillCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/domain/manager/interfaces/IEditSkillCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/skill/infrastructure/skill/CrudSkillRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/skill/infrastructure/skill/CrudSkillRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/skill/infrastructure/skill/SkillJpa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/skill/infrastructure/skill/SkillJpa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/skill/infrastructure/skill/SkillRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/skill/infrastructure/skill/SkillRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/skill/ui/skill/ISkillApplicationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/skill/ui/skill/ISkillApplicationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/skill/ui/skill/SkillController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/skillsauditor/skill/ui/skill/SkillController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -26,8 +49,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -90,11 +113,11 @@
       <recent name="C:\Users\612847413\OneDrive - BT Plc\Documents\Staffs Uni Work\Year 3\Enterprise Application Development\enterprise-application\src\main\java\com\example\skillsauditor\employee" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.example.skillsauditor.employee.domain.manager.interfaces" />
+      <recent name="com.example.skillsauditor.employee.application.manager.commands" />
       <recent name="com.example.skillsauditor.skill.infrastructure.skill" />
       <recent name="com.example.skillsauditor.skill.application.category" />
       <recent name="com.example.skillsauditor.skill.application.category.interfaces" />
-      <recent name="com.example.skillsauditor.employee.domain.manager.interfaces" />
-      <recent name="com.example.skillsauditor.employee.application.staff.commands" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.example.skillsauditor.skill.domain.common" />
@@ -146,7 +169,8 @@
       <workItem from="1658825902638" duration="14063000" />
       <workItem from="1658916248154" duration="8477000" />
       <workItem from="1658931569464" duration="10557000" />
-      <workItem from="1659012403527" duration="3281000" />
+      <workItem from="1659012403527" duration="6506000" />
+      <workItem from="1659083440087" duration="21326000" />
     </task>
     <servers />
   </component>
@@ -197,31 +221,6 @@
           <option name="timeStamp" value="94" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/skillsauditor/skill/domain/skill/SkillToSkillJpaMapper.java</url>
-          <line>15</line>
-          <option name="timeStamp" value="127" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/skillsauditor/skill/domain/skill/SkillToSkillJpaMapper.java</url>
-          <line>16</line>
-          <option name="timeStamp" value="128" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/skillsauditor/skill/domain/skill/SkillToSkillJpaMapper.java</url>
-          <line>17</line>
-          <option name="timeStamp" value="129" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/skillsauditor/skill/domain/skill/SkillToSkillJpaMapper.java</url>
-          <line>18</line>
-          <option name="timeStamp" value="130" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/skillsauditor/skill/domain/common/Entity.java</url>
-          <line>10</line>
-          <option name="timeStamp" value="154" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/example/skillsauditor/skill/domain/skill/Category.java</url>
           <line>14</line>
           <option name="timeStamp" value="155" />
@@ -230,11 +229,6 @@
           <url>file://$PROJECT_DIR$/src/main/java/com/example/skillsauditor/skill/domain/skill/Category.java</url>
           <line>15</line>
           <option name="timeStamp" value="156" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/skillsauditor/skill/domain/skill/SkillToSkillJpaMapper.java</url>
-          <line>13</line>
-          <option name="timeStamp" value="157" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/example/skillsauditor/skill/infrastructure/skill/SkillJpa.java</url>
@@ -275,21 +269,6 @@
           <url>file://$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/application/manager/ManagerQueryHandler.java</url>
           <line>41</line>
           <option name="timeStamp" value="216" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/domain/manager/Manager.java</url>
-          <line>28</line>
-          <option name="timeStamp" value="252" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/domain/manager/Manager.java</url>
-          <line>29</line>
-          <option name="timeStamp" value="253" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/skillsauditor/employee/domain/manager/Manager.java</url>
-          <line>31</line>
-          <option name="timeStamp" value="254" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

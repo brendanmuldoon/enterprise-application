@@ -1,7 +1,6 @@
-package com.example.skillsauditor.skill.application.skill.commands;
+package com.example.skillsauditor.employee.application.manager.commands;
 
-import com.example.skillsauditor.skill.domain.skill.Category;
-import com.example.skillsauditor.skill.domain.skill.interfaces.ICreateSkillCommand;
+import com.example.skillsauditor.employee.domain.manager.interfaces.ICreateSkillCommand;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
