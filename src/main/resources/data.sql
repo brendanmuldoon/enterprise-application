@@ -29,6 +29,7 @@ create sequence team_sequence_id start with (select max(id) + 1 from manager_tea
 INSERT INTO category(id, description)
 VALUES ('fe1cc8aa-0c08-11ed-861d-0242ac120002', 'Programming'),
        ('0eff9eb8-0c09-11ed-861d-0242ac120002', 'Version Control'),
+       ('721428a6-136c-11ed-861d-0242ac120002', 'SCRUM'),
        ('1b1cc3c4-0c09-11ed-861d-0242ac120002', 'Testing');
 -- create sequence category_sequence_id start with (select max(id) + 1 from category);
 

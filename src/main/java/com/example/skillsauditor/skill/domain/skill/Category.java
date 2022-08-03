@@ -26,27 +26,14 @@ public class Category extends Entity {
         return new Category(id, description);
     }
 
-    public Category(Identity id, String description, String task) {
-        super(id);
-        if(task.equalsIgnoreCase("EDIT")) {
-            setDescription(description);
-            this.addDomainEvent(new EditCategoryDomainEvent(this, id.id(), description));
-        } else {
-            this.addDomainEvent(new DeleteCategoryDomainEvent(this, id.id()));
-        }
-    }
-
-    public static Category ModifyCategoryOf(Identity identity, String description) {
-        return new Category(identity, description);
-    }
-
-    public static Category DeleteCategoryOf(Identity identity) {
-        return new Category(identity);
-    }
 
     public Category(Identity id) {
         super(id);
         this.addDomainEvent(new DeleteCategoryDomainEvent(this, id.id()));
+    }
+
+    public static Category delete(Identity identity) {
+        return new Category(identity);
     }
 
 

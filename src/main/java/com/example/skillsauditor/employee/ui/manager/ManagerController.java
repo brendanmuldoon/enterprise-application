@@ -107,9 +107,9 @@ public class ManagerController {
         applicationService.editCategory(editCategoryCommand);
     }
 
-    // remove category
+    // delete category
     @DeleteMapping("/deleteCategory")
-    public void deleteCategory(@RequestBody DeleteCategoryCommand deleteCategoryCommand) throws URISyntaxException {
+    public void deleteCategory(@RequestBody DeleteCategoryCommand deleteCategoryCommand) {
         applicationService.deleteCategory(deleteCategoryCommand);
     }
 

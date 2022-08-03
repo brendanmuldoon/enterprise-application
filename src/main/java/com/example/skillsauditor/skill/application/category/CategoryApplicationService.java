@@ -6,7 +6,6 @@ import com.example.skillsauditor.skill.application.category.events.SkillEditCate
 import com.example.skillsauditor.skill.application.category.interfaces.ICategoryRepository;
 import com.example.skillsauditor.skill.application.category.interfaces.ICategoryToCategoryJpaMapper;
 import com.example.skillsauditor.skill.application.skill.events.DeleteCategoryDomainEvent;
-import com.example.skillsauditor.skill.application.skill.events.EditCategoryDomainEvent;
 import com.example.skillsauditor.skill.domain.skill.Category;
 import com.example.skillsauditor.skill.infrastructure.skill.CategoryJpaValueObject;
 import com.example.skillsauditor.skill.ui.skill.ICategoryApplicationService;

@@ -1,6 +1,6 @@
 package com.example.skillsauditor.employee.application.manager.commands;
 
-import com.example.skillsauditor.skill.domain.skill.interfaces.IDeleteCategoryCommand;
+import com.example.skillsauditor.employee.domain.manager.interfaces.IDeleteCategoryCommand;
 import lombok.Getter;
 import lombok.Setter;
 
