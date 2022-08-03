@@ -4,7 +4,7 @@ import com.example.skillsauditor.employee.application.manager.commands.*;
 import com.example.skillsauditor.employee.domain.manager.interfaces.IUpdateManagerTeamCommand;
 import com.example.skillsauditor.employee.domain.manager.interfaces.ICreateCategoryCommand;
 import com.example.skillsauditor.skill.domain.skill.interfaces.IDeleteCategoryCommand;
-import com.example.skillsauditor.skill.domain.skill.interfaces.IEditCategoryCommand;
+import com.example.skillsauditor.employee.domain.manager.interfaces.IEditCategoryCommand;
 
 import java.net.URISyntaxException;
 

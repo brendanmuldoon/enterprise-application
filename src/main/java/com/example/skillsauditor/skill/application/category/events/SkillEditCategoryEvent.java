@@ -1,4 +1,4 @@
-package com.example.skillsauditor.employee.application.manager.events;
+package com.example.skillsauditor.skill.application.category.events;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -7,7 +7,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class EmployeeCreateCategoryEvent{
+public class SkillEditCategoryEvent {
 
     private String id;
     private String description;

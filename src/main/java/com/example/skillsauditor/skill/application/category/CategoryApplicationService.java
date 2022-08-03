@@ -2,11 +2,11 @@ package com.example.skillsauditor.skill.application.category;
 
 import com.example.skillsauditor.employee.domain.common.Identity;
 import com.example.skillsauditor.skill.application.category.events.SkillCreateCategoryEvent;
+import com.example.skillsauditor.skill.application.category.events.SkillEditCategoryEvent;
 import com.example.skillsauditor.skill.application.category.interfaces.ICategoryRepository;
 import com.example.skillsauditor.skill.application.category.interfaces.ICategoryToCategoryJpaMapper;
 import com.example.skillsauditor.skill.application.skill.events.DeleteCategoryDomainEvent;
 import com.example.skillsauditor.skill.application.skill.events.EditCategoryDomainEvent;
-import com.example.skillsauditor.skill.application.skill.events.NewCategoryAddedDomainEvent;
 import com.example.skillsauditor.skill.domain.skill.Category;
 import com.example.skillsauditor.skill.infrastructure.skill.CategoryJpaValueObject;
 import com.example.skillsauditor.skill.ui.skill.ICategoryApplicationService;
@@ -23,7 +23,6 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.event.TransactionPhase;
 import org.springframework.transaction.event.TransactionalEventListener;
 
-import javax.jms.JMSException;
 import javax.jms.Message;
 import javax.jms.TextMessage;
 import java.util.Optional;
@@ -44,10 +43,10 @@ public class CategoryApplicationService implements ICategoryApplicationService {
     private ObjectMapper objectMapper;
 
 
-    @JmsListener(destination = "DEV.QUEUE.1")
+    @JmsListener(destination = "CATEGORY.CREATE.QUEUE")
     public void createNewCategoryListener(Message message) {
 
-        LOG.info("Received message from DEV.QUEUE.1");
+        LOG.info("Received message from CATEGORY.CREATE.QUEUE");
 
         try {
 
@@ -79,34 +78,55 @@ public class CategoryApplicationService implements ICategoryApplicationService {
 
         } catch (Exception e) {
 
-            System.out.println(e.getMessage());
+            LOG.error(e.getMessage());
 
         }
 
     }
 
-    @TransactionalEventListener(phase = TransactionPhase.AFTER_COMMIT)//default phase
-    @Transactional(propagation = Propagation.REQUIRES_NEW)//creates new transaction
-    public void handleEditCategory(EditCategoryDomainEvent event) {
-        Optional<CategoryJpaValueObject> categoryJpa = categoryRepository.findById(event.getId());
+    @JmsListener(destination = "CATEGORY.EDIT.QUEUE")
+    public void editCategoryListener(Message message) {
 
-        if (categoryJpa.isPresent()) {
+        LOG.info("Received message from CATEGORY.EDIT.QUEUE");
 
-            Identity identity = new Identity(event.getId());
+        try {
 
-            Category category = Category.categoryOf(identity, event.getDescription());
-            categoryRepository.save(categoryToCategoryJpaMapper.map(category));
-            LOG.info("Category updated");
+            if (message instanceof TextMessage) {
+
+                String messageBody = ((TextMessage) message).getText();
+
+                SkillEditCategoryEvent event = objectMapper.readValue(messageBody, SkillEditCategoryEvent.class);
+
+                Optional<CategoryJpaValueObject> categoryJpa = categoryRepository.findById(event.getId());
+
+                if (categoryJpa.isEmpty()) {
+
+                    LOG.info("Category does not exist");
+
+                }
+
+                else {
+
+                    Identity identity = new Identity(event.getId());
+
+                    Category category = Category.categoryOf(identity, event.getDescription());
+                    categoryRepository.save(categoryToCategoryJpaMapper.map(category));
+                    LOG.info("Category added updated");
+
+                }
+
+            }
+
+        } catch (Exception e) {
+
+            LOG.error(e.getMessage());
 
         }
-
-        else {
-
-            LOG.info("Category doesn't exist");
-
-        }
-
+        
     }
+
+
+
 
     @TransactionalEventListener(phase = TransactionPhase.AFTER_COMMIT)//default phase
     @Transactional(propagation = Propagation.REQUIRES_NEW)//creates new transaction

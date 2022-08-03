@@ -7,8 +7,9 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class EmployeeCreateCategoryEvent{
+public class EmployeeEditCategoryEvent {
 
     private String id;
     private String description;
+
 }

@@ -2,6 +2,7 @@ package com.example.skillsauditor.employee.application.manager;
 
 import com.example.skillsauditor.employee.application.manager.commands.*;
 import com.example.skillsauditor.employee.application.manager.events.EmployeeCreateCategoryEvent;
+import com.example.skillsauditor.employee.application.manager.events.EmployeeEditCategoryEvent;
 import com.example.skillsauditor.employee.application.manager.interfaces.IManagerJpaToManagerMapper;
 import com.example.skillsauditor.employee.application.manager.interfaces.IManagerRepository;
 import com.example.skillsauditor.employee.application.manager.interfaces.IManagerToManagerJpaMapper;
@@ -18,7 +19,7 @@ import com.example.skillsauditor.skill.domain.common.UniqueIDFactory;
 import com.example.skillsauditor.skill.domain.skill.Skill;
 import com.example.skillsauditor.employee.domain.manager.interfaces.ICreateCategoryCommand;
 import com.example.skillsauditor.skill.domain.skill.interfaces.IDeleteCategoryCommand;
-import com.example.skillsauditor.skill.domain.skill.interfaces.IEditCategoryCommand;
+import com.example.skillsauditor.employee.domain.manager.interfaces.IEditCategoryCommand;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.AllArgsConstructor;
@@ -51,6 +52,8 @@ public class ManagerApplicationService implements IManagerApplicationService {
     private ApplicationEventPublisher eventPublisher;
 
     private JmsTemplate jmsTemplate;
+
+    private ObjectMapper objectMapper;
 
 
 
@@ -163,31 +166,32 @@ public class ManagerApplicationService implements IManagerApplicationService {
         event.setId(identity.id());
         event.setDescription(createCategoryCommand.getDescription());
 
-        ObjectMapper objectMapper = new ObjectMapper();
-
         try {
             String eventToJson = objectMapper.writeValueAsString(event);
 
-            jmsTemplate.convertAndSend("DEV.QUEUE.1", eventToJson);
+            jmsTemplate.convertAndSend("CATEGORY.CREATE.QUEUE", eventToJson);
 
         } catch (JsonProcessingException ex) {
-            // do something
+            LOG.error(ex.getMessage());
         }
-
-
-
-
 
     }
 
     @Override
     public void editCategory(IEditCategoryCommand editCategoryCommand) {
 
-//        Identity identity = new Identity(editCategoryCommand.getId());
-//
-//        Category category = Category.ModifyCategoryOf(identity, editCategoryCommand.getDescription(), "EDIT");
-//
-//        manageDomainEvents(category.getListOfEvents());
+        EmployeeEditCategoryEvent event = new EmployeeEditCategoryEvent();
+        event.setId(editCategoryCommand.getId());
+        event.setDescription(editCategoryCommand.getDescription());
+
+        try {
+            String eventToJson = objectMapper.writeValueAsString(event);
+
+            jmsTemplate.convertAndSend("CATEGORY.EDIT.QUEUE", eventToJson);
+
+        } catch (JsonProcessingException ex) {
+            LOG.error(ex.getMessage());
+        }
 
     }
 
