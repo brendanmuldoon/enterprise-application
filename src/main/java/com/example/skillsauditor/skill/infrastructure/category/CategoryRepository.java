@@ -27,4 +27,9 @@ public class CategoryRepository implements ICategoryRepository {
     public Optional<CategoryJpaValueObject> findByDescription(String description) {
         return repository.findByDescription(description);
     }
+
+    @Override
+    public void delete(CategoryJpaValueObject categoryJpa) {
+        repository.delete(categoryJpa);
+    }
 }

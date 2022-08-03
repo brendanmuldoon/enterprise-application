@@ -1,9 +1,7 @@
 package com.example.skillsauditor.employee.application.manager;
 
-import com.example.skillsauditor.employee.application.manager.commands.CreateCategoryCommand;
-import com.example.skillsauditor.employee.application.manager.commands.CreateSkillCommand;
-import com.example.skillsauditor.employee.application.manager.commands.DeleteSkillCommand;
-import com.example.skillsauditor.employee.application.manager.commands.EditSkillCommand;
+import com.example.skillsauditor.employee.application.manager.commands.*;
+import com.example.skillsauditor.employee.application.manager.events.EmployeeCreateCategoryEvent;
 import com.example.skillsauditor.employee.application.manager.interfaces.IManagerJpaToManagerMapper;
 import com.example.skillsauditor.employee.application.manager.interfaces.IManagerRepository;
 import com.example.skillsauditor.employee.application.manager.interfaces.IManagerToManagerJpaMapper;
@@ -17,13 +15,18 @@ import com.example.skillsauditor.employee.infrastructure.manager.ManagerTeamJpaV
 import com.example.skillsauditor.employee.infrastructure.staff.StaffJpa;
 import com.example.skillsauditor.employee.ui.manager.IManagerApplicationService;
 import com.example.skillsauditor.skill.domain.common.UniqueIDFactory;
-import com.example.skillsauditor.skill.domain.skill.Category;
 import com.example.skillsauditor.skill.domain.skill.Skill;
+import com.example.skillsauditor.employee.domain.manager.interfaces.ICreateCategoryCommand;
+import com.example.skillsauditor.skill.domain.skill.interfaces.IDeleteCategoryCommand;
+import com.example.skillsauditor.skill.domain.skill.interfaces.IEditCategoryCommand;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationEvent;
 import org.springframework.context.ApplicationEventPublisher;
+import org.springframework.jms.core.JmsTemplate;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -46,6 +49,9 @@ public class ManagerApplicationService implements IManagerApplicationService {
     private final Logger LOG = LoggerFactory.getLogger(getClass());
 
     private ApplicationEventPublisher eventPublisher;
+
+    private JmsTemplate jmsTemplate;
+
 
 
     private void manageDomainEvents(List<ApplicationEvent> events) {
@@ -149,14 +155,73 @@ public class ManagerApplicationService implements IManagerApplicationService {
     }
 
     @Override
-    public void createCategory(CreateCategoryCommand createCategoryCommand) {
+    public void createCategory(ICreateCategoryCommand createCategoryCommand) {
 
         Identity identity = UniqueIDFactory.createID();
 
-        Category category = Category.categoryOf(identity, createCategoryCommand.getDescription());
+        EmployeeCreateCategoryEvent event = new EmployeeCreateCategoryEvent();
+        event.setId(identity.id());
+        event.setDescription(createCategoryCommand.getDescription());
 
-        manageDomainEvents(category.getListOfEvents());
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        try {
+            String eventToJson = objectMapper.writeValueAsString(event);
+
+            jmsTemplate.convertAndSend("DEV.QUEUE.1", eventToJson);
+
+        } catch (JsonProcessingException ex) {
+            // do something
+        }
+
+
+
+
 
     }
+
+    @Override
+    public void editCategory(IEditCategoryCommand editCategoryCommand) {
+
+//        Identity identity = new Identity(editCategoryCommand.getId());
+//
+//        Category category = Category.ModifyCategoryOf(identity, editCategoryCommand.getDescription(), "EDIT");
+//
+//        manageDomainEvents(category.getListOfEvents());
+
+    }
+
+    @Override
+    public void deleteCategory(IDeleteCategoryCommand editCategoryCommand) {
+
+//        Identity identity = new Identity(editCategoryCommand.getId());
+//
+//        String URL = String.format("http://localhost:8080/skill/findAllSkillsByCategory/%s", editCategoryCommand.getId());
+//
+//        URI uri = new URI(URL);
+//
+//        RestTemplate restTemplate = new RestTemplate();
+//
+//        SkillDTO[] skillsByCategory = restTemplate.getForObject(uri, SkillDTO[].class);
+//
+//        if(skillsByCategory.length>0) {
+//
+//            LOG.info("Cannot delete. Category in use by '"+skillsByCategory.length+"' skills");
+//
+//        } else {
+//
+//            Category category = Category.DeleteCategoryOf(identity);
+//
+//            manageDomainEvents(category.getListOfEvents());
+//
+//        }
+
+        String destination = "";
+
+
+
+
+    }
+
 
 }

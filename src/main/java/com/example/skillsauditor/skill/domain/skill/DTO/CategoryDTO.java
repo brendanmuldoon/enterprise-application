@@ -14,6 +14,8 @@ public class CategoryDTO {
     private String id;
     private String description;
 
+    public CategoryDTO(){}
+
     public CategoryDTO(String id, String description) {
         this.id = id;
         this.description = description;

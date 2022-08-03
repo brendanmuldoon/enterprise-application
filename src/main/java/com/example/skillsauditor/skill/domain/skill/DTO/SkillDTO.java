@@ -15,6 +15,8 @@ public class SkillDTO {
     private String description;
     private CategoryDTO category;
 
+    public SkillDTO(){}
+
     public SkillDTO(String id,
                     String description,
                     CategoryDTO category) {

@@ -1,25 +1,36 @@
 package com.example.skillsauditor.skill.application.category;
 
 import com.example.skillsauditor.employee.domain.common.Identity;
+import com.example.skillsauditor.skill.application.category.events.SkillCreateCategoryEvent;
 import com.example.skillsauditor.skill.application.category.interfaces.ICategoryRepository;
 import com.example.skillsauditor.skill.application.category.interfaces.ICategoryToCategoryJpaMapper;
+import com.example.skillsauditor.skill.application.skill.events.DeleteCategoryDomainEvent;
+import com.example.skillsauditor.skill.application.skill.events.EditCategoryDomainEvent;
 import com.example.skillsauditor.skill.application.skill.events.NewCategoryAddedDomainEvent;
 import com.example.skillsauditor.skill.domain.skill.Category;
 import com.example.skillsauditor.skill.infrastructure.skill.CategoryJpaValueObject;
 import com.example.skillsauditor.skill.ui.skill.ICategoryApplicationService;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.jms.annotation.EnableJms;
+import org.springframework.jms.annotation.JmsListener;
+import org.springframework.jms.core.JmsTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.event.TransactionPhase;
 import org.springframework.transaction.event.TransactionalEventListener;
 
+import javax.jms.JMSException;
+import javax.jms.Message;
+import javax.jms.TextMessage;
 import java.util.Optional;
 
 @AllArgsConstructor
 @Service
+@EnableJms
 public class CategoryApplicationService implements ICategoryApplicationService {
 
     private ICategoryRepository categoryRepository;
@@ -28,27 +39,92 @@ public class CategoryApplicationService implements ICategoryApplicationService {
 
     private final Logger LOG = LoggerFactory.getLogger(getClass());
 
+    private JmsTemplate jmsTemplate;
 
-    @TransactionalEventListener(phase = TransactionPhase.AFTER_COMMIT)//default phase
-    @Transactional(propagation = Propagation.REQUIRES_NEW)//creates new transaction
-    public void handleCreateNewCategorySkill(NewCategoryAddedDomainEvent event) {
-        Optional<CategoryJpaValueObject> categoryJpa = categoryRepository.findByDescription(event.getDescription());
+    private ObjectMapper objectMapper;
 
-        if (categoryJpa.isPresent()) {
 
-            LOG.info("Category already exists");
+    @JmsListener(destination = "DEV.QUEUE.1")
+    public void createNewCategoryListener(Message message) {
+
+        LOG.info("Received message from DEV.QUEUE.1");
+
+        try {
+
+            if (message instanceof TextMessage) {
+
+                String messageBody = ((TextMessage) message).getText();
+
+                SkillCreateCategoryEvent event = objectMapper.readValue(messageBody, SkillCreateCategoryEvent.class);
+
+                Optional<CategoryJpaValueObject> categoryJpa = categoryRepository.findByDescription(event.getDescription());
+
+                if (categoryJpa.isPresent()) {
+
+                    LOG.info("Category already exists");
+
+                }
+
+                else {
+
+                    Identity identity = new Identity(event.getId());
+
+                    Category category = Category.categoryOf(identity, event.getDescription());
+                    categoryRepository.save(categoryToCategoryJpaMapper.map(category));
+                    LOG.info("New Category added");
+
+                }
+
+            }
+
+        } catch (Exception e) {
+
+            System.out.println(e.getMessage());
 
         }
 
-        else {
+    }
+
+    @TransactionalEventListener(phase = TransactionPhase.AFTER_COMMIT)//default phase
+    @Transactional(propagation = Propagation.REQUIRES_NEW)//creates new transaction
+    public void handleEditCategory(EditCategoryDomainEvent event) {
+        Optional<CategoryJpaValueObject> categoryJpa = categoryRepository.findById(event.getId());
+
+        if (categoryJpa.isPresent()) {
 
             Identity identity = new Identity(event.getId());
 
             Category category = Category.categoryOf(identity, event.getDescription());
             categoryRepository.save(categoryToCategoryJpaMapper.map(category));
-            LOG.info("New Category added");
+            LOG.info("Category updated");
+
+        }
+
+        else {
+
+            LOG.info("Category doesn't exist");
 
         }
 
     }
+
+    @TransactionalEventListener(phase = TransactionPhase.AFTER_COMMIT)//default phase
+    @Transactional(propagation = Propagation.REQUIRES_NEW)//creates new transaction
+    public void handleDeleteCategory(DeleteCategoryDomainEvent event) {
+        Optional<CategoryJpaValueObject> categoryJpa = categoryRepository.findById(event.getId());
+
+        if (categoryJpa.isPresent()) {
+
+            categoryRepository.delete(categoryJpa.get());
+
+        }
+
+        else {
+
+            LOG.info("Category doesn't exist");
+
+        }
+
+    }
+
 }

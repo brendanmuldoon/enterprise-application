@@ -11,4 +11,6 @@ public interface ICategoryRepository {
     void save(CategoryJpaValueObject categoryJpaValueObject);
 
     Optional<CategoryJpaValueObject> findByDescription(String description);
+
+    void delete(CategoryJpaValueObject categoryJpa);
 }

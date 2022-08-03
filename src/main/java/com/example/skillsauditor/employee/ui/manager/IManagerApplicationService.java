@@ -1,10 +1,12 @@
 package com.example.skillsauditor.employee.ui.manager;
 
-import com.example.skillsauditor.employee.application.manager.commands.CreateCategoryCommand;
-import com.example.skillsauditor.employee.application.manager.commands.DeleteSkillCommand;
-import com.example.skillsauditor.employee.application.manager.commands.EditSkillCommand;
+import com.example.skillsauditor.employee.application.manager.commands.*;
 import com.example.skillsauditor.employee.domain.manager.interfaces.IUpdateManagerTeamCommand;
-import com.example.skillsauditor.employee.application.manager.commands.CreateSkillCommand;
+import com.example.skillsauditor.employee.domain.manager.interfaces.ICreateCategoryCommand;
+import com.example.skillsauditor.skill.domain.skill.interfaces.IDeleteCategoryCommand;
+import com.example.skillsauditor.skill.domain.skill.interfaces.IEditCategoryCommand;
+
+import java.net.URISyntaxException;
 
 public interface IManagerApplicationService {
     void addStaffToManagerTeam(IUpdateManagerTeamCommand updateManagerTeamCommand);
@@ -15,5 +17,9 @@ public interface IManagerApplicationService {
 
     void deleteSkill(DeleteSkillCommand deleteSkillCommand);
 
-    void createCategory(CreateCategoryCommand createSkillCommand);
+    void createCategory(ICreateCategoryCommand createSkillCommand);
+
+    void editCategory(IEditCategoryCommand editCategoryCommand);
+
+    void deleteCategory(IDeleteCategoryCommand deleteCategoryCommand) throws URISyntaxException;
 }

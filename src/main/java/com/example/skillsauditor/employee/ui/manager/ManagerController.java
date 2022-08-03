@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Optional;
 
@@ -99,7 +100,17 @@ public class ManagerController {
     public void createCategory(@RequestBody CreateCategoryCommand createSkillCommand) {
         applicationService.createCategory(createSkillCommand);
     }
+
     // edit category
+    @PutMapping("/editCategory")
+    public void editCategory(@RequestBody EditCategoryCommand editCategoryCommand) {
+        applicationService.editCategory(editCategoryCommand);
+    }
+
     // remove category
+    @DeleteMapping("/deleteCategory")
+    public void deleteCategory(@RequestBody DeleteCategoryCommand deleteCategoryCommand) throws URISyntaxException {
+        applicationService.deleteCategory(deleteCategoryCommand);
+    }
 
 }
