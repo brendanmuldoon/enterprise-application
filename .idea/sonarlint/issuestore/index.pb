@@ -145,10 +145,6 @@ Gsrc/main/java/com/example/skillsauditor/skill/domain/common/Entity.java,6\f\6f
 Wsrc/main/java/com/example/skillsauditor/skill/infrastructure/skill/SkillRepository.java,2\1\21a7d1b9941e74aad6cf9e969b387b0921852cf9
 ‹
 [src/main/java/com/example/skillsauditor/skill/infrastructure/skill/CrudSkillRepository.java,1\3\13f330e1dcab195d2cc4989c2582079ebc9b6c57
-…
-Usrc/main/java/com/example/skillsauditor/skill/domain/skill/SkillToSkillJpaMapper.java,c\7\c7fbe295606306ecfebda67304445131a50f84f7
-‘
-asrc/main/java/com/example/skillsauditor/employee/domain/manager/interfaces/IEditSkillCommand.java,f\6\f60f4dd41c741c07fe985db11d2204e66c24c4cb
 “
 csrc/main/java/com/example/skillsauditor/employee/application/manager/commands/EditSkillCommand.java,2\b\2b800635e727dd5dc7baf579ec1b66e8c42108f9
 Ž

@@ -9,9 +9,9 @@ public interface IManagerApplicationService {
 
     void createSkill(ICreateSkillCommand createSkillCommand);
 
-    void editSkill(EditSkillCommand editSkillCommand);
+    void editSkill(IEditSkillCommand editSkillCommand);
 
-    void deleteSkill(DeleteSkillCommand deleteSkillCommand);
+    void deleteSkill(IDeleteSkillCommand deleteSkillCommand);
 
     void createCategory(ICreateCategoryCommand createSkillCommand);
 

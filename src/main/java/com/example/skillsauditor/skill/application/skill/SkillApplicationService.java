@@ -57,35 +57,6 @@ public class SkillApplicationService implements ISkillApplicationService {
         }
     }
 
-    @TransactionalEventListener(phase = TransactionPhase.AFTER_COMMIT)//default phase
-    @Transactional(propagation = Propagation.REQUIRES_NEW)//creates new transaction
-    public void handleCreateNewSkill(NewSkillAddedDomainEvent event) {
-        Optional<SkillJpa> skillJpa = skillRepository.findByDescription(event.getDescription());
-        Optional<CategoryJpaValueObject> category = categoryRepository.findById(event.getCategoryId());
-        Skill skill;
-        if (skillJpa.isPresent()) {
-
-            LOG.info("Skill already exists");
-            skill = skillJpaToSkillMapper.map(skillJpa.get());
-        }
-
-        else {
-
-            Identity identity = new Identity(event.getAggregateID());
-
-            skill = Skill.skillOf(identity, event.getDescription(), event.getCategoryId());
-            skillRepository.save(skillToSkillJpaMapper.map(skill, category.get()));
-            LOG.info("New skill added");
-
-        }
-
-        if (category.isPresent()) {
-            skillRepository.save(skillToSkillJpaMapper.map(skill, category.get()));
-        }
-
-
-    }
-
     @JmsListener(destination = "SKILL.CREATE.QUEUE")
     public void createNewSkillListener(Message message) {
 
@@ -124,9 +95,6 @@ public class SkillApplicationService implements ISkillApplicationService {
 
                     }
 
-
-
-
                 }
 
             }
@@ -139,38 +107,51 @@ public class SkillApplicationService implements ISkillApplicationService {
 
     }
 
+    @JmsListener(destination = "SKILL.EDIT.QUEUE")
+    public void editSkillListener(Message message) {
 
-    @TransactionalEventListener(phase = TransactionPhase.AFTER_COMMIT)//default phase
-    @Transactional(propagation = Propagation.REQUIRES_NEW)//creates new transaction
-    public void handleEditSkill(EditSkillDomainEvent event) {
+        LOG.info("Received message from SKILL.EDIT.QUEUE");
 
-        Optional<SkillJpa> skillJpa = skillRepository.findById(event.getAggregateID());
+        try {
 
-        Skill skill;
+            if (message instanceof TextMessage) {
 
-        if(skillJpa.isEmpty()) {
+                String messageBody = ((TextMessage) message).getText();
 
-            LOG.info("Skill does not exist");
+                SkillEditSkillEvent event = objectMapper.readValue(messageBody, SkillEditSkillEvent.class);
 
-        }
+                Optional<SkillJpa> skillJpa = skillRepository.findById(event.getId());
 
-        else {
+                if (skillJpa.isEmpty()) {
 
-            skill = skillJpaToSkillMapper.map(skillJpa.get());
+                    LOG.info("Skill doest not exist");
 
-            skill.update(event.getDescription());
+                }
 
-            Optional<CategoryJpaValueObject> category = categoryRepository.findById(skill.category());
+                else {
 
-            skillRepository.save(skillToSkillJpaMapper.map(skill, category.get()));
+                    Skill skill = skillJpaToSkillMapper.map(skillJpa.get());
 
-            LOG.info("Skill updated");
+                    skill.update(event.getDescription());
+
+                    Optional<CategoryJpaValueObject> category = categoryRepository.findById(skill.category());
+
+                    skillRepository.save(skillToSkillJpaMapper.map(skill, category.get()));
+
+                    LOG.info("Skill successfully updated");
+
+                }
+
+            }
+
+        } catch (Exception e) {
+
+            LOG.error(e.getMessage());
 
         }
 
     }
-
-
+    
     @TransactionalEventListener(phase = TransactionPhase.AFTER_COMMIT)//default phase
     @Transactional(propagation = Propagation.REQUIRES_NEW)//creates new transaction
     public void handleDeleteSkill(DeleteSkillDomainEvent event) {

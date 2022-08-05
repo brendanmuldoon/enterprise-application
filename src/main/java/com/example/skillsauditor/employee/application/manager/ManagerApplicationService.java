@@ -1,10 +1,6 @@
 package com.example.skillsauditor.employee.application.manager;
 
-import com.example.skillsauditor.employee.application.manager.commands.*;
-import com.example.skillsauditor.employee.application.manager.events.EmployeeCreateCategoryEvent;
-import com.example.skillsauditor.employee.application.manager.events.EmployeeCreateSkillEvent;
-import com.example.skillsauditor.employee.application.manager.events.EmployeeDeleteCategoryEvent;
-import com.example.skillsauditor.employee.application.manager.events.EmployeeEditCategoryEvent;
+import com.example.skillsauditor.employee.application.manager.events.*;
 import com.example.skillsauditor.employee.application.manager.interfaces.IManagerJpaToManagerMapper;
 import com.example.skillsauditor.employee.application.manager.interfaces.IManagerRepository;
 import com.example.skillsauditor.employee.application.manager.interfaces.IManagerToManagerJpaMapper;
@@ -119,18 +115,25 @@ public class ManagerApplicationService implements IManagerApplicationService {
     }
 
     @Override
-    public void editSkill(EditSkillCommand editSkillCommand) {
+    public void editSkill(IEditSkillCommand editSkillCommand) {
 
-        Identity identity = new Identity(editSkillCommand.getSkillId());
+        EmployeeEditSkillEvent event = new EmployeeEditSkillEvent();
+        event.setId(editSkillCommand.getSkillId());
+        event.setDescription(editSkillCommand.getDescription());
 
-        Skill skill = Skill.updateOf(identity, editSkillCommand.getDescription());
+        try {
+            String eventToJson = objectMapper.writeValueAsString(event);
 
-        manageDomainEvents(skill.getListOfEvents());
+            jmsTemplate.convertAndSend("SKILL.EDIT.QUEUE", eventToJson);
+
+        } catch (JsonProcessingException ex) {
+            LOG.error(ex.getMessage());
+        }
 
     }
 
     @Override
-    public void deleteSkill(DeleteSkillCommand deleteSkillCommand) {
+    public void deleteSkill(IDeleteSkillCommand deleteSkillCommand) {
 
         Iterable<StaffJpa> staffWithSkills = staffRepository.findAll();
 
