@@ -1,6 +1,7 @@
 package com.example.skillsauditor.employee.ui.manager;
 
 import com.example.skillsauditor.employee.application.manager.commands.*;
+import com.example.skillsauditor.employee.application.manager.queries.EmployeeSkillDTOList;
 import com.example.skillsauditor.employee.application.manager.queries.GetTeamBySkillIdQuery;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -85,15 +86,15 @@ public class ManagerController {
     }
 
     // view all skills by category
-//    @GetMapping("/findAllSkillsByCategory/{category_id}")
-//    public List<?> getSkillsByCategoryId(@PathVariable(name = "category_id") String categoryId){
-//        List<?> response = queryHandler.findByCategoryId(categoryId);
-//        if(!response.isEmpty()) {
-//            return response;
-//        } else {
-//            throw new ResponseStatusException(HttpStatus.NOT_FOUND, String.format("Category id: '%s' not found", categoryId));
-//        }
-//    }
+    @GetMapping("/findAllSkillsByCategory/{category_id}")
+    public EmployeeSkillDTOList getSkillsByCategoryId(@PathVariable(name = "category_id") String categoryId){
+        EmployeeSkillDTOList response = queryHandler.findSkillsByCategory(categoryId);
+        if(!response.getSkills().isEmpty()) {
+            return response;
+        } else {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, String.format("Category id: '%s' not found", categoryId));
+        }
+    }
 
     // add category
     @PostMapping("/createCategory")

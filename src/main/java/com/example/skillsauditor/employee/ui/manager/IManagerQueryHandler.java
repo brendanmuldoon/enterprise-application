@@ -1,5 +1,6 @@
 package com.example.skillsauditor.employee.ui.manager;
 
+import com.example.skillsauditor.employee.application.manager.queries.EmployeeSkillDTOList;
 import com.example.skillsauditor.employee.domain.manager.DTO.ManagerDTO;
 import com.example.skillsauditor.employee.domain.manager.DTO.ManagerTeamDTO;
 import com.example.skillsauditor.employee.domain.manager.interfaces.IGetTeamBySkillIdQuery;
@@ -16,4 +17,5 @@ public interface IManagerQueryHandler {
 
     List<ManagerTeamDTO> findTeamBySkillId(IGetTeamBySkillIdQuery getTeamBySkillIdQuery);
 
+    EmployeeSkillDTOList findSkillsByCategory(String categoryId);
 }

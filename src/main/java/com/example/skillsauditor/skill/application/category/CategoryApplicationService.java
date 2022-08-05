@@ -15,7 +15,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.jms.annotation.EnableJms;
 import org.springframework.jms.annotation.JmsListener;
-import org.springframework.jms.core.JmsTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -36,8 +35,6 @@ public class CategoryApplicationService implements ICategoryApplicationService {
     private ICategoryToCategoryJpaMapper categoryToCategoryJpaMapper;
 
     private final Logger LOG = LoggerFactory.getLogger(getClass());
-
-    private JmsTemplate jmsTemplate;
 
     private ObjectMapper objectMapper;
 
@@ -69,7 +66,7 @@ public class CategoryApplicationService implements ICategoryApplicationService {
 
                     Category category = Category.categoryOf(identity, event.getDescription());
                     categoryRepository.save(categoryToCategoryJpaMapper.map(category));
-                    LOG.info("New Category added");
+                    LOG.info("New Category successfully added");
 
                 }
 
@@ -110,7 +107,7 @@ public class CategoryApplicationService implements ICategoryApplicationService {
 
                     Category category = Category.categoryOf(identity, event.getDescription());
                     categoryRepository.save(categoryToCategoryJpaMapper.map(category));
-                    LOG.info("Category added updated");
+                    LOG.info("Category successfully updated");
 
                 }
 
@@ -135,6 +132,8 @@ public class CategoryApplicationService implements ICategoryApplicationService {
         if (categoryJpa.isPresent()) {
 
             categoryRepository.delete(categoryJpa.get());
+
+            LOG.info("Category successfully deleted");
 
         }
 

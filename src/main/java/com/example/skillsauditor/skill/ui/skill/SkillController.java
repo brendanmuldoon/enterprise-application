@@ -3,6 +3,7 @@ package com.example.skillsauditor.skill.ui.skill;
 import com.example.skillsauditor.employee.application.manager.commands.CreateSkillCommand;
 import com.example.skillsauditor.employee.application.manager.commands.DeleteSkillCommand;
 import com.example.skillsauditor.employee.application.manager.commands.EditSkillCommand;
+import com.example.skillsauditor.skill.domain.skill.DTO.SkillDTOList;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -38,9 +39,9 @@ public class SkillController {
 
     // view all skills by category
     @GetMapping("/findAllSkillsByCategory/{category_id}")
-    public List<?> getSkillsByCategoryId(@PathVariable(name = "category_id") String categoryId){
-        List<?> response = queryHandler.findByCategoryId(categoryId);
-        if(!response.isEmpty()) {
+    public SkillDTOList getSkillsByCategoryId(@PathVariable(name = "category_id") String categoryId){
+        SkillDTOList response = queryHandler.findByCategoryId(categoryId);
+        if(!response.getSkills().isEmpty()) {
             return response;
         } else {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, String.format("Skill id: '%s' not found", categoryId));

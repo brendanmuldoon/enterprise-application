@@ -2,6 +2,7 @@ package com.example.skillsauditor.skill.application.skill.mappers;
 
 import com.example.skillsauditor.skill.domain.skill.DTO.CategoryDTO;
 import com.example.skillsauditor.skill.domain.skill.DTO.SkillDTO;
+import com.example.skillsauditor.skill.domain.skill.DTO.SkillDTOList;
 import com.example.skillsauditor.skill.infrastructure.skill.SkillJpa;
 
 import java.util.ArrayList;
@@ -24,8 +25,24 @@ public class SkillJpaToDTOMapper {
         return new SkillDTO(skillJpa.getId(), skillJpa.getDescription(), categoryDTO);
     }
 
-    public static List<SkillDTO> convertSkillListToDTO(List<SkillJpa> response, String categoryId) {
-        List<SkillDTO> skills = new ArrayList<>();
+//    public static List<SkillDTO> convertSkillListToDTO(List<SkillJpa> response, String categoryId) {
+////        List<SkillDTO> skills = new ArrayList<>();
+////
+////        for (SkillJpa s : response) {
+////            if(s.getCategory().getId().equals(categoryId)) {
+////                SkillDTO skill = new SkillDTO(s.getId(),
+////                        s.getDescription(),
+////                        new CategoryDTO(s.getCategory().getId(),
+////                                s.getCategory().getDescription()));
+////                skills.add(skill);
+////            }
+////        }
+////
+////        return skills;
+////    }
+
+    public static SkillDTOList convertSkillListToDTO(List<SkillJpa> response, String categoryId) {
+        SkillDTOList skills = new SkillDTOList();
 
         for (SkillJpa s : response) {
             if(s.getCategory().getId().equals(categoryId)) {
@@ -33,7 +50,7 @@ public class SkillJpaToDTOMapper {
                         s.getDescription(),
                         new CategoryDTO(s.getCategory().getId(),
                                 s.getCategory().getDescription()));
-                skills.add(skill);
+                skills.getSkills().add(skill);
             }
         }
 

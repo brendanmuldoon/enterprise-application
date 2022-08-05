@@ -2,6 +2,7 @@ package com.example.skillsauditor.employee.application.manager;
 
 import com.example.skillsauditor.employee.application.manager.interfaces.IManagerRepository;
 import com.example.skillsauditor.employee.application.manager.mappers.ManagerJpaToDTOMapper;
+import com.example.skillsauditor.employee.application.manager.queries.EmployeeSkillDTOList;
 import com.example.skillsauditor.employee.domain.manager.DTO.ManagerDTO;
 import com.example.skillsauditor.employee.domain.manager.DTO.ManagerTeamDTO;
 import com.example.skillsauditor.employee.domain.manager.interfaces.IGetTeamBySkillIdQuery;
@@ -13,6 +14,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationEvent;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -76,8 +78,33 @@ public class ManagerQueryHandler implements IManagerQueryHandler {
         return new ArrayList<>();
     }
 
+    @Override
+    public EmployeeSkillDTOList findSkillsByCategory(String categoryId) {
 
 
+        String URL = String.format("http://localhost:8080/skill/findAllSkillsByCategory/%s", categoryId); //Assuming the other context is running on 8901
+        RestTemplate restTemplate = new RestTemplate();
+        EmployeeSkillDTOList myRequiredData = new EmployeeSkillDTOList();
+
+        try {
+
+            myRequiredData = restTemplate.getForObject(URL, EmployeeSkillDTOList.class);
+
+            if(myRequiredData != null && !myRequiredData.getSkills().isEmpty()) {
+
+                return myRequiredData;
+
+            }
+
+
+        } catch (Exception e) {
+
+            LOG.error(e.getMessage());
+        }
+
+
+        return myRequiredData;
+    }
 
 
     // a method that is subscribed to the skill context and adds data to a var somewhere in here

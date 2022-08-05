@@ -3,6 +3,7 @@ package com.example.skillsauditor.skill.application.skill;
 import com.example.skillsauditor.skill.application.skill.interfaces.ISkillRepository;
 import com.example.skillsauditor.skill.application.skill.mappers.SkillJpaToDTOMapper;
 import com.example.skillsauditor.skill.domain.skill.DTO.SkillDTO;
+import com.example.skillsauditor.skill.domain.skill.DTO.SkillDTOList;
 import com.example.skillsauditor.skill.infrastructure.skill.SkillJpa;
 import com.example.skillsauditor.skill.ui.skill.ISkillQueryHandler;
 import lombok.AllArgsConstructor;
@@ -30,12 +31,14 @@ public class SkillQueryHandler implements ISkillQueryHandler {
     }
 
     @Override
-    public List<SkillDTO> findByCategoryId(String categoryId) {
+    public SkillDTOList findByCategoryId(String categoryId) {
         List<SkillJpa> response = skillRepository.findByCategoryId(categoryId);
+        SkillDTOList skillDTOList = new SkillDTOList();
         if(!response.isEmpty()) {
-            return SkillJpaToDTOMapper.convertSkillListToDTO(response, categoryId);
+            skillDTOList = SkillJpaToDTOMapper.convertSkillListToDTO(response, categoryId);
+            return skillDTOList;
         }
-        return new ArrayList<>();
+        return skillDTOList;
     }
 
     // add skill

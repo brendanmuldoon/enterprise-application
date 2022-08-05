@@ -1,6 +1,7 @@
 package com.example.skillsauditor.skill.ui.skill;
 
 import com.example.skillsauditor.skill.domain.skill.DTO.SkillDTO;
+import com.example.skillsauditor.skill.domain.skill.DTO.SkillDTOList;
 import com.example.skillsauditor.skill.infrastructure.skill.SkillJpa;
 
 import java.util.List;
@@ -12,5 +13,5 @@ public interface ISkillQueryHandler {
 
     Optional<SkillDTO> findBySkillId(String skillId);
 
-    List<SkillDTO> findByCategoryId(String categoryId);
+    SkillDTOList findByCategoryId(String categoryId);
 }
