@@ -17,14 +17,4 @@ public class EmployeeSkillDTO {
     private String description;
     private CategoryDTO category;
 
-    public EmployeeSkillDTO(){}
-
-    public EmployeeSkillDTO(String id,
-                    String description,
-                    CategoryDTO category) {
-        this.id = id;
-        this.description=description;
-        this.category=category;
-    }
-
 }

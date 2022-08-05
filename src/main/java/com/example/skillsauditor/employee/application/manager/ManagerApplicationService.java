@@ -195,7 +195,7 @@ public class ManagerApplicationService implements IManagerApplicationService {
         try {
             String eventToJon = objectMapper.writeValueAsString(event);
 
-            jmsTemplate.convertAndSend("CATEGORY.DELETE.QUEUE", eventToJon);
+            jmsTemplate.convertAndSend("SKILL.CATEGORY.DELETE.QUEUE", eventToJon);
         } catch (JsonProcessingException ex) {
             LOG.error(ex.getMessage());
         }

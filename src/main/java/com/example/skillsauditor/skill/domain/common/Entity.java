@@ -1,8 +1,6 @@
 package com.example.skillsauditor.skill.domain.common;
 
 
-import com.example.skillsauditor.employee.domain.common.AssertionConcern;
-import com.example.skillsauditor.employee.domain.common.Identity;
 import org.springframework.context.ApplicationEvent;
 
 import java.util.ArrayList;

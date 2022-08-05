@@ -1,6 +1,5 @@
 package com.example.skillsauditor.skill.application.skill.events;
 
-import com.example.skillsauditor.skill.domain.skill.Category;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;

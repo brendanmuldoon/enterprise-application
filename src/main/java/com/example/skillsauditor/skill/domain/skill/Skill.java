@@ -1,9 +1,7 @@
 package com.example.skillsauditor.skill.domain.skill;
 
-import com.example.skillsauditor.employee.domain.common.Entity;
-import com.example.skillsauditor.employee.domain.common.Identity;
-import com.example.skillsauditor.skill.application.skill.events.DeleteSkillDomainEvent;
-import com.example.skillsauditor.skill.application.skill.events.EditSkillDomainEvent;
+import com.example.skillsauditor.skill.domain.common.Entity;
+import com.example.skillsauditor.skill.domain.common.Identity;
 import com.example.skillsauditor.skill.application.skill.events.NewSkillAddedDomainEvent;
 import lombok.ToString;
 
@@ -22,26 +20,6 @@ public class Skill extends Entity { // Aggregate
 
     public static Skill skillOf(Identity newId, String description, String category) {
         return new Skill(newId, description, category);
-    }
-
-    public Skill(Identity id, String description) {
-        super(id);
-        setDescription(description);
-        this.addDomainEvent(new EditSkillDomainEvent(this, id.id(),description));
-    }
-
-    public static Skill updateOf(Identity id, String description) {
-        return new Skill(id, description);
-    }
-
-    public Skill(Identity id) {
-        super(id);
-        this.addDomainEvent(new DeleteSkillDomainEvent(this, id.id()));
-    }
-
-
-    public static Skill deleteOf(Identity identity) {
-        return new Skill(identity);
     }
 
 

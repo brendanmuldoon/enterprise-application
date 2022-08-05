@@ -1,6 +1,7 @@
 package com.example.skillsauditor.skill.application.category;
 
-import com.example.skillsauditor.employee.domain.common.Identity;
+import com.example.skillsauditor.skill.application.skill.events.SkillCategoryDeleteEvent;
+import com.example.skillsauditor.skill.domain.common.Identity;
 import com.example.skillsauditor.skill.application.category.events.SkillCreateCategoryEvent;
 import com.example.skillsauditor.skill.application.category.events.SkillEditCategoryEvent;
 import com.example.skillsauditor.skill.application.category.interfaces.ICategoryRepository;
@@ -121,26 +122,36 @@ public class CategoryApplicationService implements ICategoryApplicationService {
         
     }
 
+    @JmsListener(destination = "CATEGORY.DELETE.QUEUE")
+    public void handleDeleteCategory(Message message) {
 
+        try {
 
+            if (message instanceof TextMessage) {
 
-    @TransactionalEventListener(phase = TransactionPhase.AFTER_COMMIT)//default phase
-    @Transactional(propagation = Propagation.REQUIRES_NEW)//creates new transaction
-    public void handleDeleteCategory(DeleteCategoryDomainEvent event) {
-        Optional<CategoryJpaValueObject> categoryJpa = categoryRepository.findById(event.getId());
+                String messageBody = ((TextMessage) message).getText();
 
-        if (categoryJpa.isPresent()) {
+                SkillCategoryDeleteEvent event = objectMapper.readValue(messageBody, SkillCategoryDeleteEvent.class);
 
-            categoryRepository.delete(categoryJpa.get());
+                Optional<CategoryJpaValueObject> categoryJpa = categoryRepository.findById(event.getId());
 
-            LOG.info("Category successfully deleted");
+                if (categoryJpa.isPresent()) {
 
-        }
+                    categoryRepository.delete(categoryJpa.get());
 
-        else {
+                    LOG.info("Category successfully deleted");
 
-            LOG.info("Category doesn't exist");
+                }
 
+                else {
+
+                    LOG.info("Category doesn't exist");
+
+                }
+            }
+
+        } catch (Exception ex) {
+            LOG.error(ex.getMessage());
         }
 
     }

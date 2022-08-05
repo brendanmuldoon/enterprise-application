@@ -1,13 +1,14 @@
 package com.example.skillsauditor.skill.application.skill;
 
-import com.example.skillsauditor.employee.domain.common.Identity;
-import com.example.skillsauditor.skill.application.category.events.SkillCreateCategoryEvent;
+import com.example.skillsauditor.skill.domain.common.Identity;
 import com.example.skillsauditor.skill.application.category.interfaces.ICategoryRepository;
-import com.example.skillsauditor.skill.application.skill.events.*;
+import com.example.skillsauditor.skill.application.skill.events.SkillCategoryDeleteEvent;
+import com.example.skillsauditor.skill.application.skill.events.SkillCreateSkillEvent;
+import com.example.skillsauditor.skill.application.skill.events.SkillDeleteSkillEvent;
+import com.example.skillsauditor.skill.application.skill.events.SkillEditSkillEvent;
 import com.example.skillsauditor.skill.application.skill.interfaces.ISkillJpaToSkillMapper;
 import com.example.skillsauditor.skill.application.skill.interfaces.ISkillRepository;
 import com.example.skillsauditor.skill.application.skill.interfaces.ISkillToSkillJpaMapper;
-import com.example.skillsauditor.skill.domain.skill.Category;
 import com.example.skillsauditor.skill.domain.skill.Skill;
 import com.example.skillsauditor.skill.infrastructure.skill.CategoryJpaValueObject;
 import com.example.skillsauditor.skill.infrastructure.skill.SkillJpa;
@@ -22,10 +23,6 @@ import org.springframework.jms.annotation.EnableJms;
 import org.springframework.jms.annotation.JmsListener;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Propagation;
-import org.springframework.transaction.annotation.Transactional;
-import org.springframework.transaction.event.TransactionPhase;
-import org.springframework.transaction.event.TransactionalEventListener;
 
 import javax.jms.Message;
 import javax.jms.TextMessage;
@@ -191,10 +188,10 @@ public class SkillApplicationService implements ISkillApplicationService {
 
     }
 
-    @JmsListener(destination = "CATEGORY.DELETE.QUEUE")
+    @JmsListener(destination = "SKILL.CATEGORY.DELETE.QUEUE")
     public void handleDeleteCategoryEvent(Message message) {
 
-        LOG.info("Received message from CATEGORY.DELETE.QUEUE");
+        LOG.info("Received message from SKILL.CATEGORY.DELETE.QUEUE");
 
         try {
 
@@ -210,11 +207,9 @@ public class SkillApplicationService implements ISkillApplicationService {
 
                 } else {
 
-                    Identity identity = new Identity(event.getId());
+                    String eventToJon = objectMapper.writeValueAsString(event);
 
-                    Category category = Category.delete(identity);
-
-                    manageDomainEvents(category.getListOfEvents());
+                    jmsTemplate.convertAndSend("CATEGORY.DELETE.QUEUE", eventToJon);
 
                 }
 

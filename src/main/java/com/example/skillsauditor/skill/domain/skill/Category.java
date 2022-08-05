@@ -1,8 +1,7 @@
 package com.example.skillsauditor.skill.domain.skill;
 
-import com.example.skillsauditor.employee.domain.common.Identity;
+import com.example.skillsauditor.skill.domain.common.Identity;
 import com.example.skillsauditor.skill.application.skill.events.DeleteCategoryDomainEvent;
-import com.example.skillsauditor.skill.application.skill.events.EditCategoryDomainEvent;
 import com.example.skillsauditor.skill.application.skill.events.NewCategoryAddedDomainEvent;
 import com.example.skillsauditor.skill.domain.common.Entity;
 import lombok.Setter;

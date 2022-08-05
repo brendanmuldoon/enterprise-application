@@ -1,6 +1,6 @@
 package com.example.skillsauditor.skill.domain.skill;
 
-import com.example.skillsauditor.employee.domain.common.Identity;
+import com.example.skillsauditor.skill.domain.common.Identity;
 import com.example.skillsauditor.skill.application.skill.interfaces.ISkillJpaToSkillMapper;
 import com.example.skillsauditor.skill.infrastructure.skill.SkillJpa;
 import org.springframework.stereotype.Component;

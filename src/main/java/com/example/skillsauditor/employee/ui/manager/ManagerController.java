@@ -61,6 +61,10 @@ public class ManagerController {
     }
 
     // find all staff with expired skills -- can't do this until I set up a real DB
+    @GetMapping("/team/expiredSkills")
+    public void getAllStaffWithExpiredSkills() {
+        // do nothing for now
+    }
 
     // allocate staff to manager
     @PutMapping("/team/addToTeam")
