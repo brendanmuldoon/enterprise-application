@@ -13,8 +13,7 @@ import com.example.skillsauditor.employee.infrastructure.manager.ManagerJpa;
 import com.example.skillsauditor.employee.infrastructure.manager.ManagerTeamJpaValueObject;
 import com.example.skillsauditor.employee.infrastructure.staff.StaffJpa;
 import com.example.skillsauditor.employee.ui.manager.IManagerApplicationService;
-import com.example.skillsauditor.skill.domain.common.UniqueIDFactory;
-import com.example.skillsauditor.skill.domain.skill.Skill;
+import com.example.skillsauditor.employee.domain.common.UniqueIDFactory;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.AllArgsConstructor;
@@ -135,37 +134,17 @@ public class ManagerApplicationService implements IManagerApplicationService {
     @Override
     public void deleteSkill(IDeleteSkillCommand deleteSkillCommand) {
 
-        Iterable<StaffJpa> staffWithSkills = staffRepository.findAll();
+            EmployeeDeleteSkillEvent event = new EmployeeDeleteSkillEvent();
+            event.setId(deleteSkillCommand.getSkillId());
 
-        boolean inUse = false;
+            try {
+                String eventToJson = objectMapper.writeValueAsString(event);
 
-        if( staffWithSkills != null) {
-            for(StaffJpa staff : staffWithSkills) {
+                jmsTemplate.convertAndSend("EMPLOYEE.DELETE.SKILL.QUEUE", eventToJson);
 
-                if (staff.retrieveSkill(deleteSkillCommand.getSkillId()) != null) {
-
-                    inUse = true;
-
-                    break;
-
-                }
+            } catch (JsonProcessingException ex) {
+                LOG.error(ex.getMessage());
             }
-        }
-
-        if(inUse) {
-
-            LOG.info("Cannot delete, Skill is in use");
-        }
-
-        else {
-
-            Identity identity = new Identity(deleteSkillCommand.getSkillId());
-
-            Skill skill = Skill.deleteOf(identity);
-
-            manageDomainEvents(skill.getListOfEvents());
-
-        }
 
     }
 

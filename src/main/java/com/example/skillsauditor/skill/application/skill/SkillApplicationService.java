@@ -151,23 +151,41 @@ public class SkillApplicationService implements ISkillApplicationService {
         }
 
     }
-    
-    @TransactionalEventListener(phase = TransactionPhase.AFTER_COMMIT)//default phase
-    @Transactional(propagation = Propagation.REQUIRES_NEW)//creates new transaction
-    public void handleDeleteSkill(DeleteSkillDomainEvent event) {
-        Optional<SkillJpa> skillJpa = skillRepository.findById(event.getAggregateID());
 
-        if(skillJpa.isEmpty()) {
+    @JmsListener(destination = "SKILL.DELETE.QUEUE")
+    public void deleteSkillListener(Message message) {
 
-            LOG.info("Skill does not exist");
+        LOG.info("Received message from SKILL.DELETE.QUEUE");
 
-        }
+        try {
 
-        else {
+            if (message instanceof TextMessage) {
 
-            skillRepository.delete(skillJpa.get());
+                String messageBody = ((TextMessage) message).getText();
 
-            LOG.info("Skill deleted");
+                SkillDeleteSkillEvent event = objectMapper.readValue(messageBody, SkillDeleteSkillEvent.class);
+
+                Optional<SkillJpa> skillJpa = skillRepository.findById(event.getId());
+
+                if (skillJpa.isEmpty()) {
+
+                    LOG.info("Skill doest not exist");
+
+                }
+
+                else {
+
+                    skillRepository.delete(skillJpa.get());
+
+                    LOG.info("Skill deleted");
+
+                }
+
+            }
+
+        } catch (Exception e) {
+
+            LOG.error(e.getMessage());
 
         }
 
@@ -207,8 +225,5 @@ public class SkillApplicationService implements ISkillApplicationService {
         }
 
     }
-
-
-
 
 }

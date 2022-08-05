@@ -127,8 +127,6 @@ Esrc/main/java/com/example/skillsauditor/SkillsAuditorApplication.java,9\c\9c00
 Lsrc/main/java/com/example/skillsauditor/employee/domain/manager/Manager.java,c\e\ceeb9a46bedf24bd4c1626b806a4300ce067e8e9
 Ñ
 Tsrc/main/java/com/example/skillsauditor/employee/domain/common/AssertionConcern.java,6\1\617852d43d0ddfc309b1ca87efaa28593481cfaa
-x
-Hsrc/main/java/com/example/skillsauditor/employee/domain/staff/Staff.java,c\d\cde1e7ea6be3cea8dd0cacdb5eb586bfb4b5e02d
 Å
 Qsrc/main/java/com/example/skillsauditor/employee/ui/staff/IStaffQueryHandler.java,7\c\7c3a3801b9de7df985ff9d50afd4b0785750400f
 â
@@ -147,14 +145,6 @@ Wsrc/main/java/com/example/skillsauditor/skill/infrastructure/skill/SkillReposit
 [src/main/java/com/example/skillsauditor/skill/infrastructure/skill/CrudSkillRepository.java,1\3\13f330e1dcab195d2cc4989c2582079ebc9b6c57
 ì
 csrc/main/java/com/example/skillsauditor/employee/application/manager/commands/EditSkillCommand.java,2\b\2b800635e727dd5dc7baf579ec1b66e8c42108f9
-é
-^src/main/java/com/example/skillsauditor/employee/infrastructure/staff/CrudStaffRepository.java,4\1\4101ab4713d40fe916a03028700d8d05b76974bf
-ì
-csrc/main/java/com/example/skillsauditor/employee/application/staff/interfaces/IStaffRepository.java,b\6\b6e762c07b599805a9014c5ebaa0bc37ccb7c759
-ä
-Zsrc/main/java/com/example/skillsauditor/employee/infrastructure/staff/StaffRepository.java,9\7\97e7450bc2096e6a0b48b371b49f5cf7db80e513
-è
-_src/main/java/com/example/skillsauditor/employee/application/staff/StaffApplicationService.java,6\4\648e4f451bdb75e1eb1700f39dbfa07d4537b99b
 ì
 csrc/main/java/com/example/skillsauditor/employee/infrastructure/staff/StaffSkillJpaValueObject.java,f\b\fb0f0f0befd64827d5a10e2871ba3cf1cb57a09b
 É

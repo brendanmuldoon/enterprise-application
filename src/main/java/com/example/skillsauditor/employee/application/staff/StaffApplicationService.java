@@ -1,5 +1,6 @@
 package com.example.skillsauditor.employee.application.staff;
 
+import com.example.skillsauditor.employee.application.manager.events.EmployeeDeleteSkillEvent;
 import com.example.skillsauditor.employee.application.staff.interfaces.*;
 import com.example.skillsauditor.employee.domain.common.*;
 import com.example.skillsauditor.employee.domain.staff.Staff;
@@ -8,10 +9,18 @@ import com.example.skillsauditor.employee.domain.staff.StrengthOfSkill;
 import com.example.skillsauditor.employee.domain.staff.interfaces.*;
 import com.example.skillsauditor.employee.infrastructure.staff.StaffJpa;
 import com.example.skillsauditor.employee.ui.staff.IStaffApplicationService;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.AllArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.jms.annotation.JmsListener;
+import org.springframework.jms.core.JmsTemplate;
 import org.springframework.stereotype.Service;
 
+import javax.jms.Message;
+import javax.jms.TextMessage;
 import javax.transaction.Transactional;
+import java.lang.reflect.Member;
 import java.util.Optional;
 
 @AllArgsConstructor
@@ -22,6 +31,15 @@ public class StaffApplicationService implements IStaffApplicationService {
     private IStaffRepository staffRepository;
     private IStaffJpaToStaffMapper staffJpaToStaffMapper;
     private IStaffToStaffJpaMapper staffToStaffJpaMapper;
+
+    private final Logger LOG = LoggerFactory.getLogger(getClass());
+
+    private ObjectMapper objectMapper;
+
+    private JmsTemplate jmsTemplate;
+
+
+
 
     @Override
     public void removeStaffSkill(IRemoveStaffSkillCommand removeSkillCommand) {
@@ -102,5 +120,58 @@ public class StaffApplicationService implements IStaffApplicationService {
         SecurityCredentials securityCredentials = new SecurityCredentials(createStaffCommand.getUsername(), createStaffCommand.getPassword());
         Staff staff = Staff.staffOf(identity, fullName, address, role, securityCredentials);
         staffRepository.save(staffToStaffJpaMapper.map(staff));
+    }
+
+    @JmsListener(destination = "EMPLOYEE.DELETE.SKILL.QUEUE")
+    public void deleteSkillListener(Message message) {
+
+        LOG.info("Received message from EMPLOYEE.DELETE.SKILL.QUEUE");
+
+        try {
+
+            if(message instanceof TextMessage) {
+
+                String messageBody = ((TextMessage) message).getText();
+
+                EmployeeDeleteSkillEvent event = objectMapper.readValue(messageBody, EmployeeDeleteSkillEvent.class);
+
+                Iterable<StaffJpa> staffWithSkills = staffRepository.findAll();
+
+                Staff staff;
+
+                boolean inUse = false;
+
+                if( staffWithSkills != null) {
+                    for(StaffJpa s : staffWithSkills) {
+
+                        staff = staffJpaToStaffMapper.map(s);
+
+                        if (staff.retrieveSkillById(event.getId())) {
+
+                            inUse = true;
+
+                            break;
+
+                        }
+                    }
+                }
+
+                if(inUse) {
+
+                    LOG.info("Cannot delete, Skill is in use");
+
+                } else {
+
+                    String eventToJson = objectMapper.writeValueAsString(event);
+
+                    jmsTemplate.convertAndSend("SKILL.DELETE.QUEUE", eventToJson);
+
+                }
+
+            }
+
+        } catch (Exception ex) {
+            LOG.error(ex.getMessage());
+        }
     }
 }

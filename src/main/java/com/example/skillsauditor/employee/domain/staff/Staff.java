@@ -52,4 +52,12 @@ public class Staff extends Employee { // Aggregate
     }
 
 
+    public boolean retrieveSkillById(String id) {
+        for(StaffSkill s : skills) {
+            if(s.skillId().equals(id)) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
