@@ -2,6 +2,7 @@ package com.example.skillsauditor.employee.application.manager;
 
 import com.example.skillsauditor.employee.application.manager.commands.*;
 import com.example.skillsauditor.employee.application.manager.events.EmployeeCreateCategoryEvent;
+import com.example.skillsauditor.employee.application.manager.events.EmployeeCreateSkillEvent;
 import com.example.skillsauditor.employee.application.manager.events.EmployeeDeleteCategoryEvent;
 import com.example.skillsauditor.employee.application.manager.events.EmployeeEditCategoryEvent;
 import com.example.skillsauditor.employee.application.manager.interfaces.IManagerJpaToManagerMapper;
@@ -11,16 +12,13 @@ import com.example.skillsauditor.employee.application.staff.interfaces.IStaffRep
 import com.example.skillsauditor.employee.domain.common.Identity;
 import com.example.skillsauditor.employee.domain.manager.Manager;
 import com.example.skillsauditor.employee.domain.manager.ManagerTeam;
-import com.example.skillsauditor.employee.domain.manager.interfaces.IUpdateManagerTeamCommand;
+import com.example.skillsauditor.employee.domain.manager.interfaces.*;
 import com.example.skillsauditor.employee.infrastructure.manager.ManagerJpa;
 import com.example.skillsauditor.employee.infrastructure.manager.ManagerTeamJpaValueObject;
 import com.example.skillsauditor.employee.infrastructure.staff.StaffJpa;
 import com.example.skillsauditor.employee.ui.manager.IManagerApplicationService;
 import com.example.skillsauditor.skill.domain.common.UniqueIDFactory;
 import com.example.skillsauditor.skill.domain.skill.Skill;
-import com.example.skillsauditor.employee.domain.manager.interfaces.ICreateCategoryCommand;
-import com.example.skillsauditor.employee.domain.manager.interfaces.IDeleteCategoryCommand;
-import com.example.skillsauditor.employee.domain.manager.interfaces.IEditCategoryCommand;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.AllArgsConstructor;
@@ -100,13 +98,23 @@ public class ManagerApplicationService implements IManagerApplicationService {
     }
 
     @Override
-    public void createSkill(CreateSkillCommand createSkillCommand) {
+    public void createSkill(ICreateSkillCommand createSkillCommand) {
 
         Identity identity = UniqueIDFactory.createID();
 
-        Skill skill = Skill.skillOf(identity, createSkillCommand.getDescription(), createSkillCommand.getCategoryId());
+        EmployeeCreateSkillEvent event = new EmployeeCreateSkillEvent();
+        event.setId(identity.id());
+        event.setDescription(createSkillCommand.getDescription());
+        event.setCategory(createSkillCommand.getCategoryId());
 
-        manageDomainEvents(skill.getListOfEvents());
+        try {
+            String eventToJson = objectMapper.writeValueAsString(event);
+
+            jmsTemplate.convertAndSend("SKILL.CREATE.QUEUE", eventToJson);
+
+        } catch (JsonProcessingException ex) {
+            LOG.error(ex.getMessage());
+        }
 
     }
 

@@ -1,11 +1,9 @@
 package com.example.skillsauditor.skill.application.skill;
 
 import com.example.skillsauditor.employee.domain.common.Identity;
+import com.example.skillsauditor.skill.application.category.events.SkillCreateCategoryEvent;
 import com.example.skillsauditor.skill.application.category.interfaces.ICategoryRepository;
-import com.example.skillsauditor.skill.application.skill.events.DeleteSkillDomainEvent;
-import com.example.skillsauditor.skill.application.skill.events.EditSkillDomainEvent;
-import com.example.skillsauditor.skill.application.skill.events.NewSkillAddedDomainEvent;
-import com.example.skillsauditor.skill.application.skill.events.SkillCategoryDeleteEvent;
+import com.example.skillsauditor.skill.application.skill.events.*;
 import com.example.skillsauditor.skill.application.skill.interfaces.ISkillJpaToSkillMapper;
 import com.example.skillsauditor.skill.application.skill.interfaces.ISkillRepository;
 import com.example.skillsauditor.skill.application.skill.interfaces.ISkillToSkillJpaMapper;
@@ -85,6 +83,59 @@ public class SkillApplicationService implements ISkillApplicationService {
             skillRepository.save(skillToSkillJpaMapper.map(skill, category.get()));
         }
 
+
+    }
+
+    @JmsListener(destination = "SKILL.CREATE.QUEUE")
+    public void createNewSkillListener(Message message) {
+
+        LOG.info("Received message from SKILL.CREATE.QUEUE");
+
+        try {
+
+            if (message instanceof TextMessage) {
+
+                String messageBody = ((TextMessage) message).getText();
+
+                SkillCreateSkillEvent event = objectMapper.readValue(messageBody, SkillCreateSkillEvent.class);
+
+                Optional<SkillJpa> skillJpa = skillRepository.findByDescription(event.getDescription());
+
+                if (skillJpa.isPresent()) {
+
+                    LOG.info("Skill already exists");
+
+                }
+
+                else {
+
+                    Optional<CategoryJpaValueObject> category = categoryRepository.findById(event.getCategory());
+
+                    if ( category.isPresent()) {
+                        Identity identity = new Identity(event.getId());
+
+                        Skill skill = Skill.skillOf(identity, event.getDescription(), event.getId());
+                        skillRepository.save(skillToSkillJpaMapper.map(skill, category.get()));
+                        LOG.info("New Skill successfully added");
+
+                    } else {
+
+                        LOG.error("Invalid category");
+
+                    }
+
+
+
+
+                }
+
+            }
+
+        } catch (Exception e) {
+
+            LOG.error(e.getMessage());
+
+        }
 
     }
 

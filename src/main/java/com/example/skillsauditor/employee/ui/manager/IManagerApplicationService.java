@@ -1,17 +1,13 @@
 package com.example.skillsauditor.employee.ui.manager;
 
-import com.example.skillsauditor.employee.application.manager.commands.*;
-import com.example.skillsauditor.employee.domain.manager.interfaces.IUpdateManagerTeamCommand;
-import com.example.skillsauditor.employee.domain.manager.interfaces.ICreateCategoryCommand;
-import com.example.skillsauditor.employee.domain.manager.interfaces.IDeleteCategoryCommand;
-import com.example.skillsauditor.employee.domain.manager.interfaces.IEditCategoryCommand;
-
-import java.net.URISyntaxException;
+import com.example.skillsauditor.employee.application.manager.commands.DeleteSkillCommand;
+import com.example.skillsauditor.employee.application.manager.commands.EditSkillCommand;
+import com.example.skillsauditor.employee.domain.manager.interfaces.*;
 
 public interface IManagerApplicationService {
     void addStaffToManagerTeam(IUpdateManagerTeamCommand updateManagerTeamCommand);
 
-    void createSkill(CreateSkillCommand createSkillCommand);
+    void createSkill(ICreateSkillCommand createSkillCommand);
 
     void editSkill(EditSkillCommand editSkillCommand);
 

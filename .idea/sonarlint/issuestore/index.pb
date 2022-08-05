@@ -147,16 +147,10 @@ Wsrc/main/java/com/example/skillsauditor/skill/infrastructure/skill/SkillReposit
 [src/main/java/com/example/skillsauditor/skill/infrastructure/skill/CrudSkillRepository.java,1\3\13f330e1dcab195d2cc4989c2582079ebc9b6c57
 Ö
 Usrc/main/java/com/example/skillsauditor/skill/domain/skill/SkillToSkillJpaMapper.java,c\7\c7fbe295606306ecfebda67304445131a50f84f7
-ñ
-fsrc/main/java/com/example/skillsauditor/skill/application/skill/interfaces/ISkillToSkillJpaMapper.java,3\7\376978a7562b5c5945b8469b5d13d69fcc99928f
 ë
 asrc/main/java/com/example/skillsauditor/employee/domain/manager/interfaces/IEditSkillCommand.java,f\6\f60f4dd41c741c07fe985db11d2204e66c24c4cb
 ì
 csrc/main/java/com/example/skillsauditor/employee/application/manager/commands/EditSkillCommand.java,2\b\2b800635e727dd5dc7baf579ec1b66e8c42108f9
-ê
-`src/main/java/com/example/skillsauditor/skill/application/skill/events/EditSkillDomainEvent.java,9\2\926b87e78acf9fa563352fd0ccbee4ff49aa6fd2
-í
-bsrc/main/java/com/example/skillsauditor/skill/application/skill/events/DeleteSkillDomainEvent.java,6\a\6a38e24fd5d932cc98494718e64fdc08cb6156c4
 é
 ^src/main/java/com/example/skillsauditor/employee/infrastructure/staff/CrudStaffRepository.java,4\1\4101ab4713d40fe916a03028700d8d05b76974bf
 ì
@@ -193,14 +187,8 @@ Wsrc/main/java/com/example/skillsauditor/skill/ui/skill/ICategoryApplicationServ
 hsrc/main/java/com/example/skillsauditor/employee/application/manager/commands/CreateCategoryCommand.java,1\3\135803b8cbe27c0bedfd1b89d9bc39c535763270
 u
 Esrc/main/java/com/example/skillsauditor/skill/domain/skill/Skill.java,1\9\19ddd0f83d14572fad71aa5c4ba85821655979f2
-î
-dsrc/main/java/com/example/skillsauditor/skill/application/skill/events/NewSkillAddedDomainEvent.java,f\0\f0980e37d18ab4c6eab72064c9e1389f7cbe58bf
-ì
-csrc/main/java/com/example/skillsauditor/skill/application/skill/events/EditCategoryDomainEvent.java,8\d\8d2ea1237cdead0c4dc1fbe15e90ef0693ac6c2d
 ï
 esrc/main/java/com/example/skillsauditor/employee/application/manager/commands/DeleteSkillCommand.java,9\4\94003b0ca9320b8503f3305f073be8b2358be66a
-ï
-esrc/main/java/com/example/skillsauditor/skill/application/skill/events/DeleteCategoryDomainEvent.java,e\9\e9bac800bacc3f82962f07f0eb203ac67bbba727
 ç
 ]src/main/java/com/example/skillsauditor/skill/infrastructure/category/CategoryRepository.java,6\2\623187bfbf3c8605f2e4da80266793358788eb81
 ñ
@@ -219,8 +207,6 @@ hsrc/main/java/com/example/skillsauditor/employee/application/manager/commands/D
 Qsrc/main/java/com/example/skillsauditor/skill/ui/category/CategoryController.java,e\e\ee875b574b7a7b4fcb77534cfa55e2937f01df6c
 ñ
 fsrc/main/java/com/example/skillsauditor/employee/domain/manager/interfaces/ICreateCategoryCommand.java,8\2\8211418153084039fe22d81c406e65c8a7e3ab4e
-ó
-gsrc/main/java/com/example/skillsauditor/skill/application/category/events/SkillCreateCategoryEvent.java,3\b\3b33a1b6fa7ef900ed03857415c89931a08505eb
 î
 dsrc/main/java/com/example/skillsauditor/employee/domain/manager/interfaces/IEditCategoryCommand.java,b\0\b0ad20649df71f7cc67725d97d93253e8f2fe5bc
 ï
@@ -233,18 +219,8 @@ fsrc/main/java/com/example/skillsauditor/employee/domain/manager/interfaces/IDel
 lsrc/main/java/com/example/skillsauditor/employee/application/manager/events/EmployeeCreateCategoryEvent.java,8\e\8ef0bc85b17c6390a8cd264fe979b92d7622f9cc
 ú
 lsrc/main/java/com/example/skillsauditor/employee/application/manager/events/EmployeeDeleteCategoryEvent.java,c\3\c3e99c331bb1b5bb24dd72d4cddbbd0d68d1edd3
-î
-dsrc/main/java/com/example/skillsauditor/skill/application/skill/events/SkillCategoryDeleteEvent.java,3\6\36558f78a2049a831bdd8b356a260ce023cafed9
 x
 Hsrc/main/java/com/example/skillsauditor/skill/domain/skill/Category.java,b\3\b314fa0644d1486d6d6ebeec4523d42386ccf1ee
-ã
-[src/main/java/com/example/skillsauditor/employee/ui/manager/IManagerApplicationService.java,6\2\62651c920f294d876eaf545cd5a90f03663bc520
-å
-\src/main/java/com/example/skillsauditor/skill/application/skill/SkillApplicationService.java,e\f\ef1c50b7a1e5b6cb8fe5188264be6b1291c9eb00
-9
-	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
-ì
-csrc/main/java/com/example/skillsauditor/employee/application/manager/ManagerApplicationService.java,c\0\c0a9f05eb7f19233a21a6230925118d3358fa2ec
 ó
 gsrc/main/java/com/example/skillsauditor/employee/application/manager/queries/GetTeamBySkillIdQuery.java,7\c\7c3fdaa42bdbc2a3e5303118df9f0cc3038076cc
 |
@@ -265,5 +241,3 @@ Psrc/main/java/com/example/skillsauditor/skill/domain/skill/DTO/SkillDTOList.jav
 ]src/main/java/com/example/skillsauditor/employee/application/manager/ManagerQueryHandler.java,a\4\a41202cba269332db59ab218fbb05eccf661790e
 ñ
 fsrc/main/java/com/example/skillsauditor/employee/application/manager/queries/EmployeeSkillDTOList.java,b\5\b5a17b7babfc4638b19ba82574f29d4ddde76c94
-í
-bsrc/main/java/com/example/skillsauditor/skill/application/category/CategoryApplicationService.java,a\3\a30d061ab7d2522a0c548a193c8ccc8e73b02951

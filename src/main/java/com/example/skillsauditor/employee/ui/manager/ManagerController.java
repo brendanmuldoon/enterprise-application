@@ -73,6 +73,7 @@ public class ManagerController {
     public void createSkill(@RequestBody CreateSkillCommand createSkillCommand) {
         applicationService.createSkill(createSkillCommand);
     }
+
     // edit skill
     @PutMapping("/editSkill")
     public void editSkill(@RequestBody EditSkillCommand editSkillCommand) {
