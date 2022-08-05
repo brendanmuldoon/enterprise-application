@@ -11,8 +11,8 @@
 	<groupId>com.example</groupId>
 	<artifactId>skills-auditor</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>skills-auditor</name>
-	<description>skills-auditor</description>
+	<name>employee-bc</name>
+	<description>employee-bc</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
@@ -45,7 +45,7 @@
 		<dependency>
 			<groupId>org.junit.platform</groupId>
 			<artifactId>junit-platform-suite-engine</artifactId>
-			<version>1.8.1</version>
+			<version>1.9.0</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
