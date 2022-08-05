@@ -127,8 +127,6 @@ z
 Jsrc/main/java/com/example/skillsauditor/employee/domain/common/Entity.java,b\3\b3244fb22a90ffe96abb82447f5d7d7a06875d39
 ì
 csrc/main/java/com/example/skillsauditor/employee/domain/manager/interfaces/IDeleteSkillCommand.java,e\c\ecef262ceba36f682b1c08e388b871fdb0428c48
-ã
-[src/main/java/com/example/skillsauditor/skill/domain/skill/CategoryToCategoryJpaMapper.java,e\e\ee0ee28a961ad4f76b3771eb1bc803d009e23558
 ë
 asrc/main/java/com/example/skillsauditor/skill/infrastructure/category/CrudCategoryRepository.java,d\d\dd4712fab19a5c1aa78b61fe4dac928ba4ef3265
 Ñ
@@ -143,14 +141,10 @@ Nsrc/main/java/com/example/skillsauditor/employee/ui/staff/StaffController.java
 Osrc/main/java/com/example/skillsauditor/skill/domain/skill/DTO/CategoryDTO.java,0\e\0e9a747a1f8a6b75b938bb2274ab5a9d0688c89e
 7
 pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
-Å
-Qsrc/main/java/com/example/skillsauditor/skill/ui/category/CategoryController.java,e\e\ee875b574b7a7b4fcb77534cfa55e2937f01df6c
 ñ
 fsrc/main/java/com/example/skillsauditor/employee/domain/manager/interfaces/ICreateCategoryCommand.java,8\2\8211418153084039fe22d81c406e65c8a7e3ab4e
 î
 dsrc/main/java/com/example/skillsauditor/employee/domain/manager/interfaces/IEditCategoryCommand.java,b\0\b0ad20649df71f7cc67725d97d93253e8f2fe5bc
-ï
-esrc/main/java/com/example/skillsauditor/skill/application/category/events/SkillEditCategoryEvent.java,9\b\9bce5ecaa62582c6dae654684376e5a9384e2cde
 ñ
 fsrc/main/java/com/example/skillsauditor/employee/domain/manager/interfaces/IDeleteCategoryCommand.java,5\3\53af395ebe18c70f81de39bc8e858ca100642e7d
 |
@@ -159,8 +153,6 @@ Lsrc/main/java/com/example/skillsauditor/skill/domain/skill/DTO/SkillDTO.java,d
 Nsrc/main/java/com/example/skillsauditor/skill/ui/skill/ISkillQueryHandler.java,2\7\277553b57ac6b143fdac9e3b2a0d31735a71099f
 Ü
 Vsrc/main/java/com/example/skillsauditor/skill/application/skill/SkillQueryHandler.java,b\3\b3ced1b3fa6e5ac6cedcb3f52e6338ab87fe5f10
-{
-Ksrc/main/java/com/example/skillsauditor/skill/ui/skill/SkillController.java,4\a\4ad8a426e5c988d05d15ed9bbc10dc862dfbc1ab
 ê
 `src/main/java/com/example/skillsauditor/skill/application/skill/mappers/SkillJpaToDTOMapper.java,e\0\e077288e887c8ce4987a3ad203738cb007615789
 Ä

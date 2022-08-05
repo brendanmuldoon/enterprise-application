@@ -1,6 +1,5 @@
 package com.example.skillsauditor.skill.application.skill;
 
-import com.example.skillsauditor.skill.domain.common.Identity;
 import com.example.skillsauditor.skill.application.category.interfaces.ICategoryRepository;
 import com.example.skillsauditor.skill.application.skill.events.SkillCategoryDeleteEvent;
 import com.example.skillsauditor.skill.application.skill.events.SkillCreateSkillEvent;
@@ -9,6 +8,7 @@ import com.example.skillsauditor.skill.application.skill.events.SkillEditSkillEv
 import com.example.skillsauditor.skill.application.skill.interfaces.ISkillJpaToSkillMapper;
 import com.example.skillsauditor.skill.application.skill.interfaces.ISkillRepository;
 import com.example.skillsauditor.skill.application.skill.interfaces.ISkillToSkillJpaMapper;
+import com.example.skillsauditor.skill.domain.common.Identity;
 import com.example.skillsauditor.skill.domain.skill.Skill;
 import com.example.skillsauditor.skill.infrastructure.skill.CategoryJpaValueObject;
 import com.example.skillsauditor.skill.infrastructure.skill.SkillJpa;
@@ -17,8 +17,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.context.ApplicationEvent;
-import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.jms.annotation.EnableJms;
 import org.springframework.jms.annotation.JmsListener;
 import org.springframework.jms.core.JmsTemplate;
@@ -26,7 +24,6 @@ import org.springframework.stereotype.Service;
 
 import javax.jms.Message;
 import javax.jms.TextMessage;
-import java.util.List;
 import java.util.Optional;
 
 @AllArgsConstructor
@@ -38,21 +35,11 @@ public class SkillApplicationService implements ISkillApplicationService {
     private ICategoryRepository categoryRepository;
     private ISkillToSkillJpaMapper skillToSkillJpaMapper;
     private ISkillJpaToSkillMapper skillJpaToSkillMapper;
-
-    private ApplicationEventPublisher eventPublisher;
     private final Logger LOG = LoggerFactory.getLogger(getClass());
 
     private JmsTemplate jmsTemplate;
 
     private ObjectMapper objectMapper;
-
-    private void manageDomainEvents(List<ApplicationEvent> events) {
-        for (ApplicationEvent event : events){
-            LOG.info("event " + event);
-            eventPublisher.publishEvent(event);
-            //eventStoreService.append(events);
-        }
-    }
 
     @JmsListener(destination = "SKILL.CREATE.QUEUE")
     public void createNewSkillListener(Message message) {

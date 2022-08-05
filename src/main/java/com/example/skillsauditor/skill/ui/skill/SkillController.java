@@ -1,15 +1,14 @@
 package com.example.skillsauditor.skill.ui.skill;
 
-import com.example.skillsauditor.employee.application.manager.commands.CreateSkillCommand;
-import com.example.skillsauditor.employee.application.manager.commands.DeleteSkillCommand;
-import com.example.skillsauditor.employee.application.manager.commands.EditSkillCommand;
 import com.example.skillsauditor.skill.domain.skill.DTO.SkillDTOList;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -18,8 +17,6 @@ import java.util.Optional;
 public class SkillController {
 
     private ISkillQueryHandler queryHandler;
-
-    private ISkillApplicationService skillService;
 
 
     @GetMapping("/findAll")

@@ -1,12 +1,11 @@
 package com.example.skillsauditor.skill.application.category;
 
-import com.example.skillsauditor.skill.application.skill.events.SkillCategoryDeleteEvent;
-import com.example.skillsauditor.skill.domain.common.Identity;
 import com.example.skillsauditor.skill.application.category.events.SkillCreateCategoryEvent;
 import com.example.skillsauditor.skill.application.category.events.SkillEditCategoryEvent;
 import com.example.skillsauditor.skill.application.category.interfaces.ICategoryRepository;
 import com.example.skillsauditor.skill.application.category.interfaces.ICategoryToCategoryJpaMapper;
-import com.example.skillsauditor.skill.application.skill.events.DeleteCategoryDomainEvent;
+import com.example.skillsauditor.skill.application.skill.events.SkillCategoryDeleteEvent;
+import com.example.skillsauditor.skill.domain.common.Identity;
 import com.example.skillsauditor.skill.domain.skill.Category;
 import com.example.skillsauditor.skill.infrastructure.skill.CategoryJpaValueObject;
 import com.example.skillsauditor.skill.ui.skill.ICategoryApplicationService;
@@ -17,10 +16,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.jms.annotation.EnableJms;
 import org.springframework.jms.annotation.JmsListener;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Propagation;
-import org.springframework.transaction.annotation.Transactional;
-import org.springframework.transaction.event.TransactionPhase;
-import org.springframework.transaction.event.TransactionalEventListener;
 
 import javax.jms.Message;
 import javax.jms.TextMessage;
@@ -38,7 +33,6 @@ public class CategoryApplicationService implements ICategoryApplicationService {
     private final Logger LOG = LoggerFactory.getLogger(getClass());
 
     private ObjectMapper objectMapper;
-
 
     @JmsListener(destination = "CATEGORY.CREATE.QUEUE")
     public void createNewCategoryListener(Message message) {
